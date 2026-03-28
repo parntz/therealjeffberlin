@@ -31,6 +31,7 @@ export default function AdminLoginForm() {
         return;
       }
 
+      router.push("/");
       router.refresh();
     } catch {
       setError("Sign-in failed.");

@@ -18,5 +18,8 @@
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "stripe": "^18.2.1"
+  },
+  "devDependencies": {
+    "@netlify/plugin-nextjs": "^5.15.9"
   }
 }

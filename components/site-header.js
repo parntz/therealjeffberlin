@@ -9,9 +9,7 @@ const navItems = [
   { label: "Bio", href: "/bio" },
   { label: "Music", href: "/music" },
   { label: "Lessons", href: "/lessons" },
-  { label: "Store", href: "/store" },
-  { label: "Privacy", href: "/privacy" },
-  { label: "Terms", href: "/terms" }
+  { label: "Store", href: "/store" }
 ];
 
 export default function SiteHeader() {

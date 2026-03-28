@@ -343,6 +343,21 @@ img {
   border: 1px solid var(--line);
   background: linear-gradient(180deg, rgba(18, 18, 18, 0.9), rgba(11, 11, 11, 0.96));
   box-shadow: var(--shadow);
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease,
+    background 180ms ease;
+}
+
+.home-destination-card:hover,
+.home-destination-card:focus-visible {
+  border-color: #ffd84d;
+  background: linear-gradient(180deg, rgba(26, 26, 26, 0.96), rgba(11, 11, 11, 0.98));
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(255, 216, 77, 0.65);
+  transform: translateY(-3px);
 }
 
 .home-destination-card span {
@@ -721,17 +736,163 @@ img {
   font-size: 1rem;
 }
 
-.calendly-panel {
-  padding: 0.8rem;
-  min-height: 42rem;
+.lesson-booker {
+  min-width: 0;
 }
 
-.calendly-frame {
+.lesson-booker-panel {
+  display: grid;
+  gap: 1.2rem;
+  padding: 1.35rem;
+  border: 1px solid var(--line);
+  background:
+    radial-gradient(circle at top right, rgba(255, 216, 77, 0.14), transparent 30%),
+    linear-gradient(180deg, rgba(18, 18, 18, 0.94), rgba(10, 10, 10, 0.98));
+  box-shadow: var(--shadow);
+}
+
+.lesson-booker-panel h3 {
+  margin: 0;
+  font-family: "Bebas Neue", "Arial Narrow", sans-serif;
+  font-size: clamp(2.5rem, 5.5vw, 4.6rem);
+  line-height: 0.92;
+  text-transform: uppercase;
+}
+
+.lesson-booker-intro {
+  margin: 0;
+  color: rgba(245, 240, 232, 0.78);
+  line-height: 1.7;
+}
+
+.lesson-day-grid,
+.lesson-slot-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.lesson-day-chip,
+.lesson-slot-chip {
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--cream);
+  padding: 0.8rem 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    border-color 180ms ease,
+    background 180ms ease,
+    transform 180ms ease,
+    color 180ms ease;
+}
+
+.lesson-day-chip:hover,
+.lesson-slot-chip:hover,
+.lesson-day-chip.is-active,
+.lesson-slot-chip.is-active {
+  border-color: #ffd84d;
+  background: rgba(255, 216, 77, 0.12);
+  color: #fff5cc;
+  transform: translateY(-1px);
+}
+
+.lesson-slot-block {
+  display: grid;
+  gap: 0.9rem;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.lesson-slot-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.lesson-slot-header strong {
+  font-size: 1rem;
+}
+
+.lesson-slot-header span {
+  color: var(--accent-2);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.lesson-request-form {
+  display: grid;
+  gap: 0.95rem;
+}
+
+.lesson-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.95rem;
+}
+
+.lesson-request-form label {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.lesson-request-form span {
+  color: var(--accent-2);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.lesson-request-form input,
+.lesson-request-form textarea {
   width: 100%;
-  height: 100%;
-  min-height: 40rem;
-  border: 0;
-  background: #101010;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--cream);
+  padding: 0.9rem 1rem;
+}
+
+.lesson-request-form textarea {
+  resize: vertical;
+  min-height: 8rem;
+}
+
+.lesson-honeypot {
+  position: absolute;
+  left: -9999px;
+}
+
+.lesson-submit {
+  width: fit-content;
+}
+
+.lesson-submit:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.lesson-status {
+  margin: 0;
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-weight: 700;
+}
+
+.lesson-status-success {
+  color: #fff1b8;
+  background: rgba(255, 216, 77, 0.1);
+}
+
+.lesson-status-error {
+  color: #ffb1a1;
+  background: rgba(255, 91, 46, 0.12);
 }
 
 .testimonial-grid {
@@ -1164,6 +1325,10 @@ img {
   }
 
   .music-search-frame {
+    grid-template-columns: 1fr;
+  }
+
+  .lesson-form-grid {
     grid-template-columns: 1fr;
   }
 

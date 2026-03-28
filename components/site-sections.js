@@ -6,6 +6,7 @@ import {
 } from "../lib/site-data";
 import { musicAlbums } from "../lib/music-data";
 import MusicArchive from "./music-archive";
+import LessonBooker from "./lesson-booker";
 
 export function SectionHeading({ eyebrow, title, body }) {
   return (
@@ -93,7 +94,7 @@ export function LessonsSection() {
         <SectionHeading
           eyebrow="Lessons"
           title="Book Jeff for focused, high-standard bass study."
-          body="The lesson philosophy follows the same discipline Jeff is known for worldwide: reading fluency, harmonic depth, stronger time, and musical clarity that actually transfers to the bandstand."
+          body="Use the form to request a lesson date and time. Jeff will get back to you to confirm that the slot works on his end and to arrange payment before the lesson is locked in."
         />
         <div className="lesson-points">
           <article>
@@ -105,19 +106,13 @@ export function LessonsSection() {
             <p>From committed beginners to experienced players trying to break through old habits.</p>
           </article>
           <article>
-            <strong>Direct booking</strong>
-            <p>Calendly is embedded below. Add Jeff’s live scheduling URL in the environment and the widget is ready.</p>
+            <strong>Request first, confirm next</strong>
+            <p>Choose the day and time that works best for you, then Jeff will follow up to confirm availability and arrange payment.</p>
           </article>
         </div>
       </div>
-      <div className="calendly-shell">
-        <div className="calendly-panel">
-          <iframe
-            title="Book a lesson with Jeff Berlin"
-            src={`${process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/your-handle/book-a-lesson"}?hide_event_type_details=1&hide_gdpr_banner=1`}
-            className="calendly-frame"
-          />
-        </div>
+      <div>
+        <LessonBooker />
       </div>
     </section>
   );

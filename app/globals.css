@@ -129,14 +129,9 @@ img {
 
 .topbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   gap: 2rem;
-}
-
-.brand {
-  display: inline-flex;
-  max-width: min(38vw, 320px);
 }
 
 .topnav {
@@ -464,6 +459,17 @@ img {
   align-items: center;
   gap: 1.5rem;
   border-top: 1px solid var(--line);
+}
+
+.footer-logo {
+  display: inline-flex;
+  align-items: flex-end;
+}
+
+.footer-logo img {
+  display: block;
+  width: min(300px, 65vw);
+  height: auto;
 }
 
 .footer-copy p,

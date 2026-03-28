@@ -34,15 +34,6 @@ export default function HomePage() {
         </div>
         <div className="hero-overlay" />
         <header className="topbar">
-          <a className="brand" href="#top" aria-label="Jeff Berlin home">
-            <Image
-              src="/images/logo-crop.png"
-              alt="Jeff Berlin logo"
-              width={320}
-              height={126}
-              priority
-            />
-          </a>
           <nav className="topnav">
             <a href="#bio">Bio</a>
             <a href="#music">Music</a>
@@ -229,12 +220,12 @@ export default function HomePage() {
       </section>
 
       <footer className="footer">
-        <div>
+        <div className="footer-logo">
           <Image
-            src="/images/logo-crop.png"
+            src="/images/logo-transparent-test.png"
             alt="Jeff Berlin logo"
-            width={240}
-            height={95}
+            width={300}
+            height={107}
           />
         </div>
         <div className="footer-copy">

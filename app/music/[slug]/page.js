@@ -8,7 +8,10 @@ import {
   readAdminSession
 } from "../../../lib/admin-auth";
 import { musicAlbums, musicAlbumsBySlug } from "../../../lib/music-data";
-import { getSiteContentValue } from "../../../lib/site-content";
+import {
+  readSiteContentOverrides,
+  resolveSiteContentValue
+} from "../../../lib/site-content";
 
 function makeAmazonAffiliateLink(url) {
   const tag = process.env.AMAZON_ASSOCIATE_TAG;
@@ -62,6 +65,7 @@ export default async function AlbumPage({ params }) {
     cookieStore.get(ADMIN_SESSION_COOKIE)?.value || ""
   );
   const isAdminSignedIn = Boolean(adminSession);
+  const siteContentOverrides = await readSiteContentOverrides();
 
   if (!album) {
     notFound();
@@ -70,11 +74,16 @@ export default async function AlbumPage({ params }) {
   const rawPurchaseLink = albumPurchaseLinks[slug] || album.purchaseLink || null;
   const purchaseLink = rawPurchaseLink
     ? {
-        provider: getSiteContentValue(
+        provider: resolveSiteContentValue(
+          siteContentOverrides,
           `music.case.${slug}.purchase.provider`,
           rawPurchaseLink.provider
         ),
-        href: getSiteContentValue(`music.case.${slug}.purchase.href`, rawPurchaseLink.href)
+        href: resolveSiteContentValue(
+          siteContentOverrides,
+          `music.case.${slug}.purchase.href`,
+          rawPurchaseLink.href
+        )
       }
     : null;
   const purchaseHref = affiliateHref(purchaseLink);
@@ -101,7 +110,8 @@ export default async function AlbumPage({ params }) {
             <div className="album-study-copy">
               <EditableTextClient
                 contentId={`music.case.${slug}.eyebrow`}
-                initialValue={getSiteContentValue(
+                initialValue={resolveSiteContentValue(
+                  siteContentOverrides,
                   `music.case.${slug}.eyebrow`,
                   "Album Case Study"
                 )}
@@ -112,14 +122,22 @@ export default async function AlbumPage({ params }) {
               />
               <EditableTextClient
                 contentId={`music.case.${slug}.title`}
-                initialValue={getSiteContentValue(`music.case.${slug}.title`, album.title)}
+                initialValue={resolveSiteContentValue(
+                  siteContentOverrides,
+                  `music.case.${slug}.title`,
+                  album.title
+                )}
                 as="h1"
                 rows={3}
                 isAdminSignedIn={isAdminSignedIn}
               />
               <EditableTextClient
                 contentId={`music.case.${slug}.intro`}
-                initialValue={getSiteContentValue(`music.case.${slug}.intro`, album.intro)}
+                initialValue={resolveSiteContentValue(
+                  siteContentOverrides,
+                  `music.case.${slug}.intro`,
+                  album.intro
+                )}
                 as="p"
                 className="album-study-dek"
                 rows={6}
@@ -128,7 +146,11 @@ export default async function AlbumPage({ params }) {
               <div className="album-study-meta">
                 <EditableTextClient
                   contentId={`music.case.${slug}.artist`}
-                  initialValue={getSiteContentValue(`music.case.${slug}.artist`, album.artist)}
+                  initialValue={resolveSiteContentValue(
+                    siteContentOverrides,
+                    `music.case.${slug}.artist`,
+                    album.artist
+                  )}
                   as="span"
                   wrapperAs="span"
                   rows={2}
@@ -136,7 +158,11 @@ export default async function AlbumPage({ params }) {
                 />
                 <EditableTextClient
                   contentId={`music.case.${slug}.year`}
-                  initialValue={getSiteContentValue(`music.case.${slug}.year`, album.year)}
+                  initialValue={resolveSiteContentValue(
+                    siteContentOverrides,
+                    `music.case.${slug}.year`,
+                    album.year
+                  )}
                   as="span"
                   wrapperAs="span"
                   rows={2}
@@ -144,7 +170,11 @@ export default async function AlbumPage({ params }) {
                 />
                 <EditableTextClient
                   contentId={`music.case.${slug}.format`}
-                  initialValue={getSiteContentValue(`music.case.${slug}.format`, album.format)}
+                  initialValue={resolveSiteContentValue(
+                    siteContentOverrides,
+                    `music.case.${slug}.format`,
+                    album.format
+                  )}
                   as="span"
                   wrapperAs="span"
                   rows={2}
@@ -152,7 +182,8 @@ export default async function AlbumPage({ params }) {
                 />
                 <EditableTextClient
                   contentId={`music.case.${slug}.jeffRole`}
-                  initialValue={getSiteContentValue(
+                  initialValue={resolveSiteContentValue(
+                    siteContentOverrides,
                     `music.case.${slug}.jeffRole`,
                     `Jeff: ${album.jeffRole}`
                   )}
@@ -200,7 +231,8 @@ export default async function AlbumPage({ params }) {
           <div className="album-study-panel">
             <EditableTextClient
               contentId={`music.case.${slug}.overview.heading`}
-              initialValue={getSiteContentValue(
+              initialValue={resolveSiteContentValue(
+                siteContentOverrides,
                 `music.case.${slug}.overview.heading`,
                 "Overview"
               )}
@@ -213,7 +245,8 @@ export default async function AlbumPage({ params }) {
                 <EditableTextClient
                   key={`${slug}-case-${index}`}
                   contentId={`music.case.${slug}.caseStudy.${index}`}
-                  initialValue={getSiteContentValue(
+                  initialValue={resolveSiteContentValue(
+                    siteContentOverrides,
                     `music.case.${slug}.caseStudy.${index}`,
                     paragraph
                   )}
@@ -227,7 +260,8 @@ export default async function AlbumPage({ params }) {
           <div className="album-study-panel">
             <EditableTextClient
               contentId={`music.case.${slug}.snapshot.heading`}
-              initialValue={getSiteContentValue(
+              initialValue={resolveSiteContentValue(
+                siteContentOverrides,
                 `music.case.${slug}.snapshot.heading`,
                 "Quick Snapshot"
               )}
@@ -240,7 +274,8 @@ export default async function AlbumPage({ params }) {
                 <li key={`${slug}-snapshot-${index}`}>
                   <EditableTextClient
                     contentId={`music.case.${slug}.snapshot.${index}`}
-                    initialValue={getSiteContentValue(
+                    initialValue={resolveSiteContentValue(
+                      siteContentOverrides,
                       `music.case.${slug}.snapshot.${index}`,
                       item
                     )}
@@ -261,7 +296,8 @@ export default async function AlbumPage({ params }) {
               <article key={`${slug}-highlight-${index}`} className="album-detail-card">
                 <EditableTextClient
                   contentId={`music.case.${slug}.highlights.${index}.title`}
-                  initialValue={getSiteContentValue(
+                  initialValue={resolveSiteContentValue(
+                    siteContentOverrides,
                     `music.case.${slug}.highlights.${index}.title`,
                     item.title
                   )}
@@ -271,7 +307,8 @@ export default async function AlbumPage({ params }) {
                 />
                 <EditableTextClient
                   contentId={`music.case.${slug}.highlights.${index}.body`}
-                  initialValue={getSiteContentValue(
+                  initialValue={resolveSiteContentValue(
+                    siteContentOverrides,
                     `music.case.${slug}.highlights.${index}.body`,
                     item.body
                   )}
@@ -288,7 +325,8 @@ export default async function AlbumPage({ params }) {
           <div className="album-study-panel">
             <EditableTextClient
               contentId={`music.case.${slug}.listen.heading`}
-              initialValue={getSiteContentValue(
+              initialValue={resolveSiteContentValue(
+                siteContentOverrides,
                 `music.case.${slug}.listen.heading`,
                 "Listen For"
               )}
@@ -301,7 +339,8 @@ export default async function AlbumPage({ params }) {
                 <article key={`${slug}-listen-${index}`} className="album-detail-card">
                   <EditableTextClient
                     contentId={`music.case.${slug}.trackMoments.${index}.title`}
-                    initialValue={getSiteContentValue(
+                    initialValue={resolveSiteContentValue(
+                      siteContentOverrides,
                       `music.case.${slug}.trackMoments.${index}.title`,
                       item.title
                     )}
@@ -311,7 +350,8 @@ export default async function AlbumPage({ params }) {
                   />
                   <EditableTextClient
                     contentId={`music.case.${slug}.trackMoments.${index}.body`}
-                    initialValue={getSiteContentValue(
+                    initialValue={resolveSiteContentValue(
+                      siteContentOverrides,
                       `music.case.${slug}.trackMoments.${index}.body`,
                       item.body
                     )}
@@ -329,7 +369,8 @@ export default async function AlbumPage({ params }) {
           <div className="album-study-panel">
             <EditableTextClient
               contentId={`music.case.${slug}.sources.heading`}
-              initialValue={getSiteContentValue(
+              initialValue={resolveSiteContentValue(
+                siteContentOverrides,
                 `music.case.${slug}.sources.heading`,
                 "Sources"
               )}
@@ -339,7 +380,8 @@ export default async function AlbumPage({ params }) {
             />
             <div className="album-source-list">
               {album.sources.map((source, index) => {
-                const sourceHref = getSiteContentValue(
+                const sourceHref = resolveSiteContentValue(
+                  siteContentOverrides,
                   `music.case.${slug}.sources.${index}.href`,
                   source.href
                 );
@@ -351,7 +393,8 @@ export default async function AlbumPage({ params }) {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  {getSiteContentValue(
+                  {resolveSiteContentValue(
+                    siteContentOverrides,
                     `music.case.${slug}.sources.${index}.label`,
                     source.label
                   )}
@@ -360,7 +403,8 @@ export default async function AlbumPage({ params }) {
                   <div className="album-source-editors">
                     <EditableTextClient
                       contentId={`music.case.${slug}.sources.${index}.label`}
-                      initialValue={getSiteContentValue(
+                      initialValue={resolveSiteContentValue(
+                        siteContentOverrides,
                         `music.case.${slug}.sources.${index}.label`,
                         source.label
                       )}

@@ -6,6 +6,7 @@ import {
   readAdminSession
 } from "../../../../lib/admin-auth";
 import {
+  canUseNetlifyBlobs,
   isUsedInMusicArea,
   publicPathToFilepath,
   readDeletedPhotos,
@@ -38,7 +39,7 @@ export async function POST(request) {
 
     const hash = sha256File(filepath);
     const hiddenOnly = isUsedInMusicArea(image);
-    const deletedPhotos = readDeletedPhotos();
+    const deletedPhotos = await readDeletedPhotos();
     const alreadyTracked = deletedPhotos.some(
       (entry) => entry.image === image || entry.sha256 === hash
     );
@@ -50,10 +51,10 @@ export async function POST(request) {
         hiddenOnly,
         deletedAt: new Date().toISOString()
       });
-      writeDeletedPhotos(deletedPhotos);
+      await writeDeletedPhotos(deletedPhotos);
     }
 
-    if (!hiddenOnly) {
+    if (!hiddenOnly && !canUseNetlifyBlobs()) {
       fs.unlinkSync(filepath);
     }
 

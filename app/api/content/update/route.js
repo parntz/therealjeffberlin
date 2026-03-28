@@ -30,9 +30,9 @@ export async function POST(request) {
       return Response.json({ error: "Value is required." }, { status: 400 });
     }
 
-    const overrides = readSiteContentOverrides();
+    const overrides = await readSiteContentOverrides();
     overrides[contentId] = value;
-    writeSiteContentOverrides(overrides);
+    await writeSiteContentOverrides(overrides);
 
     return Response.json({ ok: true, contentId, value });
   } catch (error) {

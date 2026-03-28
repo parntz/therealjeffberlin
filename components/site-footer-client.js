@@ -60,6 +60,7 @@ export default function SiteFooterClient({ isAdminSignedIn }) {
             {links.map((link) =>
               link.href === "/admin" && isAdminSignedIn ? (
                 <form key={link.href} action="/api/admin/logout" method="post">
+                  <input type="hidden" name="redirectTo" value={pathname || "/"} />
                   <button type="submit" className="footer-logout-button">
                     {link.label}
                   </button>

@@ -3,7 +3,10 @@
 import { useState } from "react";
 import EditableTextClient from "./editable-text-client";
 
-export default function ContactForm({ isAdminSignedIn = false }) {
+export default function ContactForm({
+  isAdminSignedIn = false,
+  copy = {}
+}) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
   const [submitSuccess, setSubmitSuccess] = useState("");
@@ -65,7 +68,7 @@ export default function ContactForm({ isAdminSignedIn = false }) {
       <div className="lesson-booker-panel contact-panel">
         <EditableTextClient
           contentId="contact.page.eyebrow"
-          initialValue="Contact"
+          initialValue={copy.eyebrow || "Contact"}
           as="p"
           className="eyebrow"
           rows={2}
@@ -73,7 +76,7 @@ export default function ContactForm({ isAdminSignedIn = false }) {
         />
         <EditableTextClient
           contentId="contact.page.title"
-          initialValue="Send Jeff a message."
+          initialValue={copy.title || "Send Jeff a message."}
           as="h1"
           className="contact-page-title"
           rows={3}
@@ -81,7 +84,10 @@ export default function ContactForm({ isAdminSignedIn = false }) {
         />
         <EditableTextClient
           contentId="contact.page.body"
-          initialValue="Use the form below for questions about lessons, music, books, appearances, or general inquiries. Messages go directly to Jeff Berlin's inbox."
+          initialValue={
+            copy.body ||
+            "Use the form below for questions about lessons, music, books, appearances, or general inquiries. Messages go directly to Jeff Berlin's inbox."
+          }
           as="p"
           className="lesson-booker-intro"
           rows={5}

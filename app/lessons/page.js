@@ -4,6 +4,7 @@ import {
   ADMIN_SESSION_COOKIE,
   readAdminSession
 } from "../../lib/admin-auth";
+import { readSiteContentOverrides } from "../../lib/site-content";
 
 export const metadata = {
   title: "Lessons | Jeff Berlin",
@@ -15,11 +16,18 @@ export default async function LessonsPage() {
   const adminSession = readAdminSession(
     cookieStore.get(ADMIN_SESSION_COOKIE)?.value || ""
   );
+  const siteContentOverrides = await readSiteContentOverrides();
 
   return (
     <main className="page-shell">
-      <LessonsSection isAdminSignedIn={Boolean(adminSession)} />
-      <TestimonialsSection isAdminSignedIn={Boolean(adminSession)} />
+      <LessonsSection
+        isAdminSignedIn={Boolean(adminSession)}
+        siteContentOverrides={siteContentOverrides}
+      />
+      <TestimonialsSection
+        isAdminSignedIn={Boolean(adminSession)}
+        siteContentOverrides={siteContentOverrides}
+      />
     </main>
   );
 }

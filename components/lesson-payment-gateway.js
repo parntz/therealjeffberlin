@@ -16,7 +16,10 @@ function formatCurrency(value) {
   }).format(value);
 }
 
-export default function LessonPaymentGateway({ isAdminSignedIn = false }) {
+export default function LessonPaymentGateway({
+  isAdminSignedIn = false,
+  copy = {}
+}) {
   const [quantity, setQuantity] = useState(1);
 
   const total = quantity * LESSON_PRICE;
@@ -38,7 +41,7 @@ export default function LessonPaymentGateway({ isAdminSignedIn = false }) {
       <div className="lesson-payment-header">
         <EditableTextClient
           contentId="lessons.payment.eyebrow"
-          initialValue="Pay Online"
+          initialValue={copy.eyebrow || "Pay Online"}
           as="p"
           className="eyebrow"
           rows={2}
@@ -46,14 +49,17 @@ export default function LessonPaymentGateway({ isAdminSignedIn = false }) {
         />
         <EditableTextClient
           contentId="lessons.payment.title"
-          initialValue="Lock in one lesson or stack a few at once."
+          initialValue={copy.title || "Lock in one lesson or stack a few at once."}
           as="h3"
           rows={3}
           isAdminSignedIn={isAdminSignedIn}
         />
         <EditableTextClient
           contentId="lessons.payment.body"
-          initialValue={`Each lesson is ${formatCurrency(LESSON_PRICE)}. Choose the quantity and jump straight to PayPal.`}
+          initialValue={
+            copy.body ||
+            `Each lesson is ${formatCurrency(LESSON_PRICE)}. Choose the quantity and jump straight to PayPal.`
+          }
           as="p"
           rows={4}
           isAdminSignedIn={isAdminSignedIn}

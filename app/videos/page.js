@@ -4,7 +4,10 @@ import {
   ADMIN_SESSION_COOKIE,
   readAdminSession
 } from "../../lib/admin-auth";
-import { getSiteContentValue } from "../../lib/site-content";
+import {
+  readSiteContentOverrides,
+  resolveSiteContentValue
+} from "../../lib/site-content";
 import { readVideosArchive } from "../../lib/videos-archive";
 
 export const metadata = {
@@ -19,7 +22,10 @@ export default async function VideosPage() {
   const adminSession = readAdminSession(
     cookieStore.get(ADMIN_SESSION_COOKIE)?.value || ""
   );
-  const data = await readVideosArchive();
+  const [data, siteContentOverrides] = await Promise.all([
+    readVideosArchive(),
+    readSiteContentOverrides()
+  ]);
 
   return (
     <main className="page-shell">
@@ -30,20 +36,28 @@ export default async function VideosPage() {
         collections={data.collections}
         isAdminSignedIn={Boolean(adminSession)}
         copy={{
-          eyebrow: getSiteContentValue("videos.hero.eyebrow", "Videos"),
-          title: getSiteContentValue(
+          eyebrow: resolveSiteContentValue(
+            siteContentOverrides,
+            "videos.hero.eyebrow",
+            "Videos"
+          ),
+          title: resolveSiteContentValue(
+            siteContentOverrides,
             "videos.hero.title",
             "Jeff Berlin on camera, fully indexed."
           ),
-          body: getSiteContentValue(
+          body: resolveSiteContentValue(
+            siteContentOverrides,
             "videos.hero.body",
             "Every current upload from Jeff Berlin's YouTube collection is listed here. Search runs across titles, descriptions, and locally saved transcripts, but the page stays focused on getting people into the videos."
           ),
-          emptyTitle: getSiteContentValue(
+          emptyTitle: resolveSiteContentValue(
+            siteContentOverrides,
             "videos.empty.title",
             "No videos match that search."
           ),
-          emptyBody: getSiteContentValue(
+          emptyBody: resolveSiteContentValue(
+            siteContentOverrides,
             "videos.empty.body",
             "Try a broader phrase or a single keyword."
           )

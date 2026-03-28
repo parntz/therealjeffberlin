@@ -7,17 +7,28 @@ import {
 } from "../lib/site-data";
 import { musicAlbums } from "../lib/music-data";
 import { mergeAlbumsWithSpotify } from "../lib/music-spotify";
-import { getSiteContentValue } from "../lib/site-content";
+import { resolveSiteContentValue } from "../lib/site-content";
 import MusicArchive from "./music-archive";
 import LessonBooker from "./lesson-booker";
 import LessonPaymentGateway from "./lesson-payment-gateway";
 
-export function SectionHeading({ contentId, eyebrow, title, body, isAdminSignedIn = false }) {
+function contentValue(siteContentOverrides, contentId, fallback) {
+  return resolveSiteContentValue(siteContentOverrides, contentId, fallback);
+}
+
+export function SectionHeading({
+  contentId,
+  eyebrow,
+  title,
+  body,
+  isAdminSignedIn = false,
+  siteContentOverrides = {}
+}) {
   return (
     <div className="section-heading">
       <EditableTextClient
         contentId={`${contentId}.eyebrow`}
-        initialValue={getSiteContentValue(`${contentId}.eyebrow`, eyebrow)}
+        initialValue={contentValue(siteContentOverrides, `${contentId}.eyebrow`, eyebrow)}
         as="p"
         className="eyebrow"
         rows={2}
@@ -25,14 +36,14 @@ export function SectionHeading({ contentId, eyebrow, title, body, isAdminSignedI
       />
       <EditableTextClient
         contentId={`${contentId}.title`}
-        initialValue={getSiteContentValue(`${contentId}.title`, title)}
+        initialValue={contentValue(siteContentOverrides, `${contentId}.title`, title)}
         as="h2"
         rows={3}
         isAdminSignedIn={isAdminSignedIn}
       />
       <EditableTextClient
         contentId={`${contentId}.body`}
-        initialValue={getSiteContentValue(`${contentId}.body`, body)}
+        initialValue={contentValue(siteContentOverrides, `${contentId}.body`, body)}
         as="p"
         rows={5}
         isAdminSignedIn={isAdminSignedIn}
@@ -41,7 +52,7 @@ export function SectionHeading({ contentId, eyebrow, title, body, isAdminSignedI
   );
 }
 
-export function BioSection({ isAdminSignedIn = false }) {
+export function BioSection({ isAdminSignedIn = false, siteContentOverrides = {} }) {
   return (
     <section className="bio-section section-grid">
       <div className="bio-visual">
@@ -62,11 +73,13 @@ export function BioSection({ isAdminSignedIn = false }) {
           title="A career built on melodic force, fearless clarity, and serious musicianship."
           body="Jeff Berlin was born in Queens, New York on January 17, 1953. He studied violin as a child, switched to bass after hearing the Beatles, and went on to study at Berklee before breaking out internationally in Bill Bruford’s band in the late 1970s."
           isAdminSignedIn={isAdminSignedIn}
+          siteContentOverrides={siteContentOverrides}
         />
         <div className="bio-columns">
           <EditableTextClient
             contentId="bio.column.1"
-            initialValue={getSiteContentValue(
+            initialValue={contentValue(
+              siteContentOverrides,
               "bio.column.1",
               "From sessions with Patrick Moraz, David Liebman, and Patti Austin to work with Allan Holdsworth and Bruford, Berlin became one of the defining bass voices in jazz fusion and progressive music."
             )}
@@ -76,7 +89,8 @@ export function BioSection({ isAdminSignedIn = false }) {
           />
           <EditableTextClient
             contentId="bio.column.2"
-            initialValue={getSiteContentValue(
+            initialValue={contentValue(
+              siteContentOverrides,
               "bio.column.2",
               "His sound is precise, vocal, and unapologetically melodic. His teaching is just as direct: reading, harmony, time, and musicianship before shortcuts."
             )}
@@ -91,7 +105,8 @@ export function BioSection({ isAdminSignedIn = false }) {
               <span>{moment.year}</span>
               <EditableTextClient
                 contentId={`bio.timeline.${index}.title`}
-                initialValue={getSiteContentValue(
+                initialValue={contentValue(
+                  siteContentOverrides,
                   `bio.timeline.${index}.title`,
                   moment.title
                 )}
@@ -101,7 +116,8 @@ export function BioSection({ isAdminSignedIn = false }) {
               />
               <EditableTextClient
                 contentId={`bio.timeline.${index}.body`}
-                initialValue={getSiteContentValue(
+                initialValue={contentValue(
+                  siteContentOverrides,
                   `bio.timeline.${index}.body`,
                   moment.body
                 )}
@@ -117,7 +133,7 @@ export function BioSection({ isAdminSignedIn = false }) {
   );
 }
 
-export function MusicSection({ isAdminSignedIn = false }) {
+export async function MusicSection({ isAdminSignedIn = false, siteContentOverrides = {} }) {
   const orderedAlbums = [...musicAlbums].sort((a, b) => {
     const yearDifference = Number(a.year) - Number(b.year);
 
@@ -127,7 +143,7 @@ export function MusicSection({ isAdminSignedIn = false }) {
 
     return a.title.localeCompare(b.title);
   });
-  const spotifyAlbums = mergeAlbumsWithSpotify(orderedAlbums);
+  const spotifyAlbums = await mergeAlbumsWithSpotify(orderedAlbums);
   const featuredCandidates = spotifyAlbums.filter(
     (album) => album.spotifyEmbedUrl && album.spotifyFeaturedEligible
   );
@@ -145,6 +161,7 @@ export function MusicSection({ isAdminSignedIn = false }) {
             title="Albums, credits, and case studies from across Jeff Berlin's recorded work."
             body="Large cover art, direct album links, and focused notes on solo records, collaborations, and credited appearances."
             isAdminSignedIn={isAdminSignedIn}
+            siteContentOverrides={siteContentOverrides}
           />
         </div>
         {featuredAlbum ? (
@@ -166,7 +183,7 @@ export function MusicSection({ isAdminSignedIn = false }) {
   );
 }
 
-export function LessonsSection({ isAdminSignedIn = false }) {
+export function LessonsSection({ isAdminSignedIn = false, siteContentOverrides = {} }) {
   return (
     <section className="lessons-section section-grid">
       <div className="lessons-copy">
@@ -176,12 +193,14 @@ export function LessonsSection({ isAdminSignedIn = false }) {
           title="Book Jeff for focused, high-standard bass study."
           body="Use the form to request a lesson date and time, or pay directly with PayPal at $150 per lesson. Students who want to prepay multiple lessons can set the quantity and let the site calculate the total."
           isAdminSignedIn={isAdminSignedIn}
+          siteContentOverrides={siteContentOverrides}
         />
         <div className="lesson-points">
           <article>
             <EditableTextClient
               contentId="lessons.points.0.title"
-              initialValue={getSiteContentValue(
+              initialValue={contentValue(
+                siteContentOverrides,
                 "lessons.points.0.title",
                 "Structured study"
               )}
@@ -191,7 +210,8 @@ export function LessonsSection({ isAdminSignedIn = false }) {
             />
             <EditableTextClient
               contentId="lessons.points.0.body"
-              initialValue={getSiteContentValue(
+              initialValue={contentValue(
+                siteContentOverrides,
                 "lessons.points.0.body",
                 "Reading-centered development built to sharpen your ears, hands, and mind together."
               )}
@@ -203,7 +223,8 @@ export function LessonsSection({ isAdminSignedIn = false }) {
           <article>
             <EditableTextClient
               contentId="lessons.points.1.title"
-              initialValue={getSiteContentValue(
+              initialValue={contentValue(
+                siteContentOverrides,
                 "lessons.points.1.title",
                 "All levels welcome"
               )}
@@ -213,7 +234,8 @@ export function LessonsSection({ isAdminSignedIn = false }) {
             />
             <EditableTextClient
               contentId="lessons.points.1.body"
-              initialValue={getSiteContentValue(
+              initialValue={contentValue(
+                siteContentOverrides,
                 "lessons.points.1.body",
                 "From committed beginners to experienced players trying to break through old habits."
               )}
@@ -225,7 +247,8 @@ export function LessonsSection({ isAdminSignedIn = false }) {
           <article>
             <EditableTextClient
               contentId="lessons.points.2.title"
-              initialValue={getSiteContentValue(
+              initialValue={contentValue(
+                siteContentOverrides,
                 "lessons.points.2.title",
                 "Pay one or many"
               )}
@@ -235,7 +258,8 @@ export function LessonsSection({ isAdminSignedIn = false }) {
             />
             <EditableTextClient
               contentId="lessons.points.2.body"
-              initialValue={getSiteContentValue(
+              initialValue={contentValue(
+                siteContentOverrides,
                 "lessons.points.2.body",
                 "Use the PayPal panel to pay for a single lesson or prepay multiple lessons at $150 each."
               )}
@@ -247,14 +271,52 @@ export function LessonsSection({ isAdminSignedIn = false }) {
         </div>
       </div>
       <div className="lessons-actions">
-        <LessonBooker isAdminSignedIn={isAdminSignedIn} />
-        <LessonPaymentGateway isAdminSignedIn={isAdminSignedIn} />
+        <LessonBooker
+          isAdminSignedIn={isAdminSignedIn}
+          copy={{
+            eyebrow: contentValue(
+              siteContentOverrides,
+              "lessons.booker.eyebrow",
+              "Private Study"
+            ),
+            title: contentValue(
+              siteContentOverrides,
+              "lessons.booker.title",
+              "Choose a day, claim a slot, send the request."
+            ),
+            intro: contentValue(
+              siteContentOverrides,
+              "lessons.booker.intro",
+              "Pick the day and time that works best for you, then send the request. Jeff will follow up to confirm that the slot works for him and to arrange payment before the lesson is finalized."
+            )
+          }}
+        />
+        <LessonPaymentGateway
+          isAdminSignedIn={isAdminSignedIn}
+          copy={{
+            eyebrow: contentValue(
+              siteContentOverrides,
+              "lessons.payment.eyebrow",
+              "Pay Online"
+            ),
+            title: contentValue(
+              siteContentOverrides,
+              "lessons.payment.title",
+              "Lock in one lesson or stack a few at once."
+            ),
+            body: contentValue(
+              siteContentOverrides,
+              "lessons.payment.body",
+              "Each lesson is $150. Choose the quantity and jump straight to PayPal."
+            )
+          }}
+        />
       </div>
     </section>
   );
 }
 
-export function TestimonialsSection({ isAdminSignedIn = false }) {
+export function TestimonialsSection({ isAdminSignedIn = false, siteContentOverrides = {} }) {
   return (
     <section className="testimonials-section">
       <SectionHeading
@@ -263,6 +325,7 @@ export function TestimonialsSection({ isAdminSignedIn = false }) {
         title="The books work because the musical standards are high."
         body="Jeff’s current educational catalog emphasizes sequential reading work, neck knowledge, rhythm, and practical musicianship. The student response on his official education pages is overwhelmingly consistent: measurable progress."
         isAdminSignedIn={isAdminSignedIn}
+        siteContentOverrides={siteContentOverrides}
       />
       <div className="testimonial-grid">
         {testimonials.map((item) => (
@@ -276,7 +339,7 @@ export function TestimonialsSection({ isAdminSignedIn = false }) {
   );
 }
 
-export function StoreSection({ isAdminSignedIn = false }) {
+export function StoreSection({ isAdminSignedIn = false, siteContentOverrides = {} }) {
   return (
     <section className="store-section store-layout">
       <div className="store-copy">
@@ -286,6 +349,7 @@ export function StoreSection({ isAdminSignedIn = false }) {
           title="Start now, because the longer you wait, the longer bad habits stay in your hands."
           body="These books give you Jeff Berlin’s direct, structured path into reading, fretboard command, time, and real musicianship. If you want sharper playing and a stronger musical foundation, this is work worth starting today."
           isAdminSignedIn={isAdminSignedIn}
+          siteContentOverrides={siteContentOverrides}
         />
       </div>
       <div className="store-grid">

@@ -46,14 +46,14 @@ export async function POST(request) {
       return Response.json({ error: "File not found." }, { status: 404 });
     }
 
-    const overrides = readPhotoOverrides();
+    const overrides = await readPhotoOverrides();
     overrides[image] = {
       title: title.trim(),
       description: description.trim(),
       source: source.trim(),
       updatedAt: new Date().toISOString()
     };
-    writePhotoOverrides(overrides);
+    await writePhotoOverrides(overrides);
 
     return Response.json({
       ok: true,

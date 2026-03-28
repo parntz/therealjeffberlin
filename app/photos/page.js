@@ -15,11 +15,13 @@ import {
   readPhotoOverrides,
   titleFromFilename
 } from "../../lib/photo-library";
-import { getSiteContentValue } from "../../lib/site-content";
+import {
+  readSiteContentOverrides,
+  resolveSiteContentValue
+} from "../../lib/site-content";
 
-function getHarvestEntries() {
+function getHarvestEntries(deletedPaths) {
   const harvestDir = path.join(process.cwd(), "public", "images", "photos", "harvest");
-  const deletedPaths = new Set(readDeletedPhotos().map((entry) => entry.image));
 
   if (!fs.existsSync(harvestDir)) {
     return [];
@@ -229,9 +231,7 @@ const photoEntries = [
   }
 ];
 
-function isRenderablePhoto(photo) {
-  const deletedPaths = new Set(readDeletedPhotos().map((entry) => entry.image));
-
+function isRenderablePhoto(photo, deletedPaths) {
   if (deletedPaths.has(photo.imagePath)) {
     return false;
   }
@@ -254,10 +254,15 @@ export default async function PhotosPage() {
   const adminSession = readAdminSession(
     cookieStore.get(ADMIN_SESSION_COOKIE)?.value || ""
   );
-  const photoOverrides = readPhotoOverrides();
+  const [photoOverrides, deletedPhotos, siteContentOverrides] = await Promise.all([
+    readPhotoOverrides(),
+    readDeletedPhotos(),
+    readSiteContentOverrides()
+  ]);
+  const deletedPaths = new Set(deletedPhotos.map((entry) => entry.image));
   const photos = [
-    ...photoEntries.filter(isRenderablePhoto),
-    ...getHarvestEntries()
+    ...photoEntries.filter((photo) => isRenderablePhoto(photo, deletedPaths)),
+    ...getHarvestEntries(deletedPaths)
   ].map((photo) => {
     const override = photoOverrides[photo.imagePath];
 
@@ -284,7 +289,11 @@ export default async function PhotosPage() {
         <div className="photos-hero-copy">
           <EditableTextClient
             contentId="photos.hero.eyebrow"
-            initialValue={getSiteContentValue("photos.hero.eyebrow", "Photos")}
+            initialValue={resolveSiteContentValue(
+              siteContentOverrides,
+              "photos.hero.eyebrow",
+              "Photos"
+            )}
             as="p"
             className="eyebrow"
             rows={2}
@@ -292,14 +301,19 @@ export default async function PhotosPage() {
           />
           <EditableTextClient
             contentId="photos.hero.title"
-            initialValue={getSiteContentValue("photos.hero.title", "Light, motion, bass, silhouette.")}
+            initialValue={resolveSiteContentValue(
+              siteContentOverrides,
+              "photos.hero.title",
+              "Light, motion, bass, silhouette."
+            )}
             as="h1"
             rows={3}
             isAdminSignedIn={Boolean(adminSession)}
           />
           <EditableTextClient
             contentId="photos.hero.dek"
-            initialValue={getSiteContentValue(
+            initialValue={resolveSiteContentValue(
+              siteContentOverrides,
               "photos.hero.dek",
               "A photo page built like a studio light table: layered frames, cropped stage moments, and a cleaner presentation than a standard gallery wall."
             )}
@@ -318,7 +332,8 @@ export default async function PhotosPage() {
         <div className="photos-hero-aside">
           <EditableTextClient
             contentId="photos.hero.aside"
-            initialValue={getSiteContentValue(
+            initialValue={resolveSiteContentValue(
+              siteContentOverrides,
               "photos.hero.aside",
               "Official images, archive shots, and licensed live photography gathered into one local gallery."
             )}

@@ -4,6 +4,7 @@ import {
   ADMIN_SESSION_COOKIE,
   readAdminSession
 } from "../../lib/admin-auth";
+import { readSiteContentOverrides } from "../../lib/site-content";
 
 export const metadata = {
   title: "Music | Jeff Berlin",
@@ -15,10 +16,14 @@ export default async function MusicPage() {
   const adminSession = readAdminSession(
     cookieStore.get(ADMIN_SESSION_COOKIE)?.value || ""
   );
+  const siteContentOverrides = await readSiteContentOverrides();
 
   return (
     <main className="page-shell">
-      <MusicSection isAdminSignedIn={Boolean(adminSession)} />
+      <MusicSection
+        isAdminSignedIn={Boolean(adminSession)}
+        siteContentOverrides={siteContentOverrides}
+      />
     </main>
   );
 }

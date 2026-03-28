@@ -54,7 +54,10 @@ function buildAvailableDays() {
   return days;
 }
 
-export default function LessonBooker({ isAdminSignedIn = false }) {
+export default function LessonBooker({
+  isAdminSignedIn = false,
+  copy = {}
+}) {
   const router = useRouter();
   const days = useMemo(buildAvailableDays, []);
   const [selectedDay, setSelectedDay] = useState(days[0]?.id || "");
@@ -116,7 +119,7 @@ export default function LessonBooker({ isAdminSignedIn = false }) {
       <div className="lesson-booker-panel">
         <EditableTextClient
           contentId="lessons.booker.eyebrow"
-          initialValue="Private Study"
+          initialValue={copy.eyebrow || "Private Study"}
           as="p"
           className="eyebrow"
           rows={2}
@@ -124,14 +127,17 @@ export default function LessonBooker({ isAdminSignedIn = false }) {
         />
         <EditableTextClient
           contentId="lessons.booker.title"
-          initialValue="Choose a day, claim a slot, send the request."
+          initialValue={copy.title || "Choose a day, claim a slot, send the request."}
           as="h3"
           rows={3}
           isAdminSignedIn={isAdminSignedIn}
         />
         <EditableTextClient
           contentId="lessons.booker.intro"
-          initialValue="Pick the day and time that works best for you, then send the request. Jeff will follow up to confirm that the slot works for him and to arrange payment before the lesson is finalized."
+          initialValue={
+            copy.intro ||
+            "Pick the day and time that works best for you, then send the request. Jeff will follow up to confirm that the slot works for him and to arrange payment before the lesson is finalized."
+          }
           as="p"
           className="lesson-booker-intro"
           rows={5}

@@ -7,13 +7,17 @@ import {
   readAdminSession
 } from "../lib/admin-auth";
 import { stats } from "../lib/site-data";
-import { getSiteContentValue } from "../lib/site-content";
+import {
+  readSiteContentOverrides,
+  resolveSiteContentValue
+} from "../lib/site-content";
 
 export default async function HomePage() {
   const cookieStore = await cookies();
   const adminSession = readAdminSession(
     cookieStore.get(ADMIN_SESSION_COOKIE)?.value || ""
   );
+  const siteContentOverrides = await readSiteContentOverrides();
 
   return (
     <main className="page-shell">
@@ -44,7 +48,11 @@ export default async function HomePage() {
         <div className="hero-copy">
           <EditableTextClient
             contentId="home.hero.eyebrow"
-            initialValue={getSiteContentValue("home.hero.eyebrow", "Electric Bass. Zero Apology.")}
+            initialValue={resolveSiteContentValue(
+              siteContentOverrides,
+              "home.hero.eyebrow",
+              "Electric Bass. Zero Apology."
+            )}
             as="p"
             className="eyebrow"
             rows={2}
@@ -53,7 +61,8 @@ export default async function HomePage() {
           <JeffWordmark as="h1" />
           <EditableTextClient
             contentId="home.hero.summary"
-            initialValue={getSiteContentValue(
+            initialValue={resolveSiteContentValue(
+              siteContentOverrides,
               "home.hero.summary",
               "A fearless voice in electric bass for more than four decades: virtuoso, composer, bandleader, educator."
             )}
@@ -73,14 +82,19 @@ export default async function HomePage() {
           <div className="hero-quote">
             <EditableTextClient
               contentId="home.hero.quoteLabel"
-              initialValue={getSiteContentValue("home.hero.quoteLabel", "Geddy Lee on Jeff Berlin")}
+              initialValue={resolveSiteContentValue(
+                siteContentOverrides,
+                "home.hero.quoteLabel",
+                "Geddy Lee on Jeff Berlin"
+              )}
               as="span"
               rows={2}
               isAdminSignedIn={Boolean(adminSession)}
             />
             <EditableTextClient
               contentId="home.hero.quote"
-              initialValue={getSiteContentValue(
+              initialValue={resolveSiteContentValue(
+                siteContentOverrides,
                 "home.hero.quote",
                 "“The best bass player on the planet right now. An incredible talent.”"
               )}

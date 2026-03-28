@@ -48,9 +48,9 @@ export async function POST(request) {
       );
     }
 
-    const settings = readFeaturedAlbumSettings();
+    const settings = await readFeaturedAlbumSettings();
     settings[slug] = eligible;
-    writeFeaturedAlbumSettings(settings);
+    await writeFeaturedAlbumSettings(settings);
 
     return Response.json({ ok: true, slug, eligible });
   } catch (error) {

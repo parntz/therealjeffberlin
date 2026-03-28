@@ -71,6 +71,11 @@ export default function SiteFooterClient({ isAdminSignedIn }) {
               )
             )}
           </nav>
+          <div className="footer-management">
+            <span>Management</span>
+            <a href="mailto:exhodosmanaging@gmail.com">exhodosmanaging@gmail.com</a>
+            <a href="tel:+34616724564">+34-616724564</a>
+          </div>
           <p className="footer-copyright">
             © {currentYear} Jeff Berlin. All rights reserved.
           </p>

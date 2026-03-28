@@ -160,6 +160,19 @@ export default function ContactForm({ isAdminSignedIn = false }) {
           </button>
         </form>
       </div>
+
+      <div className="contact-management-panel">
+        <p className="eyebrow">Management</p>
+        <h2>Booking and management contact</h2>
+        <p>
+          For management, booking, and representation inquiries, use the direct
+          contact details below.
+        </p>
+        <div className="contact-management-block">
+          <a href="mailto:exhodosmanaging@gmail.com">exhodosmanaging@gmail.com</a>
+          <a href="tel:+34616724564">+34-616724564</a>
+        </div>
+      </div>
     </div>
   );
 }

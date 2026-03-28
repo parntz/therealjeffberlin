@@ -6,4 +6,7 @@
   NODE_VERSION = "20"
 
 [[plugins]]
+  package = "./plugins/cache-clear"
+
+[[plugins]]
   package = "@netlify/plugin-nextjs"

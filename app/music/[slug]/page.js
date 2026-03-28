@@ -6,8 +6,9 @@ export function generateStaticParams() {
   return musicAlbums.map((album) => ({ slug: album.slug }));
 }
 
-export function generateMetadata({ params }) {
-  const album = musicAlbumsBySlug[params.slug];
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const album = musicAlbumsBySlug[slug];
 
   if (!album) {
     return {
@@ -21,8 +22,9 @@ export function generateMetadata({ params }) {
   };
 }
 
-export default function AlbumPage({ params }) {
-  const album = musicAlbumsBySlug[params.slug];
+export default async function AlbumPage({ params }) {
+  const { slug } = await params;
+  const album = musicAlbumsBySlug[slug];
 
   if (!album) {
     notFound();

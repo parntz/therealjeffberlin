@@ -1,11 +1,11 @@
 import Image from "next/image";
-import Link from "next/link";
 import {
   books,
   careerMoments,
   testimonials
 } from "../lib/site-data";
 import { musicAlbums } from "../lib/music-data";
+import MusicArchive from "./music-archive";
 
 export function SectionHeading({ eyebrow, title, body }) {
   return (
@@ -64,6 +64,16 @@ export function BioSection() {
 }
 
 export function MusicSection() {
+  const orderedAlbums = [...musicAlbums].sort((a, b) => {
+    const yearDifference = Number(a.year) - Number(b.year);
+
+    if (yearDifference !== 0) {
+      return yearDifference;
+    }
+
+    return a.title.localeCompare(b.title);
+  });
+
   return (
     <section className="music-section music-archive">
       <SectionHeading
@@ -71,32 +81,7 @@ export function MusicSection() {
         title="Album credits worth opening up, not just scrolling past."
         body="Large cover art, direct album links, and dedicated mini case studies for records Jeff Berlin helped define."
       />
-      <div className="album-archive-grid">
-        {musicAlbums.map((album) => (
-          <article key={album.slug} className="album-archive-card">
-            <Link href={`/music/${album.slug}`} className="album-archive-link">
-              <div className="album-archive-cover">
-                <Image
-                  src={album.cover}
-                  alt={album.alt}
-                  width={500}
-                  height={500}
-                  sizes="(max-width: 900px) 80vw, 28vw"
-                />
-              </div>
-              <div className="album-archive-copy">
-                <div className="album-archive-meta">
-                  <span>{album.year}</span>
-                  <span>{album.artist}</span>
-                </div>
-                <h3>{album.title}</h3>
-                <p>{album.cardBlurb}</p>
-                <strong>Open the album study</strong>
-              </div>
-            </Link>
-          </article>
-        ))}
-      </div>
+      <MusicArchive albums={orderedAlbums} />
     </section>
   );
 }
@@ -178,19 +163,24 @@ export function StoreSection() {
                 sizes="(max-width: 900px) 80vw, 25vw"
               />
             </div>
-            <div className="store-card-copy">
-              <div className="store-card-header">
-                <span>{book.format}</span>
-                <strong>{book.priceLabel}</strong>
+              <div className="store-card-copy">
+                <div className="store-card-header">
+                  <span>{book.format}</span>
+                  <strong>{book.priceLabel}</strong>
+                </div>
+                <h3>{book.title}</h3>
+                <p>{book.description}</p>
+                <a
+                  href={book.paypalHref}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="store-buy-link"
+                >
+                  BUY NOW
+                </a>
               </div>
-              <h3>{book.title}</h3>
-              <p>{book.description}</p>
-              <p className="store-unavailable">
-                Ordering is currently unavailable on this site.
-              </p>
-            </div>
-          </article>
-        ))}
+            </article>
+          ))}
       </div>
     </section>
   );

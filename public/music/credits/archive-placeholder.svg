@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Jeff Berlin archive placeholder cover</title>
+  <desc id="desc">Placeholder cover used when verified release artwork is unavailable.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#111111" />
+      <stop offset="55%" stop-color="#2a2015" />
+      <stop offset="100%" stop-color="#7f1d1d" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="1200" fill="url(#bg)" />
+  <rect x="60" y="60" width="1080" height="1080" fill="none" stroke="#f5e7c8" stroke-width="8" opacity="0.85" />
+  <text x="110" y="190" fill="#f5e7c8" font-family="Arial, Helvetica, sans-serif" font-size="54" letter-spacing="12">JEFF BERLIN</text>
+  <text x="110" y="560" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="132" font-weight="700">ARCHIVE</text>
+  <text x="110" y="680" fill="#f5e7c8" font-family="Arial, Helvetica, sans-serif" font-size="74" letter-spacing="8">ARTWORK UNAVAILABLE</text>
+  <text x="110" y="940" fill="#f5e7c8" font-family="Arial, Helvetica, sans-serif" font-size="42" opacity="0.8">VERIFIED RELEASE CREDIT</text>
+  <text x="110" y="1000" fill="#f5e7c8" font-family="Arial, Helvetica, sans-serif" font-size="42" opacity="0.8">LOCAL PLACEHOLDER</text>
+</svg>

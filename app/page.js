@@ -77,16 +77,6 @@ export default function HomePage() {
           <strong>Buy the Bass Mastery books</strong>
         </a>
       </section>
-      <section className="home-manifesto">
-        <div className="section-heading">
-          <p className="eyebrow">The Mission</p>
-          <h2>One artist. Four direct paths into the work.</h2>
-          <p>
-            The home page now acts as the front door. Dive deeper through the
-            dedicated Bio, Music, Lessons, and Store pages for the full site.
-          </p>
-        </div>
-      </section>
     </main>
   );
 }

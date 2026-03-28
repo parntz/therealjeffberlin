@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { musicAlbums, musicAlbumsBySlug } from "../../../lib/music-data";
@@ -38,13 +37,15 @@ export default function AlbumPage({ params }) {
           </Link>
           <div className="album-study-grid">
             <div className="album-study-cover">
-              <Image
-                src={album.cover}
-                alt={album.alt}
-                width={500}
-                height={500}
-                sizes="(max-width: 900px) 85vw, 34vw"
-              />
+              {album.cover ? (
+                <img src={album.cover} alt={album.alt || album.title} />
+              ) : (
+                <div className="album-placeholder album-placeholder-large">
+                  <span>{album.year}</span>
+                  <strong>{album.title}</strong>
+                  <em>{album.artist}</em>
+                </div>
+              )}
             </div>
             <div className="album-study-copy">
               <p className="eyebrow">Album Case Study</p>

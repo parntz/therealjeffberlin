@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useDeferredValue, useState } from "react";
+import { startTransition, useDeferredValue, useEffect, useState } from "react";
 
 function buildAlbumSearchText(album) {
   return [
@@ -22,10 +22,28 @@ function buildAlbumSearchText(album) {
     .toLowerCase();
 }
 
-export default function MusicArchive({ albums }) {
+export default function MusicArchive({ albums, isAdminSignedIn = false }) {
   const [query, setQuery] = useState("");
+  const [eligibilityBySlug, setEligibilityBySlug] = useState(() =>
+    Object.fromEntries(
+      albums
+        .filter((album) => album.spotifyUrl)
+        .map((album) => [album.slug, album.spotifyFeaturedEligible !== false])
+    )
+  );
+  const [savingSlug, setSavingSlug] = useState("");
   const deferredQuery = useDeferredValue(query);
   const normalizedQuery = deferredQuery.trim().toLowerCase();
+
+  useEffect(() => {
+    setEligibilityBySlug(
+      Object.fromEntries(
+        albums
+          .filter((album) => album.spotifyUrl)
+          .map((album) => [album.slug, album.spotifyFeaturedEligible !== false])
+      )
+    );
+  }, [albums]);
 
   const filteredAlbums = albums.filter((album) => {
     if (!normalizedQuery) {
@@ -34,6 +52,45 @@ export default function MusicArchive({ albums }) {
 
     return buildAlbumSearchText(album).includes(normalizedQuery);
   });
+
+  async function toggleFeaturedEligibility(slug) {
+    const nextValue = !(eligibilityBySlug[slug] !== false);
+    setSavingSlug(slug);
+
+    startTransition(() => {
+      setEligibilityBySlug((current) => ({
+        ...current,
+        [slug]: nextValue
+      }));
+    });
+
+    try {
+      const response = await fetch("/api/music/featured", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ slug, eligible: nextValue })
+      });
+
+      const payload = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        throw new Error(payload.error || "Update failed.");
+      }
+    } catch (error) {
+      startTransition(() => {
+        setEligibilityBySlug((current) => ({
+          ...current,
+          [slug]: !nextValue
+        }));
+      });
+
+      window.alert(error instanceof Error ? error.message : "Update failed.");
+    } finally {
+      setSavingSlug("");
+    }
+  }
 
   return (
     <>
@@ -60,6 +117,24 @@ export default function MusicArchive({ albums }) {
       <div className="album-archive-grid">
         {filteredAlbums.map((album) => (
           <article key={album.slug} className="album-archive-card">
+            {isAdminSignedIn && album.spotifyUrl ? (
+              <div className="album-card-admin">
+                <button
+                  type="button"
+                  className={`album-feature-toggle${
+                    eligibilityBySlug[album.slug] !== false ? " is-active" : ""
+                  }`}
+                  onClick={() => toggleFeaturedEligibility(album.slug)}
+                  disabled={savingSlug === album.slug}
+                >
+                  {savingSlug === album.slug
+                    ? "Saving..."
+                    : eligibilityBySlug[album.slug] !== false
+                      ? "Featured Album: On"
+                      : "Featured Album: Off"}
+                </button>
+              </div>
+            ) : null}
             <Link href={`/music/${album.slug}`} className="album-archive-link">
               <div className="album-archive-cover">
                 {album.cover ? (
@@ -76,6 +151,7 @@ export default function MusicArchive({ albums }) {
                 <div className="album-archive-meta">
                   <span>{album.year}</span>
                   <span>{album.artist}</span>
+                  {album.spotifyUrl ? <span>Spotify</span> : null}
                 </div>
                 <h3>{album.title}</h3>
                 <p>{album.cardBlurb}</p>

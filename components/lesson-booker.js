@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
+import EditableTextClient from "./editable-text-client";
 
 const SLOT_LABELS = [
   "10:00 AM",
@@ -53,7 +54,7 @@ function buildAvailableDays() {
   return days;
 }
 
-export default function LessonBooker() {
+export default function LessonBooker({ isAdminSignedIn = false }) {
   const router = useRouter();
   const days = useMemo(buildAvailableDays, []);
   const [selectedDay, setSelectedDay] = useState(days[0]?.id || "");
@@ -63,6 +64,7 @@ export default function LessonBooker() {
   const [formValues, setFormValues] = useState({
     name: "",
     email: "",
+    phone: "",
     bassLevel: "",
     goals: ""
   });
@@ -112,13 +114,29 @@ export default function LessonBooker() {
   return (
     <div className="lesson-booker">
       <div className="lesson-booker-panel">
-        <p className="eyebrow">Private Study</p>
-        <h3>Choose a day, claim a slot, send the request.</h3>
-        <p className="lesson-booker-intro">
-          Pick the day and time that works best for you, then send the request.
-          Jeff will follow up to confirm that the slot works for him and to
-          arrange payment before the lesson is finalized.
-        </p>
+        <EditableTextClient
+          contentId="lessons.booker.eyebrow"
+          initialValue="Private Study"
+          as="p"
+          className="eyebrow"
+          rows={2}
+          isAdminSignedIn={isAdminSignedIn}
+        />
+        <EditableTextClient
+          contentId="lessons.booker.title"
+          initialValue="Choose a day, claim a slot, send the request."
+          as="h3"
+          rows={3}
+          isAdminSignedIn={isAdminSignedIn}
+        />
+        <EditableTextClient
+          contentId="lessons.booker.intro"
+          initialValue="Pick the day and time that works best for you, then send the request. Jeff will follow up to confirm that the slot works for him and to arrange payment before the lesson is finalized."
+          as="p"
+          className="lesson-booker-intro"
+          rows={5}
+          isAdminSignedIn={isAdminSignedIn}
+        />
 
         <div className="lesson-day-grid">
           {days.map((day) => (
@@ -178,17 +196,30 @@ export default function LessonBooker() {
             </label>
           </div>
 
-          <label>
-            <span>Current level</span>
-            <input
-              name="bassLevel"
-              value={formValues.bassLevel}
-              onChange={updateField}
-              placeholder="Beginner, intermediate, advanced..."
-              required
-            />
-          </label>
+          <div className="lesson-form-grid">
+            <label>
+              <span>Phone</span>
+              <input
+                name="phone"
+                type="tel"
+                value={formValues.phone}
+                onChange={updateField}
+                placeholder="Best number to reach you"
+                required
+              />
+            </label>
 
+            <label>
+              <span>Current level</span>
+              <input
+                name="bassLevel"
+                value={formValues.bassLevel}
+                onChange={updateField}
+                placeholder="Beginner, intermediate, advanced..."
+                required
+              />
+            </label>
+          </div>
           <label>
             <span>What do you want to work on?</span>
             <textarea

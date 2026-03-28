@@ -1,0 +1,435 @@
+
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-type" content="text/html"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+
+	<!-- Favicons - use https://realfavicongenerator.net/ and place in /favicons -->
+	<link rel="icon" type="image/png" href="https://billbruford.com/wp-content/themes/creative/build/favicons/favicon-96x96.png" sizes="96x96">
+	<link rel="icon" type="image/svg+xml" href="https://billbruford.com/wp-content/themes/creative/build/favicons/favicon.svg">
+	<link rel="shortcut icon" href="https://billbruford.com/wp-content/themes/creative/build/favicons/favicon.ico">
+	<link rel="apple-touch-icon" sizes="180x180" href="https://billbruford.com/wp-content/themes/creative/build/favicons/apple-touch-icon.png">
+	<meta name="apple-mobile-web-app-title" content="Bill Bruford">
+	<link rel="manifest" href="https://billbruford.com/wp-content/themes/creative/build/favicons/site.webmanifest" crossorigin="use-credentials">
+	<!-- Any other Head items that aren't added by WP in here -->
+	<link rel="preconnect" href="https://use.typekit.net">
+	<link rel="preconnect" href="https://p.typekit.net" crossorigin="">
+	<link rel="preload" as="style" href="https://use.typekit.net/eqx7bck.css">
+	<link rel="stylesheet" href="https://use.typekit.net/eqx7bck.css" media="print" onload="this.media='all'">
+	<noscript><link rel="stylesheet" href="https://use.typekit.net/eqx7bck.css"></noscript>
+	<script type="module" crossorigin src="https://billbruford.com/wp-content/themes/creative/build/modulepreload-polyfill.js"></script>
+    
+	<meta name='robots' content='noindex, follow' />
+<script id="cookie-law-info-gcm-var-js">
+var _ckyGcm = {"status":true,"default_settings":[{"analytics":"denied","advertisement":"denied","functional":"denied","necessary":"granted","ad_user_data":"denied","ad_personalization":"denied","regions":"All"}],"wait_for_update":2000,"url_passthrough":true,"ads_data_redaction":false}</script>
+<script id="cookie-law-info-gcm-js" type="text/javascript" src="https://billbruford.com/wp-content/plugins/cookie-law-info/lite/frontend/js/gcm.min.js"></script> <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/b8081975ebacbfce85f364a915e8368e/script.js"></script>
+	<!-- This site is optimized with the Yoast SEO plugin v27.1.1 - https://yoast.com/product/yoast-seo-wordpress/ -->
+	<title>Page not found &#8226; Bill Bruford</title>
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:title" content="Page not found &#8226; Bill Bruford" />
+	<meta property="og:site_name" content="Bill Bruford" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://billbruford.com/#website","url":"https://billbruford.com/","name":"Bill Bruford","description":"","publisher":{"@id":"https://billbruford.com/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://billbruford.com/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"},{"@type":"Organization","@id":"https://billbruford.com/#organization","name":"Bill Bruford","url":"https://billbruford.com/","logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https://billbruford.com/#/schema/logo/image/","url":"https://billbruford.com/wp-content/uploads/2025/12/logo.svg","contentUrl":"https://billbruford.com/wp-content/uploads/2025/12/logo.svg","width":1384,"height":839,"caption":"Bill Bruford"},"image":{"@id":"https://billbruford.com/#/schema/logo/image/"}}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link href='https://fonts.gstatic.com' crossorigin rel='preconnect' />
+<style id='wp-img-auto-sizes-contain-inline-css' type='text/css'>
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id='wp-emoji-styles-inline-css' type='text/css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id='classic-theme-styles-inline-css' type='text/css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:root :where(.is-layout-flow) > :first-child{margin-block-start: 0;}:root :where(.is-layout-flow) > :last-child{margin-block-end: 0;}:root :where(.is-layout-flow) > *{margin-block-start: 24px;margin-block-end: 0;}:root :where(.is-layout-constrained) > :first-child{margin-block-start: 0;}:root :where(.is-layout-constrained) > :last-child{margin-block-end: 0;}:root :where(.is-layout-constrained) > *{margin-block-start: 24px;margin-block-end: 0;}:root :where(.is-layout-flex){gap: 24px;}:root :where(.is-layout-grid){gap: 24px;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel='stylesheet' id='cff-css' href='https://billbruford.com/wp-content/plugins/custom-facebook-feed-pro/assets/css/cff-style.min.css?ver=4.7.6' type='text/css' media='all' />
+<link rel='stylesheet' id='outdated-browser-css' href='https://billbruford.com/wp-content/themes/creative/assets/outdated-browser.css?ver=1644228868' type='text/css' media='all' />
+<link rel='stylesheet' id='blocks-css' href='https://billbruford.com/wp-content/themes/creative/css/blocks.css?ver=1720175442' type='text/css' media='all' />
+<link rel='stylesheet' id='main-css' href='https://billbruford.com/wp-content/themes/creative/build/style.css?ver=1764675584' type='text/css' media='all' />
+<link rel='stylesheet' id='creative-css' href='https://billbruford.com/wp-content/themes/creative/style.css?ver=1769421709' type='text/css' media='all' />
+<link rel="https://api.w.org/" href="https://billbruford.com/wp-json/" /><meta name="generator" content="auto-sizes 1.7.0">
+<!-- Custom Facebook Feed JS vars -->
+<script type="text/javascript">
+var cffsiteurl = "https://billbruford.com/wp-content/plugins";
+var cffajaxurl = "https://billbruford.com/wp-admin/admin-ajax.php";
+
+
+var cfflinkhashtags = "false";
+</script>
+<meta name="generator" content="performance-lab 4.1.0; plugins: auto-sizes, embed-optimizer, image-prioritizer, speculation-rules">
+	<script>
+	  const ajaxurl = 'https://billbruford.com/wp-admin/admin-ajax.php';
+	  const siteurl = 'https://billbruford.com';
+	  const themeurl = 'https://billbruford.com/wp-content/themes/creative';
+	</script><meta name="generator" content="speculation-rules 1.6.0">
+<meta name="generator" content="optimization-detective 1.0.0-beta5; no_cache_purge_post_id">
+<meta name="generator" content="embed-optimizer 1.0.0-beta5">
+<meta name="generator" content="image-prioritizer 1.0.0-beta3">
+	<!-- Google tag (gtag.js) - GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8QB1YH6PDR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+
+  gtag('js', new Date());
+  gtag('config', 'G-8QB1YH6PDR');
+</script></head>
+
+<body class="error404 wp-theme-creative hfeed no-sidebar">
+
+<!-- Header HTML -->
+<header class="fixed top-0 left-0 z-50 w-full py-min">
+	<div class="row container-wide items-center justify-between">
+		<div class="flex w-auto">
+			<a href="https://billbruford.com" class="logo pointer-events-auto inline-flex hover:*:scale-95">
+				<img src="https://billbruford.com/wp-content/themes/creative/build/img/logo.svg" alt="Site Logo">
+			</a>
+		</div>
+				    <div class="hidden w-auto lg:absolute lg:top-1/2 lg:left-1/2 lg:flex lg:w-max lg:-translate-x-1/2 lg:-translate-y-1/2">
+		        <ul id="menu-main-menu" class="menu row gap-min text-18 font-semibold uppercase"><li id="menu-item-1021" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1021"><a href="https://billbruford.com">Home</a></li>
+<li id="menu-item-1022" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1022"><a href="https://billbruford.com/about">About</a>
+<ul class="sub-menu">
+	<li id="menu-item-2449" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2449"><a href="https://billbruford.com/about/">About Bill</a></li>
+	<li id="menu-item-2450" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2450"><a href="https://billbruford.com/faq/">FAQ</a></li>
+</ul>
+</li>
+<li id="menu-item-2690" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2690"><a href="https://www.peterothtrio.com/tour-dates-and-tickets">On Tour</a>
+<ul class="sub-menu">
+	<li id="menu-item-2689" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2689"><a href="https://billbruford.com/the-pete-roth-trio/">The Pete Roth Trio</a></li>
+</ul>
+</li>
+<li id="menu-item-1027" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1027"><a href="#">Look</a>
+<ul class="sub-menu">
+	<li id="menu-item-1023" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1023"><a href="https://billbruford.com/video">Videos</a></li>
+	<li id="menu-item-1788" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1788"><a href="https://billbruford.com/photos/">Photos</a></li>
+	<li id="menu-item-1789" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1789"><a href="https://billbruford.com/timeline/">Timeline</a></li>
+	<li id="menu-item-1787" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1787"><a href="https://billbruford.com/links/">Links</a></li>
+</ul>
+</li>
+<li id="menu-item-1024" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1024"><a href="https://billbruford.com/listen/">Listen</a>
+<ul class="sub-menu">
+	<li id="menu-item-2451" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2451"><a href="https://billbruford.com/earthworks/">Earthworks</a></li>
+	<li id="menu-item-2453" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2453"><a href="https://billbruford.com/summerfold/">Summerfold</a></li>
+	<li id="menu-item-2454" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2454"><a href="https://billbruford.com/winterfold/">Winterfold</a></li>
+	<li id="menu-item-2452" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2452"><a href="https://billbruford.com/podcasts/">Podcasts</a></li>
+</ul>
+</li>
+<li id="menu-item-1025" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1025"><a href="https://billbruford.com/read/">Read</a>
+<ul class="sub-menu">
+	<li id="menu-item-1650" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1650"><a href="https://billbruford.com/books/">Books</a></li>
+	<li id="menu-item-1651" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1651"><a href="https://billbruford.com/in-academia/">In Academia</a></li>
+	<li id="menu-item-1818" class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-1818"><a href="https://billbruford.com/news/">News</a></li>
+	<li id="menu-item-2427" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2427"><a href="https://billbruford.com/views/">Views</a></li>
+	<li id="menu-item-2067" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2067"><a href="https://billbruford.com/archive/">Archive</a></li>
+	<li id="menu-item-1822" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1822"><a href="https://billbruford.com/reviews/">Reviews</a></li>
+	<li id="menu-item-1819" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1819"><a href="https://billbruford.com/equipment/">Equipment</a></li>
+	<li id="menu-item-1820" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1820"><a href="https://billbruford.com/interviews/">Interviews</a></li>
+</ul>
+</li>
+<li id="menu-item-2471" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2471"><a href="https://billbruford.com/contact/">Contact</a></li>
+</ul>		    </div>
+				<div class="flex w-auto items-center justify-end gap-min">
+		    		        		        <div class="button hidden lg:block">
+    				<a href="https://www.youtube.com/@BillBruford" class="btn btn-youtube btn-primary" target="_blank" aria-label="Youtube">
+    					<svg><use href="#i-youtube"></use></svg>
+    				</a>
+    			</div>
+		    		    		            			<div class="button hidden lg:block">
+    				<a href="https://burningshed.com/store/billbruford/" class="btn btn-primary hover:border-gray-dark hover:bg-gray-dark hover:text-white" target="_blank" aria-label="Shop">
+    					<svg><use href="#i-shop"></use></svg>
+    					<span>Shop</span>
+    				</a>
+    			</div>
+    					<div class="menu-toggle relative z-10 h-7 w-24 text-white sm:w-32 lg:hidden">
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+		</div>
+	</div>
+</header>
+<nav class="fixed top-0 left-0 z-40 flex h-screen w-full justify-center bg-secondary pt-28 pb-12 sm:pt-xl lg:hidden" style="opacity: 0; visibility: hidden">
+	<div class="container overflow-y-auto py-md">
+	    	        <ul id="menu-main-menu-1" class="menu flex flex-col items-center px-6 text-40 sm:gap-min sm:text-60"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1021"><a href="https://billbruford.com">Home</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1022"><a href="https://billbruford.com/about">About</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2449"><a href="https://billbruford.com/about/">About Bill</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2450"><a href="https://billbruford.com/faq/">FAQ</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2690"><a href="https://www.peterothtrio.com/tour-dates-and-tickets">On Tour</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2689"><a href="https://billbruford.com/the-pete-roth-trio/">The Pete Roth Trio</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1027"><a href="#">Look</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1023"><a href="https://billbruford.com/video">Videos</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1788"><a href="https://billbruford.com/photos/">Photos</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1789"><a href="https://billbruford.com/timeline/">Timeline</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1787"><a href="https://billbruford.com/links/">Links</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1024"><a href="https://billbruford.com/listen/">Listen</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2451"><a href="https://billbruford.com/earthworks/">Earthworks</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2453"><a href="https://billbruford.com/summerfold/">Summerfold</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2454"><a href="https://billbruford.com/winterfold/">Winterfold</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2452"><a href="https://billbruford.com/podcasts/">Podcasts</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1025"><a href="https://billbruford.com/read/">Read</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1650"><a href="https://billbruford.com/books/">Books</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1651"><a href="https://billbruford.com/in-academia/">In Academia</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-1818"><a href="https://billbruford.com/news/">News</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2427"><a href="https://billbruford.com/views/">Views</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2067"><a href="https://billbruford.com/archive/">Archive</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1822"><a href="https://billbruford.com/reviews/">Reviews</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1819"><a href="https://billbruford.com/equipment/">Equipment</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1820"><a href="https://billbruford.com/interviews/">Interviews</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2471"><a href="https://billbruford.com/contact/">Contact</a></li>
+</ul>	    				        		<div class="button mt-lg text-center">
+    			<a href="https://burningshed.com/store/billbruford/" class="btn btn-primary hover:border-gray-dark hover:bg-gray-dark hover:text-white" target="_blank" aria-label="Shop">
+    				<svg><use href="#i-shop"></use></svg>
+    				<span>Shop</span>
+    			</a>
+    		</div>
+    	            		<ul class="social row my-16 justify-center gap-xs sm:my-xs">
+    		            			<li>
+        			            				<a href="https://open.spotify.com/playlist/1ZZkUprLrY7d7PoLnlWrV2 " target="_blank" rel="noopener noreferrer" class="text-primary hover:text-secondary" aria-label="Spotify">
+        					<svg class="size-10">
+        						<use href="#i-spotify"></use>
+        					</svg>
+        				</a>
+        			</li>
+        		        			<li>
+        			            				<a href="https://www.youtube.com/@BillBruford" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-secondary" aria-label="Youtube">
+        					<svg class="size-10">
+        						<use href="#i-youtube"></use>
+        					</svg>
+        				</a>
+        			</li>
+        		        			<li>
+        			            				<a href="https://www.facebook.com/billbruford" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-secondary" aria-label="Facebook">
+        					<svg class="size-10">
+        						<use href="#i-facebook"></use>
+        					</svg>
+        				</a>
+        			</li>
+        		    		</ul>
+    		</div>
+</nav>
+<div id="smooth-wrapper">
+    <div id="smooth-content">
+<!-- 404 Page HTML -->
+<main class="relative">
+    
+	<section class="404 flex h-screen items-center justify-center overflow-hidden bg-black py-lg text-center text-white sm:items-start sm:text-left lg:py-sm">
+    	<div class="container space-y-xs sm:pt-sm">
+    		<div class="text-80">
+    		        			    <h1 class="text-primary underline">404 Error!</h1>
+    			    			        			<div class="content mt-12">
+        				Oops, this page could not be found!        			</div>
+        		    		</div>
+    		<div class="buttons row justify-center sm:justify-start">
+    		        		                			<a href="https://billbruford.com/about/" class="btn btn-white" aria-label="About Bill" target="_self">
+        				<span>About Bill</span>
+        				<svg><use href="#i-btn"></use></svg>
+        			</a>
+        		    			<a href="https://billbruford.com" class="btn btn-white">
+    				<span>Back To Home</span>
+    				<svg><use href="#i-btn"></use></svg>
+    			</a>
+    		</div>
+    	</div>
+    	        	<figure class="bg opacity-90" data-speed="clamp(0.8)">
+        		<img width="550" height="397" src="https://billbruford.com/wp-content/uploads/2025/09/hi-res40.jpg" class="attachment-full" alt="" loading="lazy" decoding="async" srcset="https://billbruford.com/wp-content/uploads/2025/09/hi-res40.jpg 550w, https://billbruford.com/wp-content/uploads/2025/09/hi-res40-300x217.jpg 300w" sizes="auto, (max-width: 550px) 100vw, 550px" />        	</figure>
+            </section>
+
+</main>
+
+
+<!-- Footer HTML -->
+
+<footer class="bg-primary-light">
+	<div class="container-wide">
+		<div class="row items-center justify-center py-min lg:justify-between">
+			<a href="index.html" class="logo mb-min inline-flex *:transition-transform hover:*:scale-95 sm:mb-0">
+				<img src="https://billbruford.com/wp-content/themes/creative/build/img/logo.svg" alt="Site Logo">
+			</a>
+			<div class="w-full space-y-min sm:text-right lg:flex-1">
+			    				    <div class="space-y-12 text-16">
+				        <ul id="menu-footer-menu" class="menu row flex-col items-center justify-center gap-min text-16 text-gray sm:flex-row lg:justify-end"><li id="menu-item-2519" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-2519"><a href="https://billbruford.com/">Home</a></li>
+<li id="menu-item-2520" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2520"><a href="https://billbruford.com/about/">About</a></li>
+<li id="menu-item-2872" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2872"><a href="https://www.peterothtrio.com/tour-dates-and-tickets">On Tour</a></li>
+<li id="menu-item-2524" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2524"><a href="https://billbruford.com/photos/">Look</a></li>
+<li id="menu-item-2522" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2522"><a href="https://billbruford.com/listen/">Listen</a></li>
+<li id="menu-item-2523" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2523"><a href="https://billbruford.com/read/">Read</a></li>
+<li id="menu-item-2526" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2526"><a href="https://billbruford.com/contact/">Contact</a></li>
+</ul>					    <ul id="menu-legal-menu" class="menu row flex-col items-center justify-center gap-min text-gray opacity-70 sm:gap-xs sm:flex-row lg:justify-end"><li id="menu-item-1046" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1046"><a href="https://billbruford.com/privacy-policy/">Privacy Policy</a></li>
+<li id="menu-item-3000" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3000"><a target="_blank" href="https://www.cbwebsitedesign.co.uk/">Web Design London</a></li>
+</ul>				    </div>
+							</div>
+		</div>
+	</div>
+	<div class="bg-gray-dark py-min lg:py-12">
+		<div class="container-wide row items-center justify-between">
+			<div class="content text-16 text-gray">
+				<p>Copyright © 2026 | Bill Bruford</p>
+			</div>
+			    			<div class="logos row justify-center gap-8 *:h-10">
+    			    <img width="120" height="30" src="https://billbruford.com/wp-content/uploads/2025/09/tama30.webp" class="attachment-thumbnail" alt="" loading="lazy" decoding="async" /><img width="87" height="30" src="https://billbruford.com/wp-content/uploads/2025/09/paiste30.webp" class="attachment-thumbnail" alt="" loading="lazy" decoding="async" /><img width="83" height="30" src="https://billbruford.com/wp-content/uploads/2025/09/evans30.webp" class="attachment-thumbnail" alt="" loading="lazy" decoding="async" /><img width="150" height="30" src="https://billbruford.com/wp-content/uploads/2025/09/shure30-150x30.webp" class="attachment-thumbnail" alt="" loading="lazy" decoding="async" /><img width="49" height="30" src="https://billbruford.com/wp-content/uploads/2025/09/meinl30.webp" class="attachment-thumbnail" alt="" loading="lazy" decoding="async" /><img width="119" height="30" src="https://billbruford.com/wp-content/uploads/2025/09/promark30.webp" class="attachment-thumbnail" alt="" loading="lazy" decoding="async" />    			</div>
+    		    		    			<ul class="social inline-flex w-full justify-center gap-4 sm:w-auto">
+    			            				<li>
+            			                				<a href="https://open.spotify.com/playlist/1ZZkUprLrY7d7PoLnlWrV2 " target="_blank" rel="noopener noreferrer" class="text-primary hover:text-secondary" aria-label="Spotify">
+            					<svg class="size-10">
+            						<use href="#i-spotify"></use>
+            					</svg>
+            				</a>
+            			</li>
+        			        				<li>
+            			                				<a href="https://www.youtube.com/@BillBruford" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-secondary" aria-label="Youtube">
+            					<svg class="size-10">
+            						<use href="#i-youtube"></use>
+            					</svg>
+            				</a>
+            			</li>
+        			        				<li>
+            			                				<a href="https://www.facebook.com/billbruford" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-secondary" aria-label="Facebook">
+            					<svg class="size-10">
+            						<use href="#i-facebook"></use>
+            					</svg>
+            				</a>
+            			</li>
+        			    			</ul>
+    				</div>
+	</div>
+</footer>
+
+<svg decoding="async" loading="lazy" xmlns="http://www.w3.org/2000/svg" style="position: absolute; width: 0; height: 0">
+	<symbol id="i-facebook" fill="currentColor" viewBox="0 0 17 17">
+		<path d="M9.57 16.91H6.558V8.87h-2.01V6.11l2.01-.016V4.476c0-1.13.212-2.02.635-2.669.424-.649 1.3-.973 2.63-.973h2.23v2.763h-1.398c-.513 0-.822.097-.926.29-.105.194-.157.469-.157.824v1.382h2.496l-.298 2.778h-2.2v8.038Z"></path>
+	</symbol>
+	<symbol id="i-youtube" fill="currentColor" viewBox="0 0 25 18">
+		<path fill-rule="evenodd" d="M9.7 12.225V5.41c2.42 1.139 4.293 2.238 6.51 3.424-1.828 1.013-4.09 2.15-6.51 3.39ZM23.183 2.02c-.417-.55-1.128-.977-1.885-1.12C19.07.48 5.187.479 2.962.902a3.227 3.227 0 0 0-1.612.817C-.607 3.535.006 13.276.478 14.854c.198.683.455 1.175.778 1.499.416.427.985.721 1.64.853 1.832.38 11.273.591 18.362.057a3.18 3.18 0 0 0 1.687-.863c1.81-1.81 1.686-12.097.237-14.379Z"></path>
+	</symbol>
+	<symbol id="i-spotify" fill="currentColor" viewBox="0 0 17 17">
+		<path fill-rule="evenodd" d="M13.528 7.535c-2.74-1.626-7.26-1.776-9.876-.982a.795.795 0 0 1-.461-1.522c3.003-.912 7.994-.736 11.148 1.136a.795.795 0 0 1-.811 1.368Zm-.09 2.41a.664.664 0 0 1-.912.219c-2.284-1.405-5.767-1.811-8.469-.99a.664.664 0 0 1-.385-1.27c3.086-.936 6.924-.482 9.548 1.13.312.192.41.6.218.911Zm-1.04 2.314a.53.53 0 0 1-.728.176c-1.996-1.22-4.509-1.495-7.468-.819a.529.529 0 1 1-.235-1.032c3.238-.74 6.015-.422 8.255.947a.53.53 0 0 1 .176.728ZM8.5 0a8.5 8.5 0 1 0 0 17 8.5 8.5 0 1 0 0-17Z"></path>
+	</symbol>
+	<symbol id="i-shop" fill="none" viewBox="0 0 28 29">
+		<path fill="#2F3133" d="M7 2.833 3.5 7.5v16.333a2.333 2.333 0 0 0 2.333 2.334h16.334a2.334 2.334 0 0 0 2.333-2.334V7.5L21 2.833H7Z"></path>
+		<path stroke="#FFD800" stroke-linecap="round" stroke-linejoin="round" d="M3.5 7.5h21m-5.833 4.667a4.667 4.667 0 0 1-9.334 0"></path>
+	</symbol>
+	<symbol id="i-chrome" fill="#fff" viewBox="0 0 512 512">
+		<path d="M0 256C0 209.4 12.47 165.6 34.27 127.1L144.1 318.3C166 357.5 207.9 384 256 384C270.3 384 283.1 381.7 296.8 377.4L220.5 509.6C95.9 492.3 0 385.3 0 256zM365.1 321.6C377.4 302.4 384 279.1 384 256C384 217.8 367.2 183.5 340.7 160H493.4C505.4 189.6 512 222.1 512 256C512 397.4 397.4 511.1 256 512L365.1 321.6zM477.8 128H256C193.1 128 142.3 172.1 130.5 230.7L54.19 98.47C101 38.53 174 0 256 0C350.8 0 433.5 51.48 477.8 128V128zM168 256C168 207.4 207.4 168 256 168C304.6 168 344 207.4 344 256C344 304.6 304.6 344 256 344C207.4 344 168 304.6 168 256z"></path>
+	</symbol>
+	<symbol id="i-pdf" fill="#fff" viewBox="0 0 512 512">
+		<path d="M64 464l48 0 0 48-48 0c-35.3 0-64-28.7-64-64L0 64C0 28.7 28.7 0 64 0L229.5 0c17 0 33.3 6.7 45.3 18.7l90.5 90.5c12 12 18.7 28.3 18.7 45.3L384 304l-48 0 0-144-80 0c-17.7 0-32-14.3-32-32l0-80L64 48c-8.8 0-16 7.2-16 16l0 384c0 8.8 7.2 16 16 16zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"></path>
+	</symbol>
+	<symbol id="i-arrow" fill="none" stroke="currentColor" viewBox="0 0 35 35">
+		<path stroke-linecap="round" stroke-linejoin="round" d="m17.113 10.041 7.07 7.072-7.07 7.07m-7.071-7.07h14.142"></path>
+	</symbol>
+	<symbol id="i-quote" fill="currentColor" viewBox="0 0 21 18">
+		<path d="M.327 18 3.598 4.903l.85 3.742c-1.264 0-2.333-.387-3.205-1.161C.414 6.71 0 5.677 0 4.387 0 3.054.414 2 1.243 1.226 2.115.409 3.162 0 4.383 0c1.265 0 2.29.43 3.075 1.29.785.818 1.178 1.85 1.178 3.097 0 .387-.022.796-.066 1.226a6.653 6.653 0 0 1-.327 1.355c-.13.516-.349 1.183-.654 2L4.449 18H.327Zm12.365 0 3.27-13.097.851 3.742c-1.265 0-2.333-.387-3.205-1.161-.83-.774-1.244-1.807-1.244-3.097 0-1.333.415-2.387 1.243-3.161C14.48.409 15.527 0 16.747 0c1.265 0 2.29.43 3.075 1.29C20.608 2.108 21 3.14 21 4.387c0 .387-.022.796-.065 1.226a6.656 6.656 0 0 1-.327 1.355c-.131.516-.35 1.183-.655 2L16.813 18h-4.121Z"></path>
+	</symbol>
+	<symbol id="i-close" fill="none" stroke="currentColor" viewBox="0 0 14 14">
+		<path stroke-linecap="round" stroke-linejoin="round" d="M13 1 1 13M1 1l12 12"></path>
+	</symbol>
+	<symbol id="i-plus-circle" fill="none" stroke="#fff" viewBox="0 0 44 44">
+		<circle cx="22" cy="22" r="21.5" stroke-opacity=".34"></circle>
+		<path stroke-linecap="round" stroke-linejoin="round" d="M15 22h14m-7-7v14"></path>
+	</symbol>
+	<symbol id="i-arrow-right" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="40.5714" height="40" rx="20" fill="#FFE601"/>
+        <path d="M17.611 11.3004L25.736 19.4254C25.8115 19.5009 25.8715 19.5905 25.9124 19.6891C25.9533 19.7878 25.9743 19.8935 25.9743 20.0003C25.9743 20.1071 25.9533 20.2128 25.9124 20.3114C25.8715 20.4101 25.8115 20.4997 25.736 20.5751L17.611 28.7001C17.4585 28.8526 17.2518 28.9382 17.0362 28.9382C16.8205 28.9382 16.6138 28.8526 16.4613 28.7001C16.3089 28.5477 16.2232 28.3409 16.2232 28.1253C16.2232 27.9097 16.3089 27.7029 16.4613 27.5504L24.0125 20.0003L16.4613 12.4501C16.3858 12.3746 16.3259 12.285 16.2851 12.1864C16.2442 12.0878 16.2232 11.982 16.2232 11.8753C16.2232 11.7685 16.2442 11.6628 16.2851 11.5642C16.3259 11.4655 16.3858 11.3759 16.4613 11.3004C16.5368 11.2249 16.6264 11.1651 16.7251 11.1242C16.8237 11.0834 16.9294 11.0623 17.0362 11.0623C17.1429 11.0623 17.2486 11.0834 17.3473 11.1242C17.4459 11.1651 17.5355 11.2249 17.611 11.3004Z" fill="black"/>
+    </symbol>
+</svg>
+
+<script type="speculationrules">
+{"prerender":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/creative/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prerender, .no-prerender a"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"moderate"}]}
+</script>
+<!-- YouTube Feeds JS -->
+<script type="text/javascript">
+
+</script>
+<script type="text/javascript" src="https://billbruford.com/wp-includes/js/jquery/jquery.min.js" id="jquery-js" data-wp-strategy="defer"></script>
+<script type="text/javascript" id="cffscripts-js-extra">
+/* <![CDATA[ */
+var cffOptions = {"placeholder":"https://billbruford.com/wp-content/plugins/custom-facebook-feed-pro/assets/img/placeholder.png","resized_url":"https://billbruford.com/wp-content/uploads/sb-facebook-feed-images/","nonce":"62a3e08c0c"};
+//# sourceURL=cffscripts-js-extra
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://billbruford.com/wp-content/plugins/custom-facebook-feed-pro/assets/js/cff-scripts.min.js?ver=4.7.6" id="cffscripts-js"></script>
+<script type="text/javascript" id="rocket-browser-checker-js-after">
+/* <![CDATA[ */
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+//# sourceURL=rocket-browser-checker-js-after
+/* ]]> */
+</script>
+<script type="text/javascript" id="rocket-preload-links-js-extra">
+/* <![CDATA[ */
+var RocketPreloadLinksConfig = {"excludeUris":"/news/|/(?:.+/)?feed(?:/(?:.+/?)?)?$|/(?:.+/)?embed/|/(index.php/)?(.*)wp-json(/.*|$)|/refer/|/go/|/recommend/|/recommends/","usesTrailingSlash":"","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https://billbruford.com","onHoverDelay":"100","rateThrottle":"3"};
+//# sourceURL=rocket-preload-links-js-extra
+/* ]]> */
+</script>
+<script type="text/javascript" id="rocket-preload-links-js-after">
+/* <![CDATA[ */
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+
+//# sourceURL=rocket-preload-links-js-after
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://billbruford.com/wp-content/themes/creative/assets/outdated-browser-rework.min.js?ver=1644228732" id="outdated-browser-js" defer="defer" data-wp-strategy="defer"></script>
+<script type="text/javascript" src="https://billbruford.com/wp-content/themes/creative/assets/outdated-browser-init.js?ver=1675679220" id="outdated-browser-init-js" defer="defer" data-wp-strategy="defer"></script>
+<script type="text/javascript" src="https://billbruford.com/wp-content/themes/creative/build/main.js?ver=1769421587" id="main-js" defer="defer" data-wp-strategy="defer"></script>
+<script type="text/javascript" id="ajax-js-extra">
+/* <![CDATA[ */
+var ajax_obj = {"ajax_url":"https://billbruford.com/wp-admin/admin-ajax.php","nonce":"90934419e1"};
+//# sourceURL=ajax-js-extra
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://billbruford.com/wp-content/themes/creative/ajax/ajax.js?ver=6.9.4" id="ajax-js" defer="defer" data-wp-strategy="defer"></script>
+
+
+<div id="outdated"></div>
+</div>
+</div>
+    <div class="to-top-container to-top-right">
+        <a href="#" id="toTop">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M297.4 169.4C309.9 156.9 330.2 156.9 342.7 169.4L534.7 361.4C547.2 373.9 547.2 394.2 534.7 406.7C522.2 419.2 501.9 419.2 489.4 406.7L320 237.3L150.6 406.6C138.1 419.1 117.8 419.1 105.3 406.6C92.8 394.1 92.8 373.8 105.3 361.3L297.3 169.3z"/></svg>
+            <span id="toTopHover"></span>
+            <span class="screen-reader-text">Go to Top</span>
+        </a>
+    </div>
+</body>
+</html>
+
+<!-- Performance optimized by Docket Cache: https://wordpress.org/plugins/docket-cache -->

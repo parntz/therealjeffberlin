@@ -1,0 +1,118 @@
+# Amazon Physical Product Verification Report
+
+- Verified physical Amazon product pages: 65
+- No verified physical Amazon product page found in this pass: 43
+
+## Case Studies With Purchase Links
+
+- `champion`: Champion, Jeff Berlin & Vox Humana, [Lp, Vinyl Record, Passport, PJ-88004] - https://www.amazon.com/dp/B006Z9B67Q
+- `pump-it`: Jeff Berlin: Pump It! LP VG/NM USA Passport Jazz PJ 88017 - https://www.amazon.com/dp/B003YWGCX0
+- `taking-notes`: Taking Notes - https://www.amazon.com/dp/B0000034QH
+- `in-harmonys-way`: In Harmony's Way - https://www.amazon.com/dp/B0016B6ZLK
+- `lumpy-jazz`: Lumpy Jazz - https://www.amazon.com/dp/B001265H22
+- `ace-of-bass`: Ace of Bass - https://www.amazon.com/dp/B000BV7RZY
+- `aneurythms`: Aneurythms - https://www.amazon.com/dp/B000MMN7YC
+- `high-standards`: High Standards - https://www.amazon.com/dp/B003N7G9ZW
+- `low-standards`: Low Standards - https://www.amazon.com/dp/B00BV2B7GC
+- `jack-songs`: Jeff Berlin_Jack Songs: An All-Star Tribute to Jack Bruce - https://www.amazon.com/dp/B0C7935DMB
+- `feels-good-to-me`: Feels Good To Me: Remixed Edition - https://www.amazon.com/dp/B07Y4M7P3H
+- `one-of-a-kind`: One Of A Kind: Expanded & Remixed Edition - https://www.amazon.com/dp/B07Y4MWQ5R
+- `gradually-going-tornado`: Gradually Going Tornado / The Bruford Tapes - https://www.amazon.com/dp/B085RRGTKK
+- `the-story-of-i`: Story of I - https://www.amazon.com/dp/B0000072BD
+- `road-games`: ROAD GAMES - https://www.amazon.com/dp/B07895Z9T2
+- `end-of-a-rainbow`: End Of A Rainbow - https://www.amazon.com/dp/B0FDSF8B5K
+- `shoogie-wanna-boogie`: Shoogie Wanna Boogie - https://www.amazon.com/dp/B075RNBGSC
+- `capricorn-princess`: Capricorn Princess: Expanded Edition - https://www.amazon.com/dp/B01BXNXAQS
+- `lightn-up-please`: David Liebman: Light'n Up, Please! LP VG++/NM US Horizon Records & Tapes SP-721 - https://www.amazon.com/dp/B01G5BG2PY
+- `pure-as-rain`: Pure As Rain - https://www.amazon.com/dp/B08Z9W53JP
+- `satanic`: Satanic Limited - https://www.amazon.com/dp/B0744D17JX
+- `eye-of-the-beholder`: Eye Of The Beholder [Vinyl LP] - https://www.amazon.com/dp/B008LMVTOA
+- `mixed-roots`: Mixed Roots - https://www.amazon.com/dp/B01B3IKDPE
+- `montreux-concert`: DON PULLEN MONTREUX CONCERT vinyl record - https://www.amazon.com/dp/B00Q5KDAT2
+- `street-talk`: street talk - https://www.amazon.com/dp/B00221J682
+- `the-bruford-tapes`: Gradually Going Tornado / The Bruford Tapes - https://www.amazon.com/dp/B085RRGTKK
+- `just-as-i-thought`: David Sancious - Just As I Thought - Arista - AB 4247 - https://www.amazon.com/dp/B00QSPKGRS
+- `lifelike`: Lifelike - https://www.amazon.com/dp/B0000260UU
+- `leave-that-boy-alone`: Poussez! / Leave That Boy Alone! - https://www.amazon.com/dp/B07G215MTY
+- `mellow`: Herbie Mann. Mellow. Promotional Lp. Atlantic SD 16046 - https://www.amazon.com/dp/B07L7M445H
+- `storytime`: Storytime 1986 - https://www.amazon.com/dp/B000026XAM
+- `master-strokes-1978-1985`: Master Strokes - https://www.amazon.com/dp/B000025JT9
+- `timezone`: Jakob Magnússon - Timezone - Optimism Incorporated - GBJ 2002 - https://www.amazon.com/dp/B00L81H3UU
+- `players`: Player - https://www.amazon.com/dp/B007W4DZGI
+- `the-spice-of-life`: The Spice Of Life Too - https://www.amazon.com/dp/B000BUW2NW
+- `the-spice-of-life-too`: The Spice Of Life Too - https://www.amazon.com/dp/B000BUW2NW
+- `take-me-back`: John Warren ; Take Me Back [Japan Import] - https://www.amazon.com/dp/B0007XFGBS
+- `electric-warrior-acoustic-saint`: Electric Warrior - Acoustic Saint by Lanny Cordola (1991-08-02) - https://www.amazon.com/dp/B01K8NRD4Y
+- `a-solitary-man`: Solitary Man - https://www.amazon.com/dp/B000008BKW
+- `even-cowgirls-get-the-blues`: Even Cowgirls Get The Blues: Music From The Motion Picture Soundtrack - https://www.amazon.com/dp/B000002MN9
+- `nathan`: Nathan Cavaleri Band - Nathan - MJJ Music - 477903 2, Epic - EPC 477903 2 - https://www.amazon.com/dp/B00005LZCF
+- `an-evening-of-yes-music-plus`: An Evening Of Yes Music Plus - https://www.amazon.com/dp/B0DM1ZVN89
+- `playtime`: Playtime - https://www.amazon.com/dp/B000005DXQ
+- `gossip`: Gossip by T Lavitz (1996-06-18) - https://www.amazon.com/dp/B01M6BX3FE
+- `crossroads`: Crossroads - https://www.amazon.com/dp/B000007RYD
+- `senor-juan-brahms`: Senor Juan Brahms by Richard Drexler (2013-05-03) - https://www.amazon.com/dp/B01G7OJBTS
+- `hyper-statue`: Hyper Statue - https://www.amazon.com/dp/B000A6Y276
+- `twinemen`: Twinemen - https://www.amazon.com/dp/B00008W2KA
+- `rock-goes-to-college`: Rock Goes To College - https://www.amazon.com/dp/B08GLKD8NK
+- `groove-and-more`: Groove & More - https://www.amazon.com/dp/B00GHN4B86
+- `spinning-globe`: Spinning Globe Featuring Jeff Berlin - https://www.amazon.com/dp/B00FJ8ZT1I
+- `better-the-devil`: Better the Devil - https://www.amazon.com/dp/B009ZWCQY2
+- `tokyo-concert`: Tokyo Concert 1976 - https://www.amazon.com/dp/B0041669BI
+- `the-allan-holdsworth-solo-album-collection`: ALLAN HOLDSWORTH SOLO ALBUM COLLECTION - https://www.amazon.com/dp/B075V5B3JG
+- `eidolon-the-allan-holdsworth-collection`: Eidolon-The Allan Holdsworth Collection Blu Spec/2016 - https://www.amazon.com/dp/B07DRYJBRR
+- `live-at-the-venue-and-4th-album-rehearsal-sessions`: Live At The Venue / 4th Album Rehearsal Sessions - https://www.amazon.com/dp/B085RRTBM6
+- `vortex`: Vortex - https://www.amazon.com/dp/B09Z6YRTRL
+- `jolis-and-simone`: Jolis & Simone - https://www.amazon.com/dp/B08HDDJGK7
+- `an-axe-to-grind`: An Axe to Grind - https://www.amazon.com/dp/B0009A17GC
+- `no-borders`: No Borders - https://www.amazon.com/dp/B000B86O60
+- `suppers-ready`: Supper's Ready: A Tribute To Genesis - https://www.amazon.com/dp/B000003ZB4
+- `one-five-zero`: one five zero - https://www.amazon.com/dp/B000VAR2P0
+- `instrumental-collection-the-shrapnel-years`: Instrumental Collection: The Shrapnel Years - https://www.amazon.com/dp/B000FQJPG4
+- `drum-n-voice-vol-1-2-3-4-the-complete-series`: Drum N Voice Vol 1-4: Complete Series - https://www.amazon.com/dp/B072QQTYR4
+- `sentieri-notturni`: Sentieri Notturni / Various - https://www.amazon.com/dp/B00CEQG4QC
+
+## Case Studies Without Verified Amazon Links
+
+- `home-in-the-country`: Home In The Country
+- `twentieth-century-impressions`: 20th Century Impressions
+- `tvaer-systur`: Tvær Systur
+- `crazy-bird`: Crazy Bird
+- `the-spice-of-life-in-concert`: The Spice Of Life In Concert
+- `the-way-in`: The Way In
+- `know-now-no`: Know Now No
+- `the-inner-galactic-fusion-experience`: The Inner Galactic Fusion Experience
+- `maiden-voyage`: Maiden Voyage
+- `jazzsouth-program-38`: JazzSouth Program #38
+- `boston-t-party`: Boston T Party
+- `caravaggio`: Caravaggio
+- `novecento-featuring`: Novecento Featuring ...
+- `h-b-c`: H B C
+- `stories`: Stories
+- `true-stories-just-as-i-thought`: True Stories / Just As I Thought
+- `seems-like-a-lifetime-ago-1977-1980`: Seems Like A Lifetime Ago 1977-1980
+- `joe-frazier-round-3`: Joe Frazier Round 3
+- `keep-swingin-the-music-of-charlie-banacos`: Keep Swingin': The Music Of Charlie Banacos
+- `roberto-alejandro`: Roberto Alejandro
+- `hurricane`: Hurricane
+- `mixed-tracks`: Mixed Tracks
+- `rehearsal-room-demos`: Rehearsal Room Demos
+- `doldingers-best`: Doldinger's Best
+- `bassics-number-28`: Bassics Number 28
+- `bass-talk-7-lords-of-the-bass`: Bass-Talk 7 - Lords Of The Bass
+- `jazz-magazine-vol-4`: Jazz Magazine Vol. 4
+- `grand-theft-auto-vice-city-official-soundtrack-box-set`: Grand Theft Auto Vice City Official Soundtrack Box Set
+- `jazz-live-in-samois`: Jazz Live In Samois (Tribute To Django Reinhardt 1988-1999 - 50th Anniversary)
+- `bass-logic-from-the-players-school-of-music`: Bass Logic from the Players School of Music
+- `drum-n-voice-vol-1-plus-2-all-that-groove`: Drum 'N' Voice Vol. 1 + 2 (All That Groove)
+- `drum-n-voice-2-due`: Drum 'N' Voice 2 (due)
+- `world-bass-heroes`: World BASS Heroes ～電気低音王special!～
+- `the-winterfold-collection-1978-1986`: The Winterfold Collection 1978-1986
+- `night-rains-plus-restless-eyes-plus-uncle-wonderful`: Night Rains ... Plus + Restless Eyes + Uncle Wonderful
+- `jazziz-on-disc-fall-2010-night-and-day-autumn`: Jazziz On Disc - Fall 2010 - Night & Day: Autumn
+- `drum-n-voice-vol-1-2-3-the-collection`: Drum 'N' Voice Vol.1-2-3 The Collection
+- `control-is-in-your-command-the-best-of-the-weisstronauts-1998-2012`: Control Is In Your Command: The Best Of The Weisstronauts 1998-2012
+- `through-the-years-from-1984-to-2012-the-definitive-collection`: Through The Years (From 1984 To 2012) The Definitve Collection
+- `100-originalnih-hitova`: 100 Originalnih Hitova
+- `mister-stormys-monday-selection-vol-2`: Mister Stormy's Monday Selection Vol.2
+- `mister-stormys-monday-selection-vol-3`: Mister Stormy's Monday Selection Vol.3
+- `jazz-magazine-vol-70`: Jazz Magazine Vol. 70

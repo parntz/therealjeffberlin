@@ -1,24 +1,47 @@
 import Image from "next/image";
+import EditableTextClient from "./editable-text-client";
 import {
   books,
   careerMoments,
   testimonials
 } from "../lib/site-data";
 import { musicAlbums } from "../lib/music-data";
+import { mergeAlbumsWithSpotify } from "../lib/music-spotify";
+import { getSiteContentValue } from "../lib/site-content";
 import MusicArchive from "./music-archive";
 import LessonBooker from "./lesson-booker";
+import LessonPaymentGateway from "./lesson-payment-gateway";
 
-export function SectionHeading({ eyebrow, title, body }) {
+export function SectionHeading({ contentId, eyebrow, title, body, isAdminSignedIn = false }) {
   return (
     <div className="section-heading">
-      <p className="eyebrow">{eyebrow}</p>
-      <h2>{title}</h2>
-      <p>{body}</p>
+      <EditableTextClient
+        contentId={`${contentId}.eyebrow`}
+        initialValue={getSiteContentValue(`${contentId}.eyebrow`, eyebrow)}
+        as="p"
+        className="eyebrow"
+        rows={2}
+        isAdminSignedIn={isAdminSignedIn}
+      />
+      <EditableTextClient
+        contentId={`${contentId}.title`}
+        initialValue={getSiteContentValue(`${contentId}.title`, title)}
+        as="h2"
+        rows={3}
+        isAdminSignedIn={isAdminSignedIn}
+      />
+      <EditableTextClient
+        contentId={`${contentId}.body`}
+        initialValue={getSiteContentValue(`${contentId}.body`, body)}
+        as="p"
+        rows={5}
+        isAdminSignedIn={isAdminSignedIn}
+      />
     </div>
   );
 }
 
-export function BioSection() {
+export function BioSection({ isAdminSignedIn = false }) {
   return (
     <section className="bio-section section-grid">
       <div className="bio-visual">
@@ -34,28 +57,58 @@ export function BioSection() {
       </div>
       <div className="bio-copy">
         <SectionHeading
+          contentId="bio.section"
           eyebrow="Biography"
           title="A career built on melodic force, fearless clarity, and serious musicianship."
           body="Jeff Berlin was born in Queens, New York on January 17, 1953. He studied violin as a child, switched to bass after hearing the Beatles, and went on to study at Berklee before breaking out internationally in Bill Bruford’s band in the late 1970s."
+          isAdminSignedIn={isAdminSignedIn}
         />
         <div className="bio-columns">
-          <p>
-            From sessions with Patrick Moraz, David Liebman, and Patti Austin
-            to work with Allan Holdsworth and Bruford, Berlin became one of the
-            defining bass voices in jazz fusion and progressive music.
-          </p>
-          <p>
-            His sound is precise, vocal, and unapologetically melodic. His
-            teaching is just as direct: reading, harmony, time, and
-            musicianship before shortcuts.
-          </p>
+          <EditableTextClient
+            contentId="bio.column.1"
+            initialValue={getSiteContentValue(
+              "bio.column.1",
+              "From sessions with Patrick Moraz, David Liebman, and Patti Austin to work with Allan Holdsworth and Bruford, Berlin became one of the defining bass voices in jazz fusion and progressive music."
+            )}
+            as="p"
+            rows={5}
+            isAdminSignedIn={isAdminSignedIn}
+          />
+          <EditableTextClient
+            contentId="bio.column.2"
+            initialValue={getSiteContentValue(
+              "bio.column.2",
+              "His sound is precise, vocal, and unapologetically melodic. His teaching is just as direct: reading, harmony, time, and musicianship before shortcuts."
+            )}
+            as="p"
+            rows={5}
+            isAdminSignedIn={isAdminSignedIn}
+          />
         </div>
         <div className="timeline">
-          {careerMoments.map((moment) => (
+          {careerMoments.map((moment, index) => (
             <article key={moment.year} className="timeline-card">
               <span>{moment.year}</span>
-              <h3>{moment.title}</h3>
-              <p>{moment.body}</p>
+              <EditableTextClient
+                contentId={`bio.timeline.${index}.title`}
+                initialValue={getSiteContentValue(
+                  `bio.timeline.${index}.title`,
+                  moment.title
+                )}
+                as="h3"
+                rows={2}
+                isAdminSignedIn={isAdminSignedIn}
+              />
+              <EditableTextClient
+                contentId={`bio.timeline.${index}.body`}
+                initialValue={getSiteContentValue(
+                  `bio.timeline.${index}.body`,
+                  moment.body
+                )}
+                as="p"
+                rows={4}
+                isAdminSignedIn={isAdminSignedIn}
+              />
             </article>
           ))}
         </div>
@@ -64,7 +117,7 @@ export function BioSection() {
   );
 }
 
-export function MusicSection() {
+export function MusicSection({ isAdminSignedIn = false }) {
   const orderedAlbums = [...musicAlbums].sort((a, b) => {
     const yearDifference = Number(a.year) - Number(b.year);
 
@@ -74,57 +127,142 @@ export function MusicSection() {
 
     return a.title.localeCompare(b.title);
   });
+  const spotifyAlbums = mergeAlbumsWithSpotify(orderedAlbums);
+  const featuredCandidates = spotifyAlbums.filter(
+    (album) => album.spotifyEmbedUrl && album.spotifyFeaturedEligible
+  );
+  const featuredAlbum = featuredCandidates.length
+    ? featuredCandidates[Math.floor(Math.random() * featuredCandidates.length)]
+    : null;
 
   return (
     <section className="music-section music-archive">
-      <SectionHeading
-        eyebrow="Music"
-        title="Album credits worth opening up, not just scrolling past."
-        body="Large cover art, direct album links, and dedicated mini case studies for records Jeff Berlin helped define."
-      />
-      <MusicArchive albums={orderedAlbums} />
+      <div className="music-section-header">
+        <div className="music-heading-shell">
+          <SectionHeading
+            contentId="music.section"
+            eyebrow="Music"
+            title="Albums, credits, and case studies from across Jeff Berlin's recorded work."
+            body="Large cover art, direct album links, and focused notes on solo records, collaborations, and credited appearances."
+            isAdminSignedIn={isAdminSignedIn}
+          />
+        </div>
+        {featuredAlbum ? (
+          <aside className="music-featured-player" aria-label="Featured album on Spotify">
+            <div className="music-featured-embed-shell">
+              <iframe
+                className="music-featured-embed"
+                src={featuredAlbum.spotifyEmbedUrl}
+                title={`${featuredAlbum.artist} - ${featuredAlbum.title} on Spotify`}
+                loading="lazy"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              />
+            </div>
+          </aside>
+        ) : null}
+      </div>
+      <MusicArchive albums={spotifyAlbums} isAdminSignedIn={isAdminSignedIn} />
     </section>
   );
 }
 
-export function LessonsSection() {
+export function LessonsSection({ isAdminSignedIn = false }) {
   return (
     <section className="lessons-section section-grid">
       <div className="lessons-copy">
         <SectionHeading
+          contentId="lessons.section"
           eyebrow="Lessons"
           title="Book Jeff for focused, high-standard bass study."
-          body="Use the form to request a lesson date and time. Jeff will get back to you to confirm that the slot works on his end and to arrange payment before the lesson is locked in."
+          body="Use the form to request a lesson date and time, or pay directly with PayPal at $150 per lesson. Students who want to prepay multiple lessons can set the quantity and let the site calculate the total."
+          isAdminSignedIn={isAdminSignedIn}
         />
         <div className="lesson-points">
           <article>
-            <strong>Structured study</strong>
-            <p>Reading-centered development built to sharpen your ears, hands, and mind together.</p>
+            <EditableTextClient
+              contentId="lessons.points.0.title"
+              initialValue={getSiteContentValue(
+                "lessons.points.0.title",
+                "Structured study"
+              )}
+              as="strong"
+              rows={2}
+              isAdminSignedIn={isAdminSignedIn}
+            />
+            <EditableTextClient
+              contentId="lessons.points.0.body"
+              initialValue={getSiteContentValue(
+                "lessons.points.0.body",
+                "Reading-centered development built to sharpen your ears, hands, and mind together."
+              )}
+              as="p"
+              rows={4}
+              isAdminSignedIn={isAdminSignedIn}
+            />
           </article>
           <article>
-            <strong>All levels welcome</strong>
-            <p>From committed beginners to experienced players trying to break through old habits.</p>
+            <EditableTextClient
+              contentId="lessons.points.1.title"
+              initialValue={getSiteContentValue(
+                "lessons.points.1.title",
+                "All levels welcome"
+              )}
+              as="strong"
+              rows={2}
+              isAdminSignedIn={isAdminSignedIn}
+            />
+            <EditableTextClient
+              contentId="lessons.points.1.body"
+              initialValue={getSiteContentValue(
+                "lessons.points.1.body",
+                "From committed beginners to experienced players trying to break through old habits."
+              )}
+              as="p"
+              rows={4}
+              isAdminSignedIn={isAdminSignedIn}
+            />
           </article>
           <article>
-            <strong>Request first, confirm next</strong>
-            <p>Choose the day and time that works best for you, then Jeff will follow up to confirm availability and arrange payment.</p>
+            <EditableTextClient
+              contentId="lessons.points.2.title"
+              initialValue={getSiteContentValue(
+                "lessons.points.2.title",
+                "Pay one or many"
+              )}
+              as="strong"
+              rows={2}
+              isAdminSignedIn={isAdminSignedIn}
+            />
+            <EditableTextClient
+              contentId="lessons.points.2.body"
+              initialValue={getSiteContentValue(
+                "lessons.points.2.body",
+                "Use the PayPal panel to pay for a single lesson or prepay multiple lessons at $150 each."
+              )}
+              as="p"
+              rows={4}
+              isAdminSignedIn={isAdminSignedIn}
+            />
           </article>
         </div>
       </div>
-      <div>
-        <LessonBooker />
+      <div className="lessons-actions">
+        <LessonBooker isAdminSignedIn={isAdminSignedIn} />
+        <LessonPaymentGateway isAdminSignedIn={isAdminSignedIn} />
       </div>
     </section>
   );
 }
 
-export function TestimonialsSection() {
+export function TestimonialsSection({ isAdminSignedIn = false }) {
   return (
     <section className="testimonials-section">
       <SectionHeading
+        contentId="testimonials.section"
         eyebrow="Student Response"
         title="The books work because the musical standards are high."
         body="Jeff’s current educational catalog emphasizes sequential reading work, neck knowledge, rhythm, and practical musicianship. The student response on his official education pages is overwhelmingly consistent: measurable progress."
+        isAdminSignedIn={isAdminSignedIn}
       />
       <div className="testimonial-grid">
         {testimonials.map((item) => (
@@ -138,14 +276,18 @@ export function TestimonialsSection() {
   );
 }
 
-export function StoreSection() {
+export function StoreSection({ isAdminSignedIn = false }) {
   return (
-    <section className="store-section">
-      <SectionHeading
-        eyebrow="Store"
-        title="Start now, because the longer you wait, the longer bad habits stay in your hands."
-        body="These books give you Jeff Berlin’s direct, structured path into reading, fretboard command, time, and real musicianship. If you want sharper playing and a stronger musical foundation, this is work worth starting today."
-      />
+    <section className="store-section store-layout">
+      <div className="store-copy">
+        <SectionHeading
+          contentId="store.section"
+          eyebrow="Store"
+          title="Start now, because the longer you wait, the longer bad habits stay in your hands."
+          body="These books give you Jeff Berlin’s direct, structured path into reading, fretboard command, time, and real musicianship. If you want sharper playing and a stronger musical foundation, this is work worth starting today."
+          isAdminSignedIn={isAdminSignedIn}
+        />
+      </div>
       <div className="store-grid">
         {books.map((book) => (
           <article key={book.id} className="store-card">
@@ -155,27 +297,27 @@ export function StoreSection() {
                 alt={book.title}
                 width={book.width}
                 height={book.height}
-                sizes="(max-width: 900px) 80vw, 25vw"
+                sizes="(max-width: 900px) 80vw, 18vw"
               />
             </div>
-              <div className="store-card-copy">
-                <div className="store-card-header">
-                  <span>{book.format}</span>
-                  <strong>{book.priceLabel}</strong>
-                </div>
-                <h3>{book.title}</h3>
-                <p>{book.description}</p>
-                <a
-                  href={book.paypalHref}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="store-buy-link"
-                >
-                  BUY NOW
-                </a>
+            <div className="store-card-copy">
+              <div className="store-card-header">
+                <span>{book.format}</span>
+                <strong>{book.priceLabel}</strong>
               </div>
-            </article>
-          ))}
+              <h3>{book.title}</h3>
+              <p>{book.description}</p>
+              <a
+                href={book.paypalHref}
+                target="_blank"
+                rel="noreferrer"
+                className="store-buy-link"
+              >
+                BUY NOW
+              </a>
+            </div>
+          </article>
+        ))}
       </div>
     </section>
   );

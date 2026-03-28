@@ -35,6 +35,7 @@ export async function handler(event) {
   const {
     name = "",
     email = "",
+    phone = "",
     bassLevel = "",
     goals = "",
     date = "",
@@ -46,13 +47,13 @@ export async function handler(event) {
     return json(200, { ok: true });
   }
 
-  if (!name || !email || !bassLevel || !goals || !date || !slot) {
+  if (!name || !email || !phone || !bassLevel || !goals || !date || !slot) {
     return json(400, { error: "Missing required fields." });
   }
 
   const apiKey = process.env.RESEND_API_KEY;
   const from = process.env.LESSON_REQUEST_FROM;
-  const to = process.env.LESSON_REQUEST_TO;
+  const to = process.env.LESSON_REQUEST_TO || "jeffberlinbasslessons@yahoo.com";
 
   if (!apiKey || !from || !to) {
     return json(503, {
@@ -62,6 +63,7 @@ export async function handler(event) {
 
   const safeName = escapeHtml(name);
   const safeEmail = escapeHtml(email);
+  const safePhone = escapeHtml(phone);
   const safeBassLevel = escapeHtml(bassLevel);
   const safeGoals = escapeHtml(goals).replaceAll("\n", "<br />");
   const safeDate = escapeHtml(date);
@@ -83,6 +85,7 @@ export async function handler(event) {
         "",
         `Name: ${name}`,
         `Email: ${email}`,
+        `Phone: ${phone}`,
         `Current level: ${bassLevel}`,
         `Requested date: ${date}`,
         `Requested slot: ${slot}`,
@@ -95,6 +98,7 @@ export async function handler(event) {
           <h2 style="margin-bottom: 16px;">New Jeff Berlin lesson request</h2>
           <p><strong>Name:</strong> ${safeName}</p>
           <p><strong>Email:</strong> ${safeEmail}</p>
+          <p><strong>Phone:</strong> ${safePhone}</p>
           <p><strong>Current level:</strong> ${safeBassLevel}</p>
           <p><strong>Requested date:</strong> ${safeDate}</p>
           <p><strong>Requested slot:</strong> ${safeSlot}</p>

@@ -1,0 +1,457 @@
+{
+  "champion": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B006Z9B67Q",
+    "asin": "B006Z9B67Q",
+    "productTitle": "Champion, Jeff Berlin & Vox Humana, [Lp, Vinyl Record, Passport, PJ-88004]",
+    "format": "Audio CD"
+  },
+  "pump-it": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B003YWGCX0",
+    "asin": "B003YWGCX0",
+    "productTitle": "Jeff Berlin: Pump It! LP VG/NM USA Passport Jazz PJ 88017",
+    "format": "Audio CD"
+  },
+  "taking-notes": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B0000034QH",
+    "asin": "B0000034QH",
+    "productTitle": "Taking Notes",
+    "format": "Audio CD"
+  },
+  "in-harmonys-way": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B0016B6ZLK",
+    "asin": "B0016B6ZLK",
+    "productTitle": "In Harmony's Way",
+    "format": "Audio CD"
+  },
+  "lumpy-jazz": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B001265H22",
+    "asin": "B001265H22",
+    "productTitle": "Lumpy Jazz",
+    "format": "Audio CD"
+  },
+  "ace-of-bass": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B000BV7RZY",
+    "asin": "B000BV7RZY",
+    "productTitle": "Ace of Bass",
+    "format": "Audio CD"
+  },
+  "aneurythms": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B000MMN7YC",
+    "asin": "B000MMN7YC",
+    "productTitle": "Aneurythms",
+    "format": "Audio CD"
+  },
+  "high-standards": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B003N7G9ZW",
+    "asin": "B003N7G9ZW",
+    "productTitle": "High Standards",
+    "format": "Audio CD"
+  },
+  "low-standards": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B00BV2B7GC",
+    "asin": "B00BV2B7GC",
+    "productTitle": "Low Standards",
+    "format": "Audio CD"
+  },
+  "jack-songs": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B0C7935DMB",
+    "asin": "B0C7935DMB",
+    "productTitle": "Jeff Berlin_Jack Songs: An All-Star Tribute to Jack Bruce",
+    "format": "Audio CD"
+  },
+  "feels-good-to-me": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B07Y4M7P3H",
+    "asin": "B07Y4M7P3H",
+    "productTitle": "Feels Good To Me: Remixed Edition",
+    "format": "Audio CD"
+  },
+  "one-of-a-kind": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B07Y4MWQ5R",
+    "asin": "B07Y4MWQ5R",
+    "productTitle": "One Of A Kind: Expanded & Remixed Edition",
+    "format": "Audio CD"
+  },
+  "gradually-going-tornado": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B085RRGTKK",
+    "asin": "B085RRGTKK",
+    "productTitle": "Gradually Going Tornado / The Bruford Tapes",
+    "format": "Audio CD"
+  },
+  "the-story-of-i": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B0000072BD",
+    "asin": "B0000072BD",
+    "productTitle": "Story of I",
+    "format": "Audio CD"
+  },
+  "road-games": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B07895Z9T2",
+    "asin": "B07895Z9T2",
+    "productTitle": "ROAD GAMES",
+    "format": "Audio CD"
+  },
+  "end-of-a-rainbow": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B0FDSF8B5K",
+    "asin": "B0FDSF8B5K",
+    "productTitle": "End Of A Rainbow",
+    "format": "Audio CD"
+  },
+  "shoogie-wanna-boogie": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B075RNBGSC",
+    "asin": "B075RNBGSC",
+    "productTitle": "Shoogie Wanna Boogie",
+    "format": "Audio CD"
+  },
+  "capricorn-princess": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B01BXNXAQS",
+    "asin": "B01BXNXAQS",
+    "productTitle": "Capricorn Princess: Expanded Edition",
+    "format": "Audio CD"
+  },
+  "lightn-up-please": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B01G5BG2PY",
+    "asin": "B01G5BG2PY",
+    "productTitle": "David Liebman: Light'n Up, Please! LP VG++/NM US Horizon Records & Tapes SP-721",
+    "format": "Vinyl"
+  },
+  "pure-as-rain": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B08Z9W53JP",
+    "asin": "B08Z9W53JP",
+    "productTitle": "Pure As Rain",
+    "format": "Audio CD"
+  },
+  "satanic": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B0744D17JX",
+    "asin": "B0744D17JX",
+    "productTitle": "Satanic Limited",
+    "format": "Audio CD"
+  },
+  "eye-of-the-beholder": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B008LMVTOA",
+    "asin": "B008LMVTOA",
+    "productTitle": "Eye Of The Beholder [Vinyl LP]",
+    "format": "Audio CD"
+  },
+  "mixed-roots": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B01B3IKDPE",
+    "asin": "B01B3IKDPE",
+    "productTitle": "Mixed Roots",
+    "format": "Audio CD"
+  },
+  "montreux-concert": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B00Q5KDAT2",
+    "asin": "B00Q5KDAT2",
+    "productTitle": "DON PULLEN MONTREUX CONCERT vinyl record",
+    "format": "Audio CD"
+  },
+  "street-talk": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B00221J682",
+    "asin": "B00221J682",
+    "productTitle": "street talk",
+    "format": "Vinyl"
+  },
+  "the-bruford-tapes": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B085RRGTKK",
+    "asin": "B085RRGTKK",
+    "productTitle": "Gradually Going Tornado / The Bruford Tapes",
+    "format": "Audio CD"
+  },
+  "just-as-i-thought": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B00QSPKGRS",
+    "asin": "B00QSPKGRS",
+    "productTitle": "David Sancious - Just As I Thought - Arista - AB 4247",
+    "format": "Audio CD"
+  },
+  "lifelike": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B0000260UU",
+    "asin": "B0000260UU",
+    "productTitle": "Lifelike",
+    "format": "Audio CD"
+  },
+  "leave-that-boy-alone": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B07G215MTY",
+    "asin": "B07G215MTY",
+    "productTitle": "Poussez! / Leave That Boy Alone!",
+    "format": "Audio CD"
+  },
+  "mellow": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B07L7M445H",
+    "asin": "B07L7M445H",
+    "productTitle": "Herbie Mann. Mellow. Promotional Lp. Atlantic SD 16046",
+    "format": "Vinyl"
+  },
+  "storytime": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B000026XAM",
+    "asin": "B000026XAM",
+    "productTitle": "Storytime 1986",
+    "format": "Audio CD"
+  },
+  "master-strokes-1978-1985": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B000025JT9",
+    "asin": "B000025JT9",
+    "productTitle": "Master Strokes",
+    "format": "Audio CD"
+  },
+  "timezone": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B00L81H3UU",
+    "asin": "B00L81H3UU",
+    "productTitle": "Jakob Magnússon - Timezone - Optimism Incorporated - GBJ 2002",
+    "format": "Audio CD"
+  },
+  "players": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B007W4DZGI",
+    "asin": "B007W4DZGI",
+    "productTitle": "Player",
+    "format": "Audio CD"
+  },
+  "the-spice-of-life": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B000BUW2NW",
+    "asin": "B000BUW2NW",
+    "productTitle": "The Spice Of Life Too",
+    "format": "Audio CD"
+  },
+  "the-spice-of-life-too": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B000BUW2NW",
+    "asin": "B000BUW2NW",
+    "productTitle": "The Spice Of Life Too",
+    "format": "Audio CD"
+  },
+  "take-me-back": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B0007XFGBS",
+    "asin": "B0007XFGBS",
+    "productTitle": "John Warren ; Take Me Back [Japan Import]",
+    "format": "Audio CD"
+  },
+  "electric-warrior-acoustic-saint": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B01K8NRD4Y",
+    "asin": "B01K8NRD4Y",
+    "productTitle": "Electric Warrior - Acoustic Saint by Lanny Cordola (1991-08-02)",
+    "format": "Audio CD"
+  },
+  "a-solitary-man": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B000008BKW",
+    "asin": "B000008BKW",
+    "productTitle": "Solitary Man",
+    "format": "Audio CD"
+  },
+  "even-cowgirls-get-the-blues": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B000002MN9",
+    "asin": "B000002MN9",
+    "productTitle": "Even Cowgirls Get The Blues: Music From The Motion Picture Soundtrack",
+    "format": "Audio CD"
+  },
+  "nathan": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B00005LZCF",
+    "asin": "B00005LZCF",
+    "productTitle": "Nathan Cavaleri Band - Nathan - MJJ Music - 477903 2, Epic - EPC 477903 2",
+    "format": "Audio CD"
+  },
+  "an-evening-of-yes-music-plus": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B0DM1ZVN89",
+    "asin": "B0DM1ZVN89",
+    "productTitle": "An Evening Of Yes Music Plus",
+    "format": "Audio CD"
+  },
+  "playtime": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B000005DXQ",
+    "asin": "B000005DXQ",
+    "productTitle": "Playtime",
+    "format": "Audio CD"
+  },
+  "gossip": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B01M6BX3FE",
+    "asin": "B01M6BX3FE",
+    "productTitle": "Gossip by T Lavitz (1996-06-18)",
+    "format": "Audio CD"
+  },
+  "crossroads": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B000007RYD",
+    "asin": "B000007RYD",
+    "productTitle": "Crossroads",
+    "format": "Audio CD"
+  },
+  "senor-juan-brahms": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B01G7OJBTS",
+    "asin": "B01G7OJBTS",
+    "productTitle": "Senor Juan Brahms by Richard Drexler (2013-05-03)",
+    "format": "Audio CD"
+  },
+  "hyper-statue": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B000A6Y276",
+    "asin": "B000A6Y276",
+    "productTitle": "Hyper Statue",
+    "format": "Audio CD"
+  },
+  "twinemen": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B00008W2KA",
+    "asin": "B00008W2KA",
+    "productTitle": "Twinemen",
+    "format": "Audio CD"
+  },
+  "rock-goes-to-college": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B08GLKD8NK",
+    "asin": "B08GLKD8NK",
+    "productTitle": "Rock Goes To College",
+    "format": "Audio CD"
+  },
+  "groove-and-more": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B00GHN4B86",
+    "asin": "B00GHN4B86",
+    "productTitle": "Groove & More",
+    "format": "Audio CD"
+  },
+  "spinning-globe": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B00FJ8ZT1I",
+    "asin": "B00FJ8ZT1I",
+    "productTitle": "Spinning Globe Featuring Jeff Berlin",
+    "format": "Audio CD"
+  },
+  "better-the-devil": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B009ZWCQY2",
+    "asin": "B009ZWCQY2",
+    "productTitle": "Better the Devil",
+    "format": "Audio CD"
+  },
+  "tokyo-concert": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B0041669BI",
+    "asin": "B0041669BI",
+    "productTitle": "Tokyo Concert 1976",
+    "format": "Audio CD"
+  },
+  "the-allan-holdsworth-solo-album-collection": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B075V5B3JG",
+    "asin": "B075V5B3JG",
+    "productTitle": "ALLAN HOLDSWORTH SOLO ALBUM COLLECTION",
+    "format": "Audio CD"
+  },
+  "eidolon-the-allan-holdsworth-collection": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B07DRYJBRR",
+    "asin": "B07DRYJBRR",
+    "productTitle": "Eidolon-The Allan Holdsworth Collection Blu Spec/2016",
+    "format": "Audio CD"
+  },
+  "live-at-the-venue-and-4th-album-rehearsal-sessions": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B085RRTBM6",
+    "asin": "B085RRTBM6",
+    "productTitle": "Live At The Venue / 4th Album Rehearsal Sessions",
+    "format": "Audio CD"
+  },
+  "vortex": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B09Z6YRTRL",
+    "asin": "B09Z6YRTRL",
+    "productTitle": "Vortex",
+    "format": "Audio CD"
+  },
+  "jolis-and-simone": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B08HDDJGK7",
+    "asin": "B08HDDJGK7",
+    "productTitle": "Jolis & Simone",
+    "format": "Audio CD"
+  },
+  "an-axe-to-grind": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B0009A17GC",
+    "asin": "B0009A17GC",
+    "productTitle": "An Axe to Grind",
+    "format": "Audio CD"
+  },
+  "no-borders": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B000B86O60",
+    "asin": "B000B86O60",
+    "productTitle": "No Borders",
+    "format": "Audio CD"
+  },
+  "suppers-ready": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B000003ZB4",
+    "asin": "B000003ZB4",
+    "productTitle": "Supper's Ready: A Tribute To Genesis",
+    "format": "Audio CD"
+  },
+  "one-five-zero": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B000VAR2P0",
+    "asin": "B000VAR2P0",
+    "productTitle": "one five zero",
+    "format": "Audio CD"
+  },
+  "instrumental-collection-the-shrapnel-years": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B000FQJPG4",
+    "asin": "B000FQJPG4",
+    "productTitle": "Instrumental Collection: The Shrapnel Years",
+    "format": "Audio CD"
+  },
+  "drum-n-voice-vol-1-2-3-4-the-complete-series": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B072QQTYR4",
+    "asin": "B072QQTYR4",
+    "productTitle": "Drum N Voice Vol 1-4: Complete Series",
+    "format": "Audio CD"
+  },
+  "sentieri-notturni": {
+    "provider": "Amazon",
+    "href": "https://www.amazon.com/dp/B00CEQG4QC",
+    "asin": "B00CEQG4QC",
+    "productTitle": "Sentieri Notturni / Various",
+    "format": "Audio CD"
+  }
+}

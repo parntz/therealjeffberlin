@@ -1,8 +1,20 @@
 import Image from "next/image";
+import { cookies } from "next/headers";
+import EditableTextClient from "../components/editable-text-client";
 import JeffWordmark from "../components/jeff-wordmark";
+import {
+  ADMIN_SESSION_COOKIE,
+  readAdminSession
+} from "../lib/admin-auth";
 import { stats } from "../lib/site-data";
+import { getSiteContentValue } from "../lib/site-content";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const cookieStore = await cookies();
+  const adminSession = readAdminSession(
+    cookieStore.get(ADMIN_SESSION_COOKIE)?.value || ""
+  );
+
   return (
     <main className="page-shell">
       <section className="hero-section" id="top">
@@ -21,18 +33,35 @@ export default function HomePage() {
           <nav className="topnav">
             <a href="/bio">Bio</a>
             <a href="/music">Music</a>
+            <a href="/videos">Videos</a>
+            <a href="/photos">Photos</a>
             <a href="/lessons">Lessons</a>
+            <a href="/contact">Contact</a>
             <a href="/store">Store</a>
           </nav>
         </header>
 
         <div className="hero-copy">
-          <p className="eyebrow">Electric Bass. Zero Apology.</p>
+          <EditableTextClient
+            contentId="home.hero.eyebrow"
+            initialValue={getSiteContentValue("home.hero.eyebrow", "Electric Bass. Zero Apology.")}
+            as="p"
+            className="eyebrow"
+            rows={2}
+            isAdminSignedIn={Boolean(adminSession)}
+          />
           <JeffWordmark as="h1" />
-          <p className="hero-summary">
-            A fearless voice in electric bass for more than four decades:
-            virtuoso, composer, bandleader, educator.
-          </p>
+          <EditableTextClient
+            contentId="home.hero.summary"
+            initialValue={getSiteContentValue(
+              "home.hero.summary",
+              "A fearless voice in electric bass for more than four decades: virtuoso, composer, bandleader, educator."
+            )}
+            as="p"
+            className="hero-summary"
+            rows={4}
+            isAdminSignedIn={Boolean(adminSession)}
+          />
           <div className="hero-actions">
             <a href="/lessons" className="button button-primary">
               Book A Lesson
@@ -42,11 +71,23 @@ export default function HomePage() {
             </a>
           </div>
           <div className="hero-quote">
-            <span>Geddy Lee on Jeff Berlin</span>
-            <p>
-              “The best bass player on the planet right now. An incredible
-              talent.”
-            </p>
+            <EditableTextClient
+              contentId="home.hero.quoteLabel"
+              initialValue={getSiteContentValue("home.hero.quoteLabel", "Geddy Lee on Jeff Berlin")}
+              as="span"
+              rows={2}
+              isAdminSignedIn={Boolean(adminSession)}
+            />
+            <EditableTextClient
+              contentId="home.hero.quote"
+              initialValue={getSiteContentValue(
+                "home.hero.quote",
+                "“The best bass player on the planet right now. An incredible talent.”"
+              )}
+              as="p"
+              rows={4}
+              isAdminSignedIn={Boolean(adminSession)}
+            />
           </div>
         </div>
 
@@ -68,6 +109,14 @@ export default function HomePage() {
           <span>Music</span>
           <strong>Explore albums and eras</strong>
         </a>
+        <a className="home-destination-card" href="/videos">
+          <span>Videos</span>
+          <strong>Search the YouTube archive</strong>
+        </a>
+        <a className="home-destination-card" href="/photos">
+          <span>Photos</span>
+          <strong>Open the photo index</strong>
+        </a>
         <a className="home-destination-card" href="/lessons">
           <span>Lessons</span>
           <strong>Book study time and dig in</strong>
@@ -75,6 +124,10 @@ export default function HomePage() {
         <a className="home-destination-card" href="/store">
           <span>Store</span>
           <strong>Buy the Bass Mastery books</strong>
+        </a>
+        <a className="home-destination-card" href="/contact">
+          <span>Contact</span>
+          <strong>Send Jeff a message</strong>
         </a>
       </section>
     </main>

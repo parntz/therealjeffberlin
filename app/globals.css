@@ -51,6 +51,76 @@ img {
   overflow: clip;
 }
 
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  width: 100%;
+  padding: 0;
+}
+
+.site-header-shell {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1rem 1.15rem;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background:
+    linear-gradient(135deg, rgba(255, 91, 46, 0.16), transparent 30%),
+    linear-gradient(180deg, rgba(18, 18, 18, 0.97), rgba(8, 8, 8, 0.97));
+  box-shadow: var(--shadow);
+  overflow: clip;
+}
+
+.site-header-shell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(112deg, transparent 0 72%, rgba(255, 189, 89, 0.13) 72% 78%, transparent 78%),
+    linear-gradient(112deg, transparent 0 82%, rgba(255, 255, 255, 0.05) 82% 100%);
+  pointer-events: none;
+}
+
+.site-header-logo,
+.site-header-nav {
+  position: relative;
+  z-index: 1;
+}
+
+.site-header-logo {
+  display: inline-flex;
+  align-items: center;
+}
+
+.site-header-wordmark {
+  font-size: clamp(2rem, 4.3vw, 3.25rem);
+  line-height: 0.84;
+}
+
+.site-header-wordmark .jeff-wordmark-berlin {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(245, 240, 232, 0.92);
+}
+
+.site-header-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.9rem 1.15rem;
+}
+
+.site-header-nav a {
+  color: rgba(245, 240, 232, 0.9);
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
 .section-grid,
 .music-section,
 .testimonials-section,
@@ -79,7 +149,12 @@ img {
 .timeline-card p,
 .lesson-points p,
 .testimonial-card p,
-.store-card p {
+.store-card p,
+.album-archive-copy p,
+.album-detail-card p,
+.album-study-prose p,
+.album-study-list li,
+.album-study-dek {
   color: var(--muted);
   font-size: 1rem;
   line-height: 1.65;
@@ -153,18 +228,27 @@ img {
   padding-top: 10rem;
 }
 
-.hero-copy h1 {
+.jeff-wordmark {
+  display: inline-flex;
+  flex-direction: column;
   margin: 0;
-  font-family: var(--font-display), sans-serif;
   font-family: "Bebas Neue", "Arial Narrow", sans-serif;
-  font-size: clamp(6rem, 19vw, 14rem);
+  text-transform: uppercase;
   line-height: 0.82;
   letter-spacing: 0.02em;
-  text-transform: uppercase;
 }
 
-.hero-copy h1 span {
+.jeff-wordmark-jeff,
+.jeff-wordmark-berlin {
   display: block;
+}
+
+.hero-copy .jeff-wordmark {
+  margin: 0;
+  font-size: clamp(6rem, 19vw, 14rem);
+}
+
+.hero-copy .jeff-wordmark-berlin {
   color: transparent;
   -webkit-text-stroke: 1px rgba(245, 240, 232, 0.92);
 }
@@ -239,6 +323,47 @@ img {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1rem;
   margin-top: 3rem;
+}
+
+.home-destination-strip,
+.home-manifesto {
+  padding: 0 clamp(1.25rem, 3vw, 3rem) 6rem;
+}
+
+.home-destination-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.home-destination-card {
+  display: grid;
+  gap: 0.55rem;
+  min-height: 12rem;
+  padding: 1.35rem;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(18, 18, 18, 0.9), rgba(11, 11, 11, 0.96));
+  box-shadow: var(--shadow);
+}
+
+.home-destination-card span {
+  color: var(--accent-2);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.home-destination-card strong {
+  font-family: "Bebas Neue", "Arial Narrow", sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 400;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.home-manifesto {
+  padding-top: 2rem;
 }
 
 .stat-card {
@@ -348,6 +473,96 @@ img {
   padding: 1.4rem;
 }
 
+.music-archive {
+  position: relative;
+}
+
+.album-archive-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.75rem;
+}
+
+.album-archive-card {
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 24%),
+    rgba(9, 9, 9, 0.9);
+  box-shadow: var(--shadow);
+  overflow: clip;
+}
+
+.album-archive-link {
+  display: grid;
+  height: 100%;
+}
+
+.album-archive-cover {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #111;
+}
+
+.album-archive-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+.album-archive-card:hover .album-archive-cover img {
+  transform: scale(1.04);
+  filter: saturate(1.08);
+}
+
+.album-archive-copy {
+  display: grid;
+  gap: 0.85rem;
+  padding: 1.35rem 1.35rem 1.5rem;
+}
+
+.album-archive-meta,
+.album-study-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.album-archive-meta span,
+.album-study-meta span {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 0.35rem 0.6rem;
+  color: var(--accent-2);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.album-archive-copy h3,
+.album-study-copy h1 {
+  margin: 0;
+  font-family: "Bebas Neue", "Arial Narrow", sans-serif;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.album-archive-copy h3 {
+  font-size: clamp(2rem, 4.6vw, 3.4rem);
+  line-height: 0.92;
+}
+
+.album-archive-copy strong,
+.album-source-list a {
+  color: var(--cream);
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
 .lessons-section {
   position: relative;
 }
@@ -448,28 +663,242 @@ img {
   color: var(--cream);
 }
 
-.checkout-button {
+.album-study {
+  padding: 3rem clamp(1.25rem, 3vw, 3rem) 6rem;
+}
+
+.album-study-hero,
+.album-study-section {
+  margin: 0 auto;
+  max-width: 86rem;
+}
+
+.album-study-back {
+  display: inline-flex;
+  margin-bottom: 1.5rem;
+  color: var(--accent-2);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.album-study-grid,
+.album-study-split {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.2fr);
+  gap: 2rem;
+}
+
+.album-study-grid {
+  align-items: end;
+}
+
+.album-study-cover {
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: var(--shadow);
+  overflow: clip;
+}
+
+.album-study-cover img {
   width: 100%;
+  height: auto;
+  display: block;
+}
+
+.album-study-copy {
+  display: grid;
+  gap: 1rem;
+}
+
+.album-study-copy h1 {
+  font-size: clamp(3.6rem, 9vw, 7rem);
+  line-height: 0.9;
+}
+
+.album-study-dek {
+  max-width: 42rem;
+  margin: 0;
+  font-size: 1.08rem;
+}
+
+.album-study-section {
+  padding-top: 2rem;
+}
+
+.album-study-panel {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+}
+
+.album-study-section .album-study-panel h2 {
+  margin: 0 0 1rem;
+  font-family: "Bebas Neue", "Arial Narrow", sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.album-study-prose {
+  display: grid;
+  gap: 1rem;
+}
+
+.album-study-prose p {
+  margin: 0;
+}
+
+.album-study-list {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.album-study-list li + li {
+  margin-top: 0.7rem;
+}
+
+.album-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.album-detail-card {
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.03);
+  padding: 1.2rem;
+}
+
+.album-detail-card h3 {
+  margin: 0 0 0.6rem;
+  font-size: 1.15rem;
+}
+
+.album-detail-card p {
+  margin: 0;
+}
+
+.album-source-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+}
+
+.album-source-list a {
+  color: var(--accent-2);
+}
+
+.store-unavailable {
   margin-top: auto;
+  padding: 0.95rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--accent-2);
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  position: relative;
+  display: grid;
   gap: 1.5rem;
   border-top: 1px solid var(--line);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0)),
+    linear-gradient(90deg, rgba(255, 91, 46, 0.1), transparent 30%);
+  overflow: clip;
 }
 
-.footer-logo {
-  display: inline-flex;
-  align-items: flex-end;
+.footer-art {
+  position: absolute;
+  right: -2rem;
+  bottom: -1.5rem;
+  width: min(30rem, 44vw);
+  opacity: 0.22;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  filter: saturate(1.05) contrast(1.05);
 }
 
-.footer-logo img {
+.footer-art img {
   display: block;
-  width: min(300px, 65vw);
+  width: 100%;
   height: auto;
+}
+
+.endorsement-section {
+  padding: 0 clamp(1.25rem, 3vw, 3rem) 2rem;
+}
+
+.endorsement-strip {
+  display: grid;
+  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+  gap: 1.5rem;
+  align-items: center;
+  padding: 1.35rem;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(17, 17, 17, 0.96), rgba(10, 10, 10, 0.96));
+  box-shadow: var(--shadow);
+}
+
+.endorsement-copy span {
+  display: block;
+  margin-bottom: 0.55rem;
+  color: var(--accent-2);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.endorsement-copy p {
+  margin: 0;
+  max-width: 22rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.endorsement-logos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.endorsement-logo {
+  min-height: 8rem;
+  padding: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.endorsement-logo img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.endorsement-logo-cort {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
+}
+
+.endorsement-logo-cort img {
+  width: min(240px, 100%);
+}
+
+.endorsement-logo-markbass {
+  background: linear-gradient(180deg, rgba(255, 189, 89, 0.08), rgba(255, 189, 89, 0.03));
+}
+
+.endorsement-logo-markbass img {
+  width: min(280px, 100%);
 }
 
 .footer-copy p,
@@ -478,14 +907,84 @@ img {
   color: var(--muted);
 }
 
+.footer-meta {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 0.85rem;
+  max-width: 46rem;
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem 1.2rem;
+}
+
+.footer-nav a,
+.footer-copyright {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.footer-nav a {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.legal-page {
+  min-height: 100svh;
+  padding: 2rem 1rem 5rem;
+}
+
+.legal-shell {
+  max-width: 54rem;
+  margin: 0 auto;
+  padding: 2rem;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(17, 17, 17, 0.95), rgba(10, 10, 10, 0.97));
+  box-shadow: var(--shadow);
+}
+
+.legal-shell h1 {
+  margin: 0;
+  font-family: "Bebas Neue", "Arial Narrow", sans-serif;
+  font-size: clamp(3rem, 10vw, 5.5rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.legal-shell h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.15rem;
+}
+
+.legal-shell section + section {
+  margin-top: 1.5rem;
+}
+
+.legal-shell p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.legal-updated {
+  margin: 0.75rem 0 2rem;
+}
+
 @media (max-width: 1100px) {
   .hero-stats,
+  .home-destination-strip,
   .album-grid,
+  .album-archive-grid,
+  .album-detail-grid,
   .testimonial-grid,
   .store-grid,
   .timeline,
   .bio-columns,
   .section-grid,
+  .album-study-grid,
+  .album-study-split,
   .store-card {
     grid-template-columns: 1fr;
   }
@@ -500,17 +999,45 @@ img {
   .music-section,
   .testimonials-section,
   .store-section,
-  .footer {
+  .home-destination-strip,
+  .home-manifesto,
+  .footer,
+  .album-study {
     padding: 4.5rem 1rem;
   }
 
+  .endorsement-section {
+    padding: 0 1rem 1.5rem;
+  }
+
+  .site-header-shell,
   .topbar,
   .footer {
     flex-direction: column;
     align-items: flex-start;
   }
 
-  .hero-copy h1 {
+  .footer-art {
+    right: -4rem;
+    width: min(24rem, 70vw);
+    opacity: 0.16;
+  }
+
+  .site-header-nav {
+    justify-content: flex-start;
+  }
+
+  .endorsement-strip,
+  .endorsement-logos {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .hero-copy .jeff-wordmark {
     font-size: clamp(4.2rem, 24vw, 8rem);
   }
 

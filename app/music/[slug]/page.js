@@ -255,84 +255,90 @@ export default async function AlbumPage({ params }) {
           </div>
         </section>
 
-        <section className="album-study-section album-study-split">
-          <div className="album-study-panel">
-            <EditableGroup
-              title={`Album — ${album.title} (overview)`}
-              isAdminSignedIn={isAdminSignedIn}
-              className="album-overview-editable"
-            >
-              <EditableTextClient
-                contentId={`music.case.${slug}.overview.heading`}
-                initialValue={resolveSiteContentValue(
-                  siteContentOverrides,
-                  `music.case.${slug}.overview.heading`,
-                  "Overview"
-                )}
-                as="h2"
-                rows={2}
-                isAdminSignedIn={isAdminSignedIn}
-                editLabel="Section heading"
-              />
-              <div className="album-study-prose">
-                {album.caseStudy.map((paragraph, index) => (
+        {(album.caseStudy?.length || album.snapshot?.length) ? (
+          <section className="album-study-section album-study-split">
+            {album.caseStudy?.length ? (
+              <div className="album-study-panel">
+                <EditableGroup
+                  title={`Album — ${album.title} (overview)`}
+                  isAdminSignedIn={isAdminSignedIn}
+                  className="album-overview-editable"
+                >
                   <EditableTextClient
-                    key={`${slug}-case-${index}`}
-                    contentId={`music.case.${slug}.caseStudy.${index}`}
+                    contentId={`music.case.${slug}.overview.heading`}
                     initialValue={resolveSiteContentValue(
                       siteContentOverrides,
-                      `music.case.${slug}.caseStudy.${index}`,
-                      paragraph
+                      `music.case.${slug}.overview.heading`,
+                      "Overview"
                     )}
-                    as="p"
-                    rows={6}
+                    as="h2"
+                    rows={2}
                     isAdminSignedIn={isAdminSignedIn}
-                    editLabel={`Paragraph ${index + 1}`}
+                    editLabel="Section heading"
                   />
-                ))}
+                  <div className="album-study-prose">
+                    {album.caseStudy.map((paragraph, index) => (
+                      <EditableTextClient
+                        key={`${slug}-case-${index}`}
+                        contentId={`music.case.${slug}.caseStudy.${index}`}
+                        initialValue={resolveSiteContentValue(
+                          siteContentOverrides,
+                          `music.case.${slug}.caseStudy.${index}`,
+                          paragraph
+                        )}
+                        as="p"
+                        rows={6}
+                        isAdminSignedIn={isAdminSignedIn}
+                        editLabel={`Paragraph ${index + 1}`}
+                      />
+                    ))}
+                  </div>
+                </EditableGroup>
               </div>
-            </EditableGroup>
-          </div>
-          <div className="album-study-panel">
-            <EditableGroup
-              title={`Album — ${album.title} (snapshot)`}
-              isAdminSignedIn={isAdminSignedIn}
-              className="album-snapshot-editable"
-            >
-              <EditableTextClient
-                contentId={`music.case.${slug}.snapshot.heading`}
-                initialValue={resolveSiteContentValue(
-                  siteContentOverrides,
-                  `music.case.${slug}.snapshot.heading`,
-                  "Quick Snapshot"
-                )}
-                as="h2"
-                rows={2}
-                isAdminSignedIn={isAdminSignedIn}
-                editLabel="Section heading"
-              />
-              <ul className="album-study-list">
-                {album.snapshot.map((item, index) => (
-                  <li key={`${slug}-snapshot-${index}`}>
-                    <EditableTextClient
-                      contentId={`music.case.${slug}.snapshot.${index}`}
-                      initialValue={resolveSiteContentValue(
-                        siteContentOverrides,
-                        `music.case.${slug}.snapshot.${index}`,
-                        item
-                      )}
-                      as="span"
-                      wrapperAs="span"
-                      rows={4}
-                      isAdminSignedIn={isAdminSignedIn}
-                      editLabel={`Bullet ${index + 1}`}
-                    />
-                  </li>
-                ))}
-              </ul>
-            </EditableGroup>
-          </div>
-        </section>
+            ) : null}
+            {album.snapshot?.length ? (
+              <div className="album-study-panel">
+                <EditableGroup
+                  title={`Album — ${album.title} (snapshot)`}
+                  isAdminSignedIn={isAdminSignedIn}
+                  className="album-snapshot-editable"
+                >
+                  <EditableTextClient
+                    contentId={`music.case.${slug}.snapshot.heading`}
+                    initialValue={resolveSiteContentValue(
+                      siteContentOverrides,
+                      `music.case.${slug}.snapshot.heading`,
+                      "Quick Snapshot"
+                    )}
+                    as="h2"
+                    rows={2}
+                    isAdminSignedIn={isAdminSignedIn}
+                    editLabel="Section heading"
+                  />
+                  <ul className="album-study-list">
+                    {album.snapshot.map((item, index) => (
+                      <li key={`${slug}-snapshot-${index}`}>
+                        <EditableTextClient
+                          contentId={`music.case.${slug}.snapshot.${index}`}
+                          initialValue={resolveSiteContentValue(
+                            siteContentOverrides,
+                            `music.case.${slug}.snapshot.${index}`,
+                            item
+                          )}
+                          as="span"
+                          wrapperAs="span"
+                          rows={4}
+                          isAdminSignedIn={isAdminSignedIn}
+                          editLabel={`Bullet ${index + 1}`}
+                        />
+                      </li>
+                    ))}
+                  </ul>
+                </EditableGroup>
+              </div>
+            ) : null}
+          </section>
+        ) : null}
 
         {album.highlights?.length ? (
           <section className="album-study-section">

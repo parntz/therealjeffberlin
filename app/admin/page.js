@@ -9,7 +9,7 @@ import {
 const adminCards = [
   {
     title: "Music Report",
-    body: "Open the verified Amazon physical product report for album case studies.",
+    body: "Open the verified Amazon physical product report for album liner notes.",
     href: "/music"
   },
   {

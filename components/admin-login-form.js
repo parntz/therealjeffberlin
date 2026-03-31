@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function AdminLoginForm() {
   const router = useRouter();
@@ -9,6 +9,14 @@ export default function AdminLoginForm() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [pending, setPending] = useState(false);
+  const [allowBlankLocalLogin, setAllowBlankLocalLogin] = useState(false);
+
+  useEffect(() => {
+    const host = window.location.hostname;
+    setAllowBlankLocalLogin(
+      host === "localhost" || host === "127.0.0.1" || host === "::1"
+    );
+  }, []);
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -52,7 +60,7 @@ export default function AdminLoginForm() {
           autoComplete="username"
           value={email}
           onChange={(event) => setEmail(event.target.value)}
-          required
+          required={!allowBlankLocalLogin}
         />
       </label>
       <label className="admin-field">
@@ -63,7 +71,7 @@ export default function AdminLoginForm() {
           autoComplete="current-password"
           value={password}
           onChange={(event) => setPassword(event.target.value)}
-          required
+          required={!allowBlankLocalLogin}
         />
       </label>
       {error ? <p className="admin-error">{error}</p> : null}

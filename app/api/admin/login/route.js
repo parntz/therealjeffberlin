@@ -3,13 +3,32 @@ import { NextResponse } from "next/server";
 import {
   createAdminSessionValue,
   getAdminSessionCookie,
+  getLocalDevAdminEmail,
   verifyAdminCredentials
 } from "../../../../lib/admin-auth";
 
 export async function POST(request) {
   const { email = "", password = "" } = await request.json().catch(() => ({}));
+  const normalizedEmail = String(email).trim();
+  const normalizedPassword = String(password).trim();
+  const hostname = request.nextUrl.hostname;
+  const isLocalhost =
+    hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1";
+  const allowLocalBlankLogin = process.env.NODE_ENV !== "production" && isLocalhost;
+  const useLocalBypass =
+    allowLocalBlankLogin && !normalizedEmail && !normalizedPassword;
 
-  if (!verifyAdminCredentials(email, password)) {
+  if (!useLocalBypass && (!normalizedEmail || !normalizedPassword)) {
+    return NextResponse.json(
+      { error: "Email and password are required." },
+      { status: 400 }
+    );
+  }
+
+  if (
+    !useLocalBypass &&
+    !verifyAdminCredentials(normalizedEmail, normalizedPassword)
+  ) {
     return NextResponse.json(
       { error: "Incorrect email or password." },
       { status: 401 }
@@ -21,7 +40,9 @@ export async function POST(request) {
 
   cookieStore.set(
     sessionCookie.name,
-    createAdminSessionValue(email),
+    createAdminSessionValue(
+      useLocalBypass ? getLocalDevAdminEmail() : normalizedEmail
+    ),
     sessionCookie.options
   );
 

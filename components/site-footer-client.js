@@ -4,7 +4,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { footerLinks } from "../lib/site-data";
 
-export default function SiteFooterClient({ isAdminSignedIn }) {
+export default function SiteFooterClient({
+  isAdminSignedIn,
+  featuredLinerNotes = null
+}) {
   const pathname = usePathname();
   const currentYear = new Date().getFullYear();
   const isHome = pathname === "/";
@@ -52,9 +55,6 @@ export default function SiteFooterClient({ isAdminSignedIn }) {
       ) : null}
 
       <footer className="footer">
-        <div className="footer-art" aria-hidden="true">
-          <img src="/images/JEFF TRANSP.avif" alt="" />
-        </div>
         <div className="footer-meta">
           <nav className="footer-nav" aria-label="Footer">
             {links.map((link) =>
@@ -81,6 +81,22 @@ export default function SiteFooterClient({ isAdminSignedIn }) {
             © {currentYear} Jeff Berlin. All rights reserved.
           </p>
         </div>
+        {featuredLinerNotes ? (
+          <Link
+            href={`/music/${featuredLinerNotes.slug}`}
+            className="footer-featured-liner-notes-card"
+            aria-label="Featured liner notes"
+          >
+            <div className="footer-featured-liner-notes-media">
+              <img src={featuredLinerNotes.cover} alt={featuredLinerNotes.alt || featuredLinerNotes.title} />
+            </div>
+            <div className="footer-featured-liner-notes-copy">
+              <span>Featured Liner Notes</span>
+              <strong>{featuredLinerNotes.title}</strong>
+              <p>{featuredLinerNotes.artist}</p>
+            </div>
+          </Link>
+        ) : null}
       </footer>
     </>
   );

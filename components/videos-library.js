@@ -4,6 +4,8 @@ import { useDeferredValue, useEffect, useState } from "react";
 import EditableGroup from "./editable-group";
 import EditableTextClient from "./editable-text-client";
 
+const VIDEOS_SEARCH_STORAGE_KEY = "jb_videos_search_query";
+
 function makeSearchText(video) {
   return [video.title, video.description, video.transcript?.text ?? ""]
     .join("\n")
@@ -42,6 +44,26 @@ export default function VideosLibrary({
   const [lightboxIndex, setLightboxIndex] = useState(null);
   const deferredQuery = useDeferredValue(query);
   const normalizedQuery = deferredQuery.trim().toLowerCase();
+
+  useEffect(() => {
+    const storedQuery = window.localStorage.getItem(VIDEOS_SEARCH_STORAGE_KEY);
+
+    if (storedQuery) {
+      setQuery(storedQuery);
+    }
+  }, []);
+
+  useEffect(() => {
+    const normalized = query.trim();
+
+    if (!normalized) {
+      window.localStorage.removeItem(VIDEOS_SEARCH_STORAGE_KEY);
+      return;
+    }
+
+    window.localStorage.setItem(VIDEOS_SEARCH_STORAGE_KEY, normalized);
+  }, [query]);
+
   const filteredVideos = videos.filter((video) => {
     if (!normalizedQuery) {
       return true;

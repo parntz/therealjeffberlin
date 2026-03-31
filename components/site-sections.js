@@ -170,13 +170,6 @@ export async function MusicSection({ isAdminSignedIn = false, siteContentOverrid
     return a.title.localeCompare(b.title);
   });
   const spotifyAlbums = await mergeAlbumsWithSpotify(orderedAlbums);
-  const featuredCandidates = spotifyAlbums.filter(
-    (album) => album.spotifyEmbedUrl && album.spotifyFeaturedEligible
-  );
-  const featuredAlbum = featuredCandidates.length
-    ? featuredCandidates[Math.floor(Math.random() * featuredCandidates.length)]
-    : null;
-
   return (
     <section className="music-section music-archive">
       <div className="music-section-header">
@@ -184,26 +177,13 @@ export async function MusicSection({ isAdminSignedIn = false, siteContentOverrid
           <SectionHeading
             contentId="music.section"
             eyebrow="Music"
-            title="Albums, credits, and case studies from across Jeff Berlin's recorded work."
+            title="Albums, credits, and liner notes from across Jeff Berlin's recorded work."
             body="Large cover art, direct album links, and focused notes on solo records, collaborations, and credited appearances."
             groupTitle="Music — section intro"
             isAdminSignedIn={isAdminSignedIn}
             siteContentOverrides={siteContentOverrides}
           />
         </div>
-        {featuredAlbum ? (
-          <aside className="music-featured-player" aria-label="Featured album on Spotify">
-            <div className="music-featured-embed-shell">
-              <iframe
-                className="music-featured-embed"
-                src={featuredAlbum.spotifyEmbedUrl}
-                title={`${featuredAlbum.artist} - ${featuredAlbum.title} on Spotify`}
-                loading="lazy"
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-              />
-            </div>
-          </aside>
-        ) : null}
       </div>
       <MusicArchive albums={spotifyAlbums} isAdminSignedIn={isAdminSignedIn} />
     </section>

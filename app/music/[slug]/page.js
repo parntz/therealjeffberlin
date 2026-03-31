@@ -123,7 +123,7 @@ export default async function AlbumPage({ params }) {
                   initialValue={resolveSiteContentValue(
                     siteContentOverrides,
                     `music.case.${slug}.eyebrow`,
-                    "Album Case Study"
+                    "Album Liner Notes"
                   )}
                   as="p"
                   className="eyebrow"
@@ -334,52 +334,50 @@ export default async function AlbumPage({ params }) {
           </div>
         </section>
 
-        <section className="album-study-section">
-          <div className="album-detail-grid">
-            {album.highlights.map((item, index) => (
-              <article key={`${slug}-highlight-${index}`} className="album-detail-card">
-                <EditableGroup
-                  title={`Album — ${album.title} (highlight ${index + 1})`}
-                  isAdminSignedIn={isAdminSignedIn}
-                  className="album-highlight-editable"
-                >
-                  <EditableTextClient
-                    contentId={`music.case.${slug}.highlights.${index}.title`}
-                    initialValue={resolveSiteContentValue(
-                      siteContentOverrides,
-                      `music.case.${slug}.highlights.${index}.title`,
-                      item.title
-                    )}
-                    as="h3"
-                    rows={2}
+        {album.highlights?.length ? (
+          <section className="album-study-section">
+            <div className="album-detail-grid">
+              {album.highlights.map((item, index) => (
+                <article key={`${slug}-highlight-${index}`} className="album-detail-card">
+                  <EditableGroup
+                    title={`Album — ${album.title} (highlight ${index + 1})`}
                     isAdminSignedIn={isAdminSignedIn}
-                    editLabel="Title"
-                  />
-                  <EditableTextClient
-                    contentId={`music.case.${slug}.highlights.${index}.body`}
-                    initialValue={resolveSiteContentValue(
-                      siteContentOverrides,
-                      `music.case.${slug}.highlights.${index}.body`,
-                      item.body
-                    )}
-                    as="p"
-                    rows={5}
-                    isAdminSignedIn={isAdminSignedIn}
-                    editLabel="Body"
-                  />
-                </EditableGroup>
-              </article>
-            ))}
-          </div>
-        </section>
+                    className="album-highlight-editable"
+                  >
+                    <EditableTextClient
+                      contentId={`music.case.${slug}.highlights.${index}.title`}
+                      initialValue={resolveSiteContentValue(
+                        siteContentOverrides,
+                        `music.case.${slug}.highlights.${index}.title`,
+                        item.title
+                      )}
+                      as="h3"
+                      rows={2}
+                      isAdminSignedIn={isAdminSignedIn}
+                      editLabel="Title"
+                    />
+                    <EditableTextClient
+                      contentId={`music.case.${slug}.highlights.${index}.body`}
+                      initialValue={resolveSiteContentValue(
+                        siteContentOverrides,
+                        `music.case.${slug}.highlights.${index}.body`,
+                        item.body
+                      )}
+                      as="p"
+                      rows={5}
+                      isAdminSignedIn={isAdminSignedIn}
+                      editLabel="Body"
+                    />
+                  </EditableGroup>
+                </article>
+              ))}
+            </div>
+          </section>
+        ) : null}
 
-        <section className="album-study-section">
-          <div className="album-study-panel">
-            <EditableGroup
-              title={`Album — ${album.title} (listen for)`}
-              isAdminSignedIn={isAdminSignedIn}
-              className="album-listen-editable"
-            >
+        {album.trackMoments?.length ? (
+          <section className="album-study-section">
+            <div className="album-study-panel">
               <EditableTextClient
                 contentId={`music.case.${slug}.listen.heading`}
                 initialValue={resolveSiteContentValue(
@@ -395,36 +393,106 @@ export default async function AlbumPage({ params }) {
               <div className="album-detail-grid album-detail-grid-compact">
                 {album.trackMoments.map((item, index) => (
                   <article key={`${slug}-listen-${index}`} className="album-detail-card">
-                    <EditableTextClient
-                      contentId={`music.case.${slug}.trackMoments.${index}.title`}
-                      initialValue={resolveSiteContentValue(
-                        siteContentOverrides,
-                        `music.case.${slug}.trackMoments.${index}.title`,
-                        item.title
-                      )}
-                      as="h3"
-                      rows={2}
+                    <EditableGroup
+                      title={`Album — ${album.title} (listen moment ${index + 1})`}
                       isAdminSignedIn={isAdminSignedIn}
-                      editLabel={`Moment ${index + 1} — title`}
-                    />
-                    <EditableTextClient
-                      contentId={`music.case.${slug}.trackMoments.${index}.body`}
-                      initialValue={resolveSiteContentValue(
-                        siteContentOverrides,
-                        `music.case.${slug}.trackMoments.${index}.body`,
-                        item.body
-                      )}
-                      as="p"
-                      rows={5}
-                      isAdminSignedIn={isAdminSignedIn}
-                      editLabel={`Moment ${index + 1} — body`}
-                    />
+                      className="album-listen-editable"
+                    >
+                      <EditableTextClient
+                        contentId={`music.case.${slug}.trackMoments.${index}.title`}
+                        initialValue={resolveSiteContentValue(
+                          siteContentOverrides,
+                          `music.case.${slug}.trackMoments.${index}.title`,
+                          item.title
+                        )}
+                        as="h3"
+                        rows={2}
+                        isAdminSignedIn={isAdminSignedIn}
+                        editLabel={`Moment ${index + 1} — title`}
+                      />
+                      <EditableTextClient
+                        contentId={`music.case.${slug}.trackMoments.${index}.body`}
+                        initialValue={resolveSiteContentValue(
+                          siteContentOverrides,
+                          `music.case.${slug}.trackMoments.${index}.body`,
+                          item.body
+                        )}
+                        as="p"
+                        rows={5}
+                        isAdminSignedIn={isAdminSignedIn}
+                        editLabel={`Moment ${index + 1} — body`}
+                      />
+                    </EditableGroup>
                   </article>
                 ))}
               </div>
-            </EditableGroup>
-          </div>
-        </section>
+            </div>
+          </section>
+        ) : null}
+
+        {album.trackListing?.length || album.personnel?.length ? (
+          <section className="album-study-section album-study-split">
+            {album.trackListing?.length ? (
+              <div className="album-study-panel">
+                <h2>Track Listing</h2>
+                <ol className="album-study-list">
+                  {album.trackListing.map((track) => (
+                    <li key={`${slug}-track-${track}`}>{track}</li>
+                  ))}
+                </ol>
+              </div>
+            ) : null}
+            {album.personnel?.length ? (
+              <div className="album-study-panel">
+                <h2>Musicians</h2>
+                <ul className="album-study-list">
+                  {album.personnel.map((credit) => (
+                    <li key={`${slug}-personnel-${credit}`}>{credit}</li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
+          </section>
+        ) : null}
+
+        {album.technicalCredits?.length ||
+        album.dedication ||
+        album.thanks?.length ||
+        album.artworkNote ||
+        album.linerNotesNote ? (
+          <section className="album-study-section album-study-split">
+            {album.technicalCredits?.length ? (
+              <div className="album-study-panel">
+                <h2>Technical Credits</h2>
+                <ul className="album-study-list">
+                  {album.technicalCredits.map((credit) => (
+                    <li key={`${slug}-technical-${credit}`}>{credit}</li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
+            {album.dedication ||
+            album.thanks?.length ||
+            album.artworkNote ||
+            album.linerNotesNote ? (
+              <div className="album-study-panel">
+                <h2>Liner Notes Details</h2>
+                <div className="album-study-prose">
+                  {album.dedication ? <p>{album.dedication}</p> : null}
+                  {album.artworkNote ? <p>{album.artworkNote}</p> : null}
+                  {album.linerNotesNote ? <p>{album.linerNotesNote}</p> : null}
+                </div>
+                {album.thanks?.length ? (
+                  <ul className="album-study-list">
+                    {album.thanks.map((item) => (
+                      <li key={`${slug}-thanks-${item}`}>{item}</li>
+                    ))}
+                  </ul>
+                ) : null}
+              </div>
+            ) : null}
+          </section>
+        ) : null}
 
         <section className="album-study-section">
           <div className="album-study-panel">

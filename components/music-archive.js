@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { startTransition, useDeferredValue, useEffect, useState } from "react";
 
+const MUSIC_SEARCH_STORAGE_KEY = "jb_music_search_query";
+
 function buildAlbumSearchText(album) {
   return [
     album.title,
@@ -15,7 +17,14 @@ function buildAlbumSearchText(album) {
     ...(album.snapshot || []),
     ...(album.caseStudy || []),
     ...((album.highlights || []).flatMap((item) => [item.title, item.body])),
-    ...((album.trackMoments || []).flatMap((item) => [item.title, item.body]))
+    ...((album.trackMoments || []).flatMap((item) => [item.title, item.body])),
+    ...(album.trackListing || []),
+    ...(album.personnel || []),
+    ...(album.technicalCredits || []),
+    album.dedication,
+    ...(album.thanks || []),
+    album.artworkNote,
+    album.linerNotesNote
   ]
     .filter(Boolean)
     .join(" ")
@@ -34,6 +43,25 @@ export default function MusicArchive({ albums, isAdminSignedIn = false }) {
   const [savingSlug, setSavingSlug] = useState("");
   const deferredQuery = useDeferredValue(query);
   const normalizedQuery = deferredQuery.trim().toLowerCase();
+
+  useEffect(() => {
+    const storedQuery = window.localStorage.getItem(MUSIC_SEARCH_STORAGE_KEY);
+
+    if (storedQuery) {
+      setQuery(storedQuery);
+    }
+  }, []);
+
+  useEffect(() => {
+    const normalized = query.trim();
+
+    if (!normalized) {
+      window.localStorage.removeItem(MUSIC_SEARCH_STORAGE_KEY);
+      return;
+    }
+
+    window.localStorage.setItem(MUSIC_SEARCH_STORAGE_KEY, normalized);
+  }, [query]);
 
   useEffect(() => {
     setEligibilityBySlug(
@@ -96,20 +124,20 @@ export default function MusicArchive({ albums, isAdminSignedIn = false }) {
     <>
       <div className="music-search-shell">
         <label className="music-search-label" htmlFor="music-search">
-          Search by album, artist, or credited musician
+          Search the music archive
         </label>
-        <div className="music-search-frame">
-          <input
-            id="music-search"
-            name="music-search"
-            type="search"
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
-            placeholder="Try Road Games, Bruford, Jeff Berlin, Holdsworth..."
-            className="music-search-input"
-          />
-          <span className="music-search-count">
-            {filteredAlbums.length} shown
+        <input
+          id="music-search"
+          name="music-search"
+          type="search"
+          value={query}
+          onChange={(event) => setQuery(event.target.value)}
+          placeholder="SEARCH"
+          className="music-search-input"
+        />
+        <div className="music-search-meta">
+          <span>
+            {filteredAlbums.length} of {albums.length} albums
           </span>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { cookies } from "next/headers";
+import EditableGroup from "../components/editable-group";
 import EditableTextClient from "../components/editable-text-client";
 import JeffWordmark from "../components/jeff-wordmark";
 import {
@@ -46,31 +47,39 @@ export default async function HomePage() {
         </header>
 
         <div className="hero-copy">
-          <EditableTextClient
-            contentId="home.hero.eyebrow"
-            initialValue={resolveSiteContentValue(
-              siteContentOverrides,
-              "home.hero.eyebrow",
-              "Electric Bass. Zero Apology."
-            )}
-            as="p"
-            className="eyebrow"
-            rows={2}
+          <EditableGroup
+            title="Home — hero lead"
             isAdminSignedIn={Boolean(adminSession)}
-          />
-          <JeffWordmark as="h1" />
-          <EditableTextClient
-            contentId="home.hero.summary"
-            initialValue={resolveSiteContentValue(
-              siteContentOverrides,
-              "home.hero.summary",
-              "A fearless voice in electric bass for more than four decades: virtuoso, composer, bandleader, educator."
-            )}
-            as="p"
-            className="hero-summary"
-            rows={4}
-            isAdminSignedIn={Boolean(adminSession)}
-          />
+            className="hero-copy-lead-group"
+          >
+            <EditableTextClient
+              contentId="home.hero.eyebrow"
+              initialValue={resolveSiteContentValue(
+                siteContentOverrides,
+                "home.hero.eyebrow",
+                "Electric Bass. Zero Apology."
+              )}
+              as="p"
+              className="eyebrow"
+              rows={2}
+              isAdminSignedIn={Boolean(adminSession)}
+              editLabel="Eyebrow"
+            />
+            <JeffWordmark as="h1" />
+            <EditableTextClient
+              contentId="home.hero.summary"
+              initialValue={resolveSiteContentValue(
+                siteContentOverrides,
+                "home.hero.summary",
+                "A fearless voice in electric bass for more than four decades: virtuoso, composer, bandleader, educator."
+              )}
+              as="p"
+              className="hero-summary"
+              rows={4}
+              isAdminSignedIn={Boolean(adminSession)}
+              editLabel="Summary"
+            />
+          </EditableGroup>
           <div className="hero-actions">
             <a href="/lessons" className="button button-primary">
               Book A Lesson
@@ -80,28 +89,36 @@ export default async function HomePage() {
             </a>
           </div>
           <div className="hero-quote">
-            <EditableTextClient
-              contentId="home.hero.quoteLabel"
-              initialValue={resolveSiteContentValue(
-                siteContentOverrides,
-                "home.hero.quoteLabel",
-                "Geddy Lee on Jeff Berlin"
-              )}
-              as="span"
-              rows={2}
+            <EditableGroup
+              title="Home — featured quote"
               isAdminSignedIn={Boolean(adminSession)}
-            />
-            <EditableTextClient
-              contentId="home.hero.quote"
-              initialValue={resolveSiteContentValue(
-                siteContentOverrides,
-                "home.hero.quote",
-                "“The best bass player on the planet right now. An incredible talent.”"
-              )}
-              as="p"
-              rows={4}
-              isAdminSignedIn={Boolean(adminSession)}
-            />
+              className="hero-quote-editable"
+            >
+              <EditableTextClient
+                contentId="home.hero.quoteLabel"
+                initialValue={resolveSiteContentValue(
+                  siteContentOverrides,
+                  "home.hero.quoteLabel",
+                  "Geddy Lee on Jeff Berlin"
+                )}
+                as="span"
+                rows={2}
+                isAdminSignedIn={Boolean(adminSession)}
+                editLabel="Attribution"
+              />
+              <EditableTextClient
+                contentId="home.hero.quote"
+                initialValue={resolveSiteContentValue(
+                  siteContentOverrides,
+                  "home.hero.quote",
+                  "“The best bass player on the planet right now. An incredible talent.”"
+                )}
+                as="p"
+                rows={4}
+                isAdminSignedIn={Boolean(adminSession)}
+                editLabel="Quote"
+              />
+            </EditableGroup>
           </div>
         </div>
 

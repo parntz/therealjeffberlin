@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
+import EditableGroup from "./editable-group";
 import EditableTextClient from "./editable-text-client";
 
 const SLOT_LABELS = [
@@ -117,32 +118,41 @@ export default function LessonBooker({
   return (
     <div className="lesson-booker">
       <div className="lesson-booker-panel">
-        <EditableTextClient
-          contentId="lessons.booker.eyebrow"
-          initialValue={copy.eyebrow || "Private Study"}
-          as="p"
-          className="eyebrow"
-          rows={2}
+        <EditableGroup
+          title="Lessons — booking panel"
           isAdminSignedIn={isAdminSignedIn}
-        />
-        <EditableTextClient
-          contentId="lessons.booker.title"
-          initialValue={copy.title || "Choose a day, claim a slot, send the request."}
-          as="h3"
-          rows={3}
-          isAdminSignedIn={isAdminSignedIn}
-        />
-        <EditableTextClient
-          contentId="lessons.booker.intro"
-          initialValue={
-            copy.intro ||
-            "Pick the day and time that works best for you, then send the request. Jeff will follow up to confirm that the slot works for him and to arrange payment before the lesson is finalized."
-          }
-          as="p"
-          className="lesson-booker-intro"
-          rows={5}
-          isAdminSignedIn={isAdminSignedIn}
-        />
+          className="lesson-booker-editable"
+        >
+          <EditableTextClient
+            contentId="lessons.booker.eyebrow"
+            initialValue={copy.eyebrow || "Private Study"}
+            as="p"
+            className="eyebrow"
+            rows={2}
+            isAdminSignedIn={isAdminSignedIn}
+            editLabel="Eyebrow"
+          />
+          <EditableTextClient
+            contentId="lessons.booker.title"
+            initialValue={copy.title || "Choose a day, claim a slot, send the request."}
+            as="h3"
+            rows={3}
+            isAdminSignedIn={isAdminSignedIn}
+            editLabel="Title"
+          />
+          <EditableTextClient
+            contentId="lessons.booker.intro"
+            initialValue={
+              copy.intro ||
+              "Pick the day and time that works best for you, then send the request. Jeff will follow up to confirm that the slot works for him and to arrange payment before the lesson is finalized."
+            }
+            as="p"
+            className="lesson-booker-intro"
+            rows={5}
+            isAdminSignedIn={isAdminSignedIn}
+            editLabel="Intro"
+          />
+        </EditableGroup>
 
         <div className="lesson-day-grid">
           {days.map((day) => (

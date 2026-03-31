@@ -486,6 +486,10 @@ img {
 }
 
 .bio-columns {
+  display: block;
+}
+
+.bio-columns-editable {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.25rem;
@@ -1594,6 +1598,49 @@ img {
   background: #232323;
 }
 
+@keyframes editable-overlay-shimmer {
+  0%,
+  100% {
+    background-position: 120% 0;
+  }
+
+  50% {
+    background-position: -40% 0;
+  }
+}
+
+@keyframes editable-overlay-edge {
+  0%,
+  100% {
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 189, 89, 0.28),
+      0 0 10px rgba(255, 189, 89, 0.12),
+      0 0 22px rgba(255, 120, 60, 0.08);
+  }
+
+  50% {
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 210, 130, 0.55),
+      0 0 16px rgba(255, 189, 89, 0.28),
+      0 0 34px rgba(255, 91, 46, 0.14);
+  }
+}
+
+@keyframes editable-overlay-drift {
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+
+  40% {
+    transform: scale(1.012) rotate(-0.35deg);
+  }
+
+  70% {
+    transform: scale(1.006) rotate(0.28deg);
+  }
+}
+
 .editable-copy {
   position: relative;
   display: block;
@@ -1601,51 +1648,251 @@ img {
   isolation: isolate;
 }
 
-.editable-copy.is-editing {
-  padding-top: calc(var(--admin-action-height) + 0.8rem);
-}
-
 .editable-copy.is-inline {
   display: inline-block;
   vertical-align: top;
 }
 
-.editable-copy-actions,
-.editable-copy-form-actions {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 0.55rem;
-}
-
-.editable-copy-actions {
-  position: absolute;
-  top: 0.35rem;
-  left: 0.35rem;
-  z-index: 8;
-}
-
-.editable-copy-form {
+.editable-copy-block {
   position: relative;
-  z-index: 9;
-  width: min(100%, 28rem);
+  display: block;
+  min-width: 0;
+}
+
+.editable-copy-block.is-inline {
+  display: inline-block;
+  vertical-align: baseline;
+  max-width: 100%;
+}
+
+.editable-copy-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.42s ease;
+  animation: none;
+  background:
+    linear-gradient(
+      125deg,
+      rgba(255, 189, 89, 0.2) 0%,
+      rgba(255, 91, 46, 0.14) 42%,
+      rgba(120, 200, 255, 0.12) 100%
+    );
+}
+
+.editable-copy-overlay:hover,
+.editable-copy-overlay:focus-visible {
+  opacity: 1;
+  animation: editable-overlay-edge 4.2s ease-in-out infinite,
+    editable-overlay-drift 9s ease-in-out infinite;
+}
+
+.editable-copy-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.38s ease 0.04s;
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.12) 45%,
+    rgba(255, 189, 89, 0.22) 52%,
+    transparent 100%
+  );
+  background-size: 220% 100%;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+.editable-copy-overlay:hover::before,
+.editable-copy-overlay:focus-visible::before {
+  opacity: 1;
+  animation: editable-overlay-shimmer 5.5s ease-in-out infinite;
+}
+
+.editable-group {
+  position: relative;
+  display: block;
+  min-width: 0;
+}
+
+.editable-group-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.42s ease;
+  animation: none;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 189, 89, 0.22) 0%,
+      rgba(40, 80, 120, 0.14) 55%,
+      rgba(255, 91, 46, 0.14) 100%
+    );
+}
+
+.editable-group-overlay:hover,
+.editable-group-overlay:focus-visible {
+  opacity: 1;
+  animation: editable-overlay-edge 4.2s ease-in-out infinite,
+    editable-overlay-drift 9s ease-in-out infinite;
+}
+
+.editable-group-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.38s ease 0.04s;
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 48%,
+    rgba(255, 189, 89, 0.2) 52%,
+    transparent 100%
+  );
+  background-size: 220% 100%;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+.editable-group-overlay:hover::before,
+.editable-group-overlay:focus-visible::before {
+  opacity: 1;
+  animation: editable-overlay-shimmer 5.5s ease-in-out infinite;
+}
+
+.content-edit-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
   display: grid;
-  gap: 0.6rem;
-  margin-top: 0.55rem;
-  padding: 0.75rem;
-  border: 1px solid rgba(255, 189, 89, 0.2);
-  background: #111;
+  place-items: center;
+  padding: 1.25rem;
+  background: rgba(2, 2, 2, 0.88);
+  backdrop-filter: blur(12px);
+}
+
+.content-edit-lightbox-panel {
+  width: min(100%, 32rem);
+  max-height: min(88vh, 40rem);
+  overflow: auto;
+  display: grid;
+  gap: 0.75rem;
+  padding: 1.15rem 1.25rem 1.25rem;
+  border: 1px solid rgba(255, 189, 89, 0.22);
+  background:
+    radial-gradient(circle at 12% 0%, rgba(255, 189, 89, 0.14), transparent 42%),
+    linear-gradient(180deg, rgba(18, 18, 18, 0.99), rgba(8, 8, 8, 0.99));
   box-shadow: var(--shadow);
 }
 
-.editable-copy-form textarea {
+.content-edit-lightbox-panel-is-group {
+  width: min(100%, 40rem);
+  max-height: min(90vh, 46rem);
+}
+
+.content-edit-lightbox-head {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.content-edit-lightbox-title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--cream);
+}
+
+.content-edit-lightbox-id,
+.content-edit-lightbox-hint {
+  margin: 0;
+  font-size: 0.75rem;
+  color: var(--muted);
+  word-break: break-word;
+}
+
+.content-edit-lightbox-fields {
+  display: grid;
+  gap: 1rem;
+}
+
+.content-edit-lightbox-field {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.content-edit-lightbox-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-2);
+}
+
+.content-edit-lightbox-textarea {
   width: 100%;
-  min-height: 5rem;
+  min-height: 4.5rem;
   padding: 0.75rem 0.85rem;
   border: 1px solid rgba(255, 255, 255, 0.12);
   background: rgba(255, 255, 255, 0.04);
   color: var(--cream);
   font: inherit;
   resize: vertical;
+}
+
+.content-edit-lightbox-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  padding-top: 0.25rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .editable-copy-overlay,
+  .editable-copy-overlay::before,
+  .editable-group-overlay,
+  .editable-group-overlay::before {
+    animation: none !important;
+    transition-duration: 0.15s;
+  }
+
+  .editable-copy-overlay:hover,
+  .editable-copy-overlay:focus-visible,
+  .editable-group-overlay:hover,
+  .editable-group-overlay:focus-visible {
+    box-shadow: inset 0 0 0 1px rgba(255, 189, 89, 0.4);
+  }
+}
+
+@media (hover: none) {
+  .editable-copy-overlay,
+  .editable-group-overlay {
+    opacity: 0;
+  }
+
+  .editable-copy-overlay:active,
+  .editable-group-overlay:active {
+    opacity: 1;
+    transition-duration: 0.2s;
+  }
 }
 
 .photos-edit-form {
@@ -2656,7 +2903,7 @@ img {
   .testimonial-grid,
   .store-grid,
   .timeline,
-  .bio-columns,
+  .bio-columns-editable,
   .section-grid,
   .album-study-grid,
   .album-study-split,

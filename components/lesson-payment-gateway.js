@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import EditableGroup from "./editable-group";
 import EditableTextClient from "./editable-text-client";
 import { LESSON_PRICE, makePaypalLink } from "../lib/site-data";
 
@@ -39,31 +40,40 @@ export default function LessonPaymentGateway({
   return (
     <section className="lesson-payment-panel" aria-label="Lesson payment">
       <div className="lesson-payment-header">
-        <EditableTextClient
-          contentId="lessons.payment.eyebrow"
-          initialValue={copy.eyebrow || "Pay Online"}
-          as="p"
-          className="eyebrow"
-          rows={2}
+        <EditableGroup
+          title="Lessons — payment panel"
           isAdminSignedIn={isAdminSignedIn}
-        />
-        <EditableTextClient
-          contentId="lessons.payment.title"
-          initialValue={copy.title || "Lock in one lesson or stack a few at once."}
-          as="h3"
-          rows={3}
-          isAdminSignedIn={isAdminSignedIn}
-        />
-        <EditableTextClient
-          contentId="lessons.payment.body"
-          initialValue={
-            copy.body ||
-            `Each lesson is ${formatCurrency(LESSON_PRICE)}. Choose the quantity and jump straight to PayPal.`
-          }
-          as="p"
-          rows={4}
-          isAdminSignedIn={isAdminSignedIn}
-        />
+          className="lesson-payment-editable"
+        >
+          <EditableTextClient
+            contentId="lessons.payment.eyebrow"
+            initialValue={copy.eyebrow || "Pay Online"}
+            as="p"
+            className="eyebrow"
+            rows={2}
+            isAdminSignedIn={isAdminSignedIn}
+            editLabel="Eyebrow"
+          />
+          <EditableTextClient
+            contentId="lessons.payment.title"
+            initialValue={copy.title || "Lock in one lesson or stack a few at once."}
+            as="h3"
+            rows={3}
+            isAdminSignedIn={isAdminSignedIn}
+            editLabel="Title"
+          />
+          <EditableTextClient
+            contentId="lessons.payment.body"
+            initialValue={
+              copy.body ||
+              `Each lesson is ${formatCurrency(LESSON_PRICE)}. Choose the quantity and jump straight to PayPal.`
+            }
+            as="p"
+            rows={4}
+            isAdminSignedIn={isAdminSignedIn}
+            editLabel="Body"
+          />
+        </EditableGroup>
       </div>
 
       <div className="lesson-payment-pricing">

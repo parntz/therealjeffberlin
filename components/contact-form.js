@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import EditableGroup from "./editable-group";
 import EditableTextClient from "./editable-text-client";
 
 export default function ContactForm({
@@ -66,33 +67,42 @@ export default function ContactForm({
   return (
     <div className="contact-form-shell">
       <div className="lesson-booker-panel contact-panel">
-        <EditableTextClient
-          contentId="contact.page.eyebrow"
-          initialValue={copy.eyebrow || "Contact"}
-          as="p"
-          className="eyebrow"
-          rows={2}
+        <EditableGroup
+          title="Contact page — intro"
           isAdminSignedIn={isAdminSignedIn}
-        />
-        <EditableTextClient
-          contentId="contact.page.title"
-          initialValue={copy.title || "Send Jeff a message."}
-          as="h1"
-          className="contact-page-title"
-          rows={3}
-          isAdminSignedIn={isAdminSignedIn}
-        />
-        <EditableTextClient
-          contentId="contact.page.body"
-          initialValue={
-            copy.body ||
-            "Use the form below for questions about lessons, music, books, appearances, or general inquiries. Messages go directly to Jeff Berlin's inbox."
-          }
-          as="p"
-          className="lesson-booker-intro"
-          rows={5}
-          isAdminSignedIn={isAdminSignedIn}
-        />
+          className="contact-page-editable"
+        >
+          <EditableTextClient
+            contentId="contact.page.eyebrow"
+            initialValue={copy.eyebrow || "Contact"}
+            as="p"
+            className="eyebrow"
+            rows={2}
+            isAdminSignedIn={isAdminSignedIn}
+            editLabel="Eyebrow"
+          />
+          <EditableTextClient
+            contentId="contact.page.title"
+            initialValue={copy.title || "Send Jeff a message."}
+            as="h1"
+            className="contact-page-title"
+            rows={3}
+            isAdminSignedIn={isAdminSignedIn}
+            editLabel="Title"
+          />
+          <EditableTextClient
+            contentId="contact.page.body"
+            initialValue={
+              copy.body ||
+              "Use the form below for questions about lessons, music, books, appearances, or general inquiries. Messages go directly to Jeff Berlin's inbox."
+            }
+            as="p"
+            className="lesson-booker-intro"
+            rows={5}
+            isAdminSignedIn={isAdminSignedIn}
+            editLabel="Intro"
+          />
+        </EditableGroup>
 
         <form className="lesson-request-form" onSubmit={submitRequest}>
           <div className="lesson-form-grid">

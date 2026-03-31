@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { cookies } from "next/headers";
 
+import EditableGroup from "../../components/editable-group";
 import EditableTextClient from "../../components/editable-text-client";
 import PhotosGallery from "../../components/photos-gallery";
 import {
@@ -287,41 +288,50 @@ export default async function PhotosPage() {
     <main className="page-shell photos-page">
       <section className="photos-hero">
         <div className="photos-hero-copy">
-          <EditableTextClient
-            contentId="photos.hero.eyebrow"
-            initialValue={resolveSiteContentValue(
-              siteContentOverrides,
-              "photos.hero.eyebrow",
-              "Photos"
-            )}
-            as="p"
-            className="eyebrow"
-            rows={2}
+          <EditableGroup
+            title="Photos — hero"
             isAdminSignedIn={Boolean(adminSession)}
-          />
-          <EditableTextClient
-            contentId="photos.hero.title"
-            initialValue={resolveSiteContentValue(
-              siteContentOverrides,
-              "photos.hero.title",
-              "Light, motion, bass, silhouette."
-            )}
-            as="h1"
-            rows={3}
-            isAdminSignedIn={Boolean(adminSession)}
-          />
-          <EditableTextClient
-            contentId="photos.hero.dek"
-            initialValue={resolveSiteContentValue(
-              siteContentOverrides,
-              "photos.hero.dek",
-              "A photo page built like a studio light table: layered frames, cropped stage moments, and a cleaner presentation than a standard gallery wall."
-            )}
-            as="p"
-            className="photos-hero-dek"
-            rows={5}
-            isAdminSignedIn={Boolean(adminSession)}
-          />
+            className="photos-hero-editable"
+          >
+            <EditableTextClient
+              contentId="photos.hero.eyebrow"
+              initialValue={resolveSiteContentValue(
+                siteContentOverrides,
+                "photos.hero.eyebrow",
+                "Photos"
+              )}
+              as="p"
+              className="eyebrow"
+              rows={2}
+              isAdminSignedIn={Boolean(adminSession)}
+              editLabel="Eyebrow"
+            />
+            <EditableTextClient
+              contentId="photos.hero.title"
+              initialValue={resolveSiteContentValue(
+                siteContentOverrides,
+                "photos.hero.title",
+                "Light, motion, bass, silhouette."
+              )}
+              as="h1"
+              rows={3}
+              isAdminSignedIn={Boolean(adminSession)}
+              editLabel="Title"
+            />
+            <EditableTextClient
+              contentId="photos.hero.dek"
+              initialValue={resolveSiteContentValue(
+                siteContentOverrides,
+                "photos.hero.dek",
+                "A photo page built like a studio light table: layered frames, cropped stage moments, and a cleaner presentation than a standard gallery wall."
+              )}
+              as="p"
+              className="photos-hero-dek"
+              rows={5}
+              isAdminSignedIn={Boolean(adminSession)}
+              editLabel="Dek"
+            />
+          </EditableGroup>
           <div className="photos-hero-meta">
             <span>Performance portraits</span>
             <span>Archive material</span>
@@ -330,17 +340,24 @@ export default async function PhotosPage() {
         </div>
 
         <div className="photos-hero-aside">
-          <EditableTextClient
-            contentId="photos.hero.aside"
-            initialValue={resolveSiteContentValue(
-              siteContentOverrides,
-              "photos.hero.aside",
-              "Official images, archive shots, and licensed live photography gathered into one local gallery."
-            )}
-            as="p"
-            rows={4}
+          <EditableGroup
+            title="Photos — aside"
             isAdminSignedIn={Boolean(adminSession)}
-          />
+            className="photos-hero-aside-editable"
+          >
+            <EditableTextClient
+              contentId="photos.hero.aside"
+              initialValue={resolveSiteContentValue(
+                siteContentOverrides,
+                "photos.hero.aside",
+                "Official images, archive shots, and licensed live photography gathered into one local gallery."
+              )}
+              as="p"
+              rows={4}
+              isAdminSignedIn={Boolean(adminSession)}
+              editLabel="Aside"
+            />
+          </EditableGroup>
         </div>
       </section>
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { useDeferredValue, useEffect, useState } from "react";
+import EditableGroup from "./editable-group";
 import EditableTextClient from "./editable-text-client";
 
 function makeSearchText(video) {
@@ -115,28 +116,37 @@ export default function VideosLibrary({
       <div className="videos-shell">
         <div className="videos-hero">
           <div className="videos-hero-copy">
-            <EditableTextClient
-              contentId="videos.hero.eyebrow"
-              initialValue={copy.eyebrow}
-              as="p"
-              className="eyebrow"
-              rows={2}
+            <EditableGroup
+              title="Videos — hero"
               isAdminSignedIn={isAdminSignedIn}
-            />
-            <EditableTextClient
-              contentId="videos.hero.title"
-              initialValue={copy.title}
-              as="h1"
-              rows={3}
-              isAdminSignedIn={isAdminSignedIn}
-            />
-            <EditableTextClient
-              contentId="videos.hero.body"
-              initialValue={copy.body}
-              as="p"
-              rows={5}
-              isAdminSignedIn={isAdminSignedIn}
-            />
+              className="videos-hero-editable"
+            >
+              <EditableTextClient
+                contentId="videos.hero.eyebrow"
+                initialValue={copy.eyebrow}
+                as="p"
+                className="eyebrow"
+                rows={2}
+                isAdminSignedIn={isAdminSignedIn}
+                editLabel="Eyebrow"
+              />
+              <EditableTextClient
+                contentId="videos.hero.title"
+                initialValue={copy.title}
+                as="h1"
+                rows={3}
+                isAdminSignedIn={isAdminSignedIn}
+                editLabel="Title"
+              />
+              <EditableTextClient
+                contentId="videos.hero.body"
+                initialValue={copy.body}
+                as="p"
+                rows={5}
+                isAdminSignedIn={isAdminSignedIn}
+                editLabel="Body"
+              />
+            </EditableGroup>
           </div>
           <div className="videos-search-panel">
             <label className="videos-search-label" htmlFor="videos-search">
@@ -201,20 +211,28 @@ export default function VideosLibrary({
                 <div className="video-card-meta">
                   <span>No matches</span>
                 </div>
-                <EditableTextClient
-                  contentId="videos.empty.title"
-                  initialValue={copy.emptyTitle}
-                  as="h2"
-                  rows={2}
+                <EditableGroup
+                  title="Videos — empty search"
                   isAdminSignedIn={isAdminSignedIn}
-                />
-                <EditableTextClient
-                  contentId="videos.empty.body"
-                  initialValue={copy.emptyBody}
-                  as="p"
-                  rows={3}
-                  isAdminSignedIn={isAdminSignedIn}
-                />
+                  className="videos-empty-editable"
+                >
+                  <EditableTextClient
+                    contentId="videos.empty.title"
+                    initialValue={copy.emptyTitle}
+                    as="h2"
+                    rows={2}
+                    isAdminSignedIn={isAdminSignedIn}
+                    editLabel="Title"
+                  />
+                  <EditableTextClient
+                    contentId="videos.empty.body"
+                    initialValue={copy.emptyBody}
+                    as="p"
+                    rows={3}
+                    isAdminSignedIn={isAdminSignedIn}
+                    editLabel="Body"
+                  />
+                </EditableGroup>
               </div>
             </div>
           )}

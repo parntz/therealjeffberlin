@@ -1,4 +1,5 @@
 import Image from "next/image";
+import EditableGroup from "./editable-group";
 import EditableTextClient from "./editable-text-client";
 import {
   books,
@@ -21,11 +22,16 @@ export function SectionHeading({
   eyebrow,
   title,
   body,
+  groupTitle,
   isAdminSignedIn = false,
   siteContentOverrides = {}
 }) {
   return (
-    <div className="section-heading">
+    <EditableGroup
+      title={groupTitle || "Section intro"}
+      isAdminSignedIn={isAdminSignedIn}
+      className="section-heading"
+    >
       <EditableTextClient
         contentId={`${contentId}.eyebrow`}
         initialValue={contentValue(siteContentOverrides, `${contentId}.eyebrow`, eyebrow)}
@@ -33,6 +39,7 @@ export function SectionHeading({
         className="eyebrow"
         rows={2}
         isAdminSignedIn={isAdminSignedIn}
+        editLabel="Eyebrow"
       />
       <EditableTextClient
         contentId={`${contentId}.title`}
@@ -40,6 +47,7 @@ export function SectionHeading({
         as="h2"
         rows={3}
         isAdminSignedIn={isAdminSignedIn}
+        editLabel="Title"
       />
       <EditableTextClient
         contentId={`${contentId}.body`}
@@ -47,8 +55,9 @@ export function SectionHeading({
         as="p"
         rows={5}
         isAdminSignedIn={isAdminSignedIn}
+        editLabel="Body"
       />
-    </div>
+    </EditableGroup>
   );
 }
 
@@ -72,59 +81,76 @@ export function BioSection({ isAdminSignedIn = false, siteContentOverrides = {} 
           eyebrow="Biography"
           title="A career built on melodic force, fearless clarity, and serious musicianship."
           body="Jeff Berlin was born in Queens, New York on January 17, 1953. He studied violin as a child, switched to bass after hearing the Beatles, and went on to study at Berklee before breaking out internationally in Bill Bruford’s band in the late 1970s."
+          groupTitle="Biography — section intro"
           isAdminSignedIn={isAdminSignedIn}
           siteContentOverrides={siteContentOverrides}
         />
         <div className="bio-columns">
-          <EditableTextClient
-            contentId="bio.column.1"
-            initialValue={contentValue(
-              siteContentOverrides,
-              "bio.column.1",
-              "From sessions with Patrick Moraz, David Liebman, and Patti Austin to work with Allan Holdsworth and Bruford, Berlin became one of the defining bass voices in jazz fusion and progressive music."
-            )}
-            as="p"
-            rows={5}
+          <EditableGroup
+            title="Biography — columns"
             isAdminSignedIn={isAdminSignedIn}
-          />
-          <EditableTextClient
-            contentId="bio.column.2"
-            initialValue={contentValue(
-              siteContentOverrides,
-              "bio.column.2",
-              "His sound is precise, vocal, and unapologetically melodic. His teaching is just as direct: reading, harmony, time, and musicianship before shortcuts."
-            )}
-            as="p"
-            rows={5}
-            isAdminSignedIn={isAdminSignedIn}
-          />
+            className="bio-columns-editable"
+          >
+            <EditableTextClient
+              contentId="bio.column.1"
+              initialValue={contentValue(
+                siteContentOverrides,
+                "bio.column.1",
+                "From sessions with Patrick Moraz, David Liebman, and Patti Austin to work with Allan Holdsworth and Bruford, Berlin became one of the defining bass voices in jazz fusion and progressive music."
+              )}
+              as="p"
+              rows={5}
+              isAdminSignedIn={isAdminSignedIn}
+              editLabel="Left column"
+            />
+            <EditableTextClient
+              contentId="bio.column.2"
+              initialValue={contentValue(
+                siteContentOverrides,
+                "bio.column.2",
+                "His sound is precise, vocal, and unapologetically melodic. His teaching is just as direct: reading, harmony, time, and musicianship before shortcuts."
+              )}
+              as="p"
+              rows={5}
+              isAdminSignedIn={isAdminSignedIn}
+              editLabel="Right column"
+            />
+          </EditableGroup>
         </div>
         <div className="timeline">
           {careerMoments.map((moment, index) => (
             <article key={moment.year} className="timeline-card">
               <span>{moment.year}</span>
-              <EditableTextClient
-                contentId={`bio.timeline.${index}.title`}
-                initialValue={contentValue(
-                  siteContentOverrides,
-                  `bio.timeline.${index}.title`,
-                  moment.title
-                )}
-                as="h3"
-                rows={2}
+              <EditableGroup
+                title={`Career timeline — ${moment.year}`}
                 isAdminSignedIn={isAdminSignedIn}
-              />
-              <EditableTextClient
-                contentId={`bio.timeline.${index}.body`}
-                initialValue={contentValue(
-                  siteContentOverrides,
-                  `bio.timeline.${index}.body`,
-                  moment.body
-                )}
-                as="p"
-                rows={4}
-                isAdminSignedIn={isAdminSignedIn}
-              />
+                className="timeline-card-editable"
+              >
+                <EditableTextClient
+                  contentId={`bio.timeline.${index}.title`}
+                  initialValue={contentValue(
+                    siteContentOverrides,
+                    `bio.timeline.${index}.title`,
+                    moment.title
+                  )}
+                  as="h3"
+                  rows={2}
+                  isAdminSignedIn={isAdminSignedIn}
+                  editLabel="Title"
+                />
+                <EditableTextClient
+                  contentId={`bio.timeline.${index}.body`}
+                  initialValue={contentValue(
+                    siteContentOverrides,
+                    `bio.timeline.${index}.body`,
+                    moment.body
+                  )}
+                  as="p"
+                  rows={4}
+                  isAdminSignedIn={isAdminSignedIn}
+                  editLabel="Description"
+                />
+              </EditableGroup>
             </article>
           ))}
         </div>
@@ -160,6 +186,7 @@ export async function MusicSection({ isAdminSignedIn = false, siteContentOverrid
             eyebrow="Music"
             title="Albums, credits, and case studies from across Jeff Berlin's recorded work."
             body="Large cover art, direct album links, and focused notes on solo records, collaborations, and credited appearances."
+            groupTitle="Music — section intro"
             isAdminSignedIn={isAdminSignedIn}
             siteContentOverrides={siteContentOverrides}
           />
@@ -192,10 +219,15 @@ export function LessonsSection({ isAdminSignedIn = false, siteContentOverrides =
           eyebrow="Lessons"
           title="Book Jeff for focused, high-standard bass study."
           body="Use the form to request a lesson date and time, or pay directly with PayPal at $150 per lesson. Students who want to prepay multiple lessons can set the quantity and let the site calculate the total."
+          groupTitle="Lessons — section intro"
           isAdminSignedIn={isAdminSignedIn}
           siteContentOverrides={siteContentOverrides}
         />
-        <div className="lesson-points">
+        <EditableGroup
+          title="Lessons — highlight cards"
+          isAdminSignedIn={isAdminSignedIn}
+          className="lesson-points"
+        >
           <article>
             <EditableTextClient
               contentId="lessons.points.0.title"
@@ -207,6 +239,7 @@ export function LessonsSection({ isAdminSignedIn = false, siteContentOverrides =
               as="strong"
               rows={2}
               isAdminSignedIn={isAdminSignedIn}
+              editLabel="Card 1 — title"
             />
             <EditableTextClient
               contentId="lessons.points.0.body"
@@ -218,6 +251,7 @@ export function LessonsSection({ isAdminSignedIn = false, siteContentOverrides =
               as="p"
               rows={4}
               isAdminSignedIn={isAdminSignedIn}
+              editLabel="Card 1 — body"
             />
           </article>
           <article>
@@ -231,6 +265,7 @@ export function LessonsSection({ isAdminSignedIn = false, siteContentOverrides =
               as="strong"
               rows={2}
               isAdminSignedIn={isAdminSignedIn}
+              editLabel="Card 2 — title"
             />
             <EditableTextClient
               contentId="lessons.points.1.body"
@@ -242,6 +277,7 @@ export function LessonsSection({ isAdminSignedIn = false, siteContentOverrides =
               as="p"
               rows={4}
               isAdminSignedIn={isAdminSignedIn}
+              editLabel="Card 2 — body"
             />
           </article>
           <article>
@@ -255,6 +291,7 @@ export function LessonsSection({ isAdminSignedIn = false, siteContentOverrides =
               as="strong"
               rows={2}
               isAdminSignedIn={isAdminSignedIn}
+              editLabel="Card 3 — title"
             />
             <EditableTextClient
               contentId="lessons.points.2.body"
@@ -266,9 +303,10 @@ export function LessonsSection({ isAdminSignedIn = false, siteContentOverrides =
               as="p"
               rows={4}
               isAdminSignedIn={isAdminSignedIn}
+              editLabel="Card 3 — body"
             />
           </article>
-        </div>
+        </EditableGroup>
       </div>
       <div className="lessons-actions">
         <LessonBooker
@@ -324,6 +362,7 @@ export function TestimonialsSection({ isAdminSignedIn = false, siteContentOverri
         eyebrow="Student Response"
         title="The books work because the musical standards are high."
         body="Jeff’s current educational catalog emphasizes sequential reading work, neck knowledge, rhythm, and practical musicianship. The student response on his official education pages is overwhelmingly consistent: measurable progress."
+        groupTitle="Testimonials — section intro"
         isAdminSignedIn={isAdminSignedIn}
         siteContentOverrides={siteContentOverrides}
       />
@@ -348,6 +387,7 @@ export function StoreSection({ isAdminSignedIn = false, siteContentOverrides = {
           eyebrow="Store"
           title="Start now, because the longer you wait, the longer bad habits stay in your hands."
           body="These books give you Jeff Berlin’s direct, structured path into reading, fretboard command, time, and real musicianship. If you want sharper playing and a stronger musical foundation, this is work worth starting today."
+          groupTitle="Store — section intro"
           isAdminSignedIn={isAdminSignedIn}
           siteContentOverrides={siteContentOverrides}
         />

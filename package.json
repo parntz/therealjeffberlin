@@ -10,7 +10,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "spotify:sync": "node scripts/sync-spotify-albums.mjs"
+    "spotify:sync": "node scripts/sync-spotify-albums.mjs",
+    "domain:watch": "node scripts/check-jeffberlin-domain.mjs"
   },
   "dependencies": {
     "@netlify/blobs": "^10.7.4",

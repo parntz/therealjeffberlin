@@ -20,7 +20,42 @@ export async function POST(request) {
       return Response.json({ error: "Unauthorized." }, { status: 401 });
     }
 
-    const { contentId, value } = await request.json();
+    const body = await request.json();
+
+    if (Array.isArray(body.batch)) {
+      const results = [];
+
+      for (const item of body.batch) {
+        if (typeof item?.contentId !== "string" || !item.contentId.trim()) {
+          continue;
+        }
+
+        if (typeof item?.value !== "string") {
+          continue;
+        }
+
+        results.push({
+          contentId: item.contentId.trim(),
+          value: item.value
+        });
+      }
+
+      if (!results.length) {
+        return Response.json({ error: "No valid updates." }, { status: 400 });
+      }
+
+      const overrides = await readSiteContentOverrides();
+
+      for (const row of results) {
+        overrides[row.contentId] = row.value;
+      }
+
+      await writeSiteContentOverrides(overrides);
+
+      return Response.json({ ok: true, results });
+    }
+
+    const { contentId, value } = body;
 
     if (typeof contentId !== "string" || !contentId.trim()) {
       return Response.json({ error: "Content id is required." }, { status: 400 });

@@ -1,6 +1,7 @@
 import { cookies } from "next/headers";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import EditableGroup from "../../../components/editable-group";
 import EditableTextClient from "../../../components/editable-text-client";
 import albumPurchaseLinks from "../../../data/album-purchase-links.json";
 import {
@@ -72,6 +73,8 @@ export default async function AlbumPage({ params }) {
   }
 
   const rawPurchaseLink = albumPurchaseLinks[slug] || album.purchaseLink || null;
+  const isAmazonPurchaseLink =
+    rawPurchaseLink?.provider?.toLowerCase() === "amazon";
   const purchaseLink = rawPurchaseLink
     ? {
         provider: resolveSiteContentValue(
@@ -79,11 +82,13 @@ export default async function AlbumPage({ params }) {
           `music.case.${slug}.purchase.provider`,
           rawPurchaseLink.provider
         ),
-        href: resolveSiteContentValue(
-          siteContentOverrides,
-          `music.case.${slug}.purchase.href`,
-          rawPurchaseLink.href
-        )
+        href: isAmazonPurchaseLink
+          ? rawPurchaseLink.href
+          : resolveSiteContentValue(
+              siteContentOverrides,
+              `music.case.${slug}.purchase.href`,
+              rawPurchaseLink.href
+            )
       }
     : null;
   const purchaseHref = affiliateHref(purchaseLink);
@@ -108,42 +113,55 @@ export default async function AlbumPage({ params }) {
               )}
             </div>
             <div className="album-study-copy">
-              <EditableTextClient
-                contentId={`music.case.${slug}.eyebrow`}
-                initialValue={resolveSiteContentValue(
-                  siteContentOverrides,
-                  `music.case.${slug}.eyebrow`,
-                  "Album Case Study"
-                )}
-                as="p"
-                className="eyebrow"
-                rows={2}
+              <EditableGroup
+                title={`Album — ${album.title} (header)`}
                 isAdminSignedIn={isAdminSignedIn}
-              />
-              <EditableTextClient
-                contentId={`music.case.${slug}.title`}
-                initialValue={resolveSiteContentValue(
-                  siteContentOverrides,
-                  `music.case.${slug}.title`,
-                  album.title
-                )}
-                as="h1"
-                rows={3}
+                className="album-study-header-editable"
+              >
+                <EditableTextClient
+                  contentId={`music.case.${slug}.eyebrow`}
+                  initialValue={resolveSiteContentValue(
+                    siteContentOverrides,
+                    `music.case.${slug}.eyebrow`,
+                    "Album Case Study"
+                  )}
+                  as="p"
+                  className="eyebrow"
+                  rows={2}
+                  isAdminSignedIn={isAdminSignedIn}
+                  editLabel="Eyebrow"
+                />
+                <EditableTextClient
+                  contentId={`music.case.${slug}.title`}
+                  initialValue={resolveSiteContentValue(
+                    siteContentOverrides,
+                    `music.case.${slug}.title`,
+                    album.title
+                  )}
+                  as="h1"
+                  rows={3}
+                  isAdminSignedIn={isAdminSignedIn}
+                  editLabel="Title"
+                />
+                <EditableTextClient
+                  contentId={`music.case.${slug}.intro`}
+                  initialValue={resolveSiteContentValue(
+                    siteContentOverrides,
+                    `music.case.${slug}.intro`,
+                    album.intro
+                  )}
+                  as="p"
+                  className="album-study-dek"
+                  rows={6}
+                  isAdminSignedIn={isAdminSignedIn}
+                  editLabel="Intro"
+                />
+              </EditableGroup>
+              <EditableGroup
+                title={`Album — ${album.title} (credits line)`}
                 isAdminSignedIn={isAdminSignedIn}
-              />
-              <EditableTextClient
-                contentId={`music.case.${slug}.intro`}
-                initialValue={resolveSiteContentValue(
-                  siteContentOverrides,
-                  `music.case.${slug}.intro`,
-                  album.intro
-                )}
-                as="p"
-                className="album-study-dek"
-                rows={6}
-                isAdminSignedIn={isAdminSignedIn}
-              />
-              <div className="album-study-meta">
+                className="album-study-meta"
+              >
                 <EditableTextClient
                   contentId={`music.case.${slug}.artist`}
                   initialValue={resolveSiteContentValue(
@@ -155,6 +173,7 @@ export default async function AlbumPage({ params }) {
                   wrapperAs="span"
                   rows={2}
                   isAdminSignedIn={isAdminSignedIn}
+                  editLabel="Artist"
                 />
                 <EditableTextClient
                   contentId={`music.case.${slug}.year`}
@@ -167,6 +186,7 @@ export default async function AlbumPage({ params }) {
                   wrapperAs="span"
                   rows={2}
                   isAdminSignedIn={isAdminSignedIn}
+                  editLabel="Year"
                 />
                 <EditableTextClient
                   contentId={`music.case.${slug}.format`}
@@ -179,6 +199,7 @@ export default async function AlbumPage({ params }) {
                   wrapperAs="span"
                   rows={2}
                   isAdminSignedIn={isAdminSignedIn}
+                  editLabel="Format"
                 />
                 <EditableTextClient
                   contentId={`music.case.${slug}.jeffRole`}
@@ -191,8 +212,9 @@ export default async function AlbumPage({ params }) {
                   wrapperAs="span"
                   rows={2}
                   isAdminSignedIn={isAdminSignedIn}
+                  editLabel="Jeff role"
                 />
-              </div>
+              </EditableGroup>
               {purchaseLink ? (
                 <div className="album-study-purchase">
                   <a
@@ -203,14 +225,19 @@ export default async function AlbumPage({ params }) {
                   >
                     {`Purchase This Album From ${purchaseLink.provider}`}
                   </a>
-                  {isAdminSignedIn ? (
-                    <div className="album-purchase-editors">
+                  {isAdminSignedIn && !isAmazonPurchaseLink ? (
+                    <EditableGroup
+                      title={`Album — ${album.title} (purchase link)`}
+                      isAdminSignedIn={isAdminSignedIn}
+                      className="album-purchase-editors"
+                    >
                       <EditableTextClient
                         contentId={`music.case.${slug}.purchase.provider`}
                         initialValue={purchaseLink.provider}
                         as="p"
                         rows={2}
                         isAdminSignedIn={isAdminSignedIn}
+                        editLabel="Provider label"
                       />
                       <EditableTextClient
                         contentId={`music.case.${slug}.purchase.href`}
@@ -218,8 +245,9 @@ export default async function AlbumPage({ params }) {
                         as="p"
                         rows={3}
                         isAdminSignedIn={isAdminSignedIn}
+                        editLabel="Purchase URL"
                       />
-                    </div>
+                    </EditableGroup>
                   ) : null}
                 </div>
               ) : null}
@@ -229,64 +257,80 @@ export default async function AlbumPage({ params }) {
 
         <section className="album-study-section album-study-split">
           <div className="album-study-panel">
-            <EditableTextClient
-              contentId={`music.case.${slug}.overview.heading`}
-              initialValue={resolveSiteContentValue(
-                siteContentOverrides,
-                `music.case.${slug}.overview.heading`,
-                "Overview"
-              )}
-              as="h2"
-              rows={2}
+            <EditableGroup
+              title={`Album — ${album.title} (overview)`}
               isAdminSignedIn={isAdminSignedIn}
-            />
-            <div className="album-study-prose">
-              {album.caseStudy.map((paragraph, index) => (
-                <EditableTextClient
-                  key={`${slug}-case-${index}`}
-                  contentId={`music.case.${slug}.caseStudy.${index}`}
-                  initialValue={resolveSiteContentValue(
-                    siteContentOverrides,
-                    `music.case.${slug}.caseStudy.${index}`,
-                    paragraph
-                  )}
-                  as="p"
-                  rows={6}
-                  isAdminSignedIn={isAdminSignedIn}
-                />
-              ))}
-            </div>
-          </div>
-          <div className="album-study-panel">
-            <EditableTextClient
-              contentId={`music.case.${slug}.snapshot.heading`}
-              initialValue={resolveSiteContentValue(
-                siteContentOverrides,
-                `music.case.${slug}.snapshot.heading`,
-                "Quick Snapshot"
-              )}
-              as="h2"
-              rows={2}
-              isAdminSignedIn={isAdminSignedIn}
-            />
-            <ul className="album-study-list">
-              {album.snapshot.map((item, index) => (
-                <li key={`${slug}-snapshot-${index}`}>
+              className="album-overview-editable"
+            >
+              <EditableTextClient
+                contentId={`music.case.${slug}.overview.heading`}
+                initialValue={resolveSiteContentValue(
+                  siteContentOverrides,
+                  `music.case.${slug}.overview.heading`,
+                  "Overview"
+                )}
+                as="h2"
+                rows={2}
+                isAdminSignedIn={isAdminSignedIn}
+                editLabel="Section heading"
+              />
+              <div className="album-study-prose">
+                {album.caseStudy.map((paragraph, index) => (
                   <EditableTextClient
-                    contentId={`music.case.${slug}.snapshot.${index}`}
+                    key={`${slug}-case-${index}`}
+                    contentId={`music.case.${slug}.caseStudy.${index}`}
                     initialValue={resolveSiteContentValue(
                       siteContentOverrides,
-                      `music.case.${slug}.snapshot.${index}`,
-                      item
+                      `music.case.${slug}.caseStudy.${index}`,
+                      paragraph
                     )}
-                    as="span"
-                    wrapperAs="span"
-                    rows={4}
+                    as="p"
+                    rows={6}
                     isAdminSignedIn={isAdminSignedIn}
+                    editLabel={`Paragraph ${index + 1}`}
                   />
-                </li>
-              ))}
-            </ul>
+                ))}
+              </div>
+            </EditableGroup>
+          </div>
+          <div className="album-study-panel">
+            <EditableGroup
+              title={`Album — ${album.title} (snapshot)`}
+              isAdminSignedIn={isAdminSignedIn}
+              className="album-snapshot-editable"
+            >
+              <EditableTextClient
+                contentId={`music.case.${slug}.snapshot.heading`}
+                initialValue={resolveSiteContentValue(
+                  siteContentOverrides,
+                  `music.case.${slug}.snapshot.heading`,
+                  "Quick Snapshot"
+                )}
+                as="h2"
+                rows={2}
+                isAdminSignedIn={isAdminSignedIn}
+                editLabel="Section heading"
+              />
+              <ul className="album-study-list">
+                {album.snapshot.map((item, index) => (
+                  <li key={`${slug}-snapshot-${index}`}>
+                    <EditableTextClient
+                      contentId={`music.case.${slug}.snapshot.${index}`}
+                      initialValue={resolveSiteContentValue(
+                        siteContentOverrides,
+                        `music.case.${slug}.snapshot.${index}`,
+                        item
+                      )}
+                      as="span"
+                      wrapperAs="span"
+                      rows={4}
+                      isAdminSignedIn={isAdminSignedIn}
+                      editLabel={`Bullet ${index + 1}`}
+                    />
+                  </li>
+                ))}
+              </ul>
+            </EditableGroup>
           </div>
         </section>
 
@@ -294,28 +338,36 @@ export default async function AlbumPage({ params }) {
           <div className="album-detail-grid">
             {album.highlights.map((item, index) => (
               <article key={`${slug}-highlight-${index}`} className="album-detail-card">
-                <EditableTextClient
-                  contentId={`music.case.${slug}.highlights.${index}.title`}
-                  initialValue={resolveSiteContentValue(
-                    siteContentOverrides,
-                    `music.case.${slug}.highlights.${index}.title`,
-                    item.title
-                  )}
-                  as="h3"
-                  rows={2}
+                <EditableGroup
+                  title={`Album — ${album.title} (highlight ${index + 1})`}
                   isAdminSignedIn={isAdminSignedIn}
-                />
-                <EditableTextClient
-                  contentId={`music.case.${slug}.highlights.${index}.body`}
-                  initialValue={resolveSiteContentValue(
-                    siteContentOverrides,
-                    `music.case.${slug}.highlights.${index}.body`,
-                    item.body
-                  )}
-                  as="p"
-                  rows={5}
-                  isAdminSignedIn={isAdminSignedIn}
-                />
+                  className="album-highlight-editable"
+                >
+                  <EditableTextClient
+                    contentId={`music.case.${slug}.highlights.${index}.title`}
+                    initialValue={resolveSiteContentValue(
+                      siteContentOverrides,
+                      `music.case.${slug}.highlights.${index}.title`,
+                      item.title
+                    )}
+                    as="h3"
+                    rows={2}
+                    isAdminSignedIn={isAdminSignedIn}
+                    editLabel="Title"
+                  />
+                  <EditableTextClient
+                    contentId={`music.case.${slug}.highlights.${index}.body`}
+                    initialValue={resolveSiteContentValue(
+                      siteContentOverrides,
+                      `music.case.${slug}.highlights.${index}.body`,
+                      item.body
+                    )}
+                    as="p"
+                    rows={5}
+                    isAdminSignedIn={isAdminSignedIn}
+                    editLabel="Body"
+                  />
+                </EditableGroup>
               </article>
             ))}
           </div>
@@ -323,107 +375,122 @@ export default async function AlbumPage({ params }) {
 
         <section className="album-study-section">
           <div className="album-study-panel">
-            <EditableTextClient
-              contentId={`music.case.${slug}.listen.heading`}
-              initialValue={resolveSiteContentValue(
-                siteContentOverrides,
-                `music.case.${slug}.listen.heading`,
-                "Listen For"
-              )}
-              as="h2"
-              rows={2}
+            <EditableGroup
+              title={`Album — ${album.title} (listen for)`}
               isAdminSignedIn={isAdminSignedIn}
-            />
-            <div className="album-detail-grid album-detail-grid-compact">
-              {album.trackMoments.map((item, index) => (
-                <article key={`${slug}-listen-${index}`} className="album-detail-card">
-                  <EditableTextClient
-                    contentId={`music.case.${slug}.trackMoments.${index}.title`}
-                    initialValue={resolveSiteContentValue(
-                      siteContentOverrides,
-                      `music.case.${slug}.trackMoments.${index}.title`,
-                      item.title
-                    )}
-                    as="h3"
-                    rows={2}
-                    isAdminSignedIn={isAdminSignedIn}
-                  />
-                  <EditableTextClient
-                    contentId={`music.case.${slug}.trackMoments.${index}.body`}
-                    initialValue={resolveSiteContentValue(
-                      siteContentOverrides,
-                      `music.case.${slug}.trackMoments.${index}.body`,
-                      item.body
-                    )}
-                    as="p"
-                    rows={5}
-                    isAdminSignedIn={isAdminSignedIn}
-                  />
-                </article>
-              ))}
-            </div>
+              className="album-listen-editable"
+            >
+              <EditableTextClient
+                contentId={`music.case.${slug}.listen.heading`}
+                initialValue={resolveSiteContentValue(
+                  siteContentOverrides,
+                  `music.case.${slug}.listen.heading`,
+                  "Listen For"
+                )}
+                as="h2"
+                rows={2}
+                isAdminSignedIn={isAdminSignedIn}
+                editLabel="Section heading"
+              />
+              <div className="album-detail-grid album-detail-grid-compact">
+                {album.trackMoments.map((item, index) => (
+                  <article key={`${slug}-listen-${index}`} className="album-detail-card">
+                    <EditableTextClient
+                      contentId={`music.case.${slug}.trackMoments.${index}.title`}
+                      initialValue={resolveSiteContentValue(
+                        siteContentOverrides,
+                        `music.case.${slug}.trackMoments.${index}.title`,
+                        item.title
+                      )}
+                      as="h3"
+                      rows={2}
+                      isAdminSignedIn={isAdminSignedIn}
+                      editLabel={`Moment ${index + 1} — title`}
+                    />
+                    <EditableTextClient
+                      contentId={`music.case.${slug}.trackMoments.${index}.body`}
+                      initialValue={resolveSiteContentValue(
+                        siteContentOverrides,
+                        `music.case.${slug}.trackMoments.${index}.body`,
+                        item.body
+                      )}
+                      as="p"
+                      rows={5}
+                      isAdminSignedIn={isAdminSignedIn}
+                      editLabel={`Moment ${index + 1} — body`}
+                    />
+                  </article>
+                ))}
+              </div>
+            </EditableGroup>
           </div>
         </section>
 
         <section className="album-study-section">
           <div className="album-study-panel">
-            <EditableTextClient
-              contentId={`music.case.${slug}.sources.heading`}
-              initialValue={resolveSiteContentValue(
-                siteContentOverrides,
-                `music.case.${slug}.sources.heading`,
-                "Sources"
-              )}
-              as="h2"
-              rows={2}
+            <EditableGroup
+              title={`Album — ${album.title} (sources)`}
               isAdminSignedIn={isAdminSignedIn}
-            />
-            <div className="album-source-list">
-              {album.sources.map((source, index) => {
-                const sourceHref = resolveSiteContentValue(
+              className="album-sources-editable"
+            >
+              <EditableTextClient
+                contentId={`music.case.${slug}.sources.heading`}
+                initialValue={resolveSiteContentValue(
                   siteContentOverrides,
-                  `music.case.${slug}.sources.${index}.href`,
-                  source.href
-                );
-
-                return (
-                <div key={`${slug}-source-${index}`} className="album-source-item">
-                  <a
-                  href={sourceHref}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {resolveSiteContentValue(
+                  `music.case.${slug}.sources.heading`,
+                  "Sources"
+                )}
+                as="h2"
+                rows={2}
+                isAdminSignedIn={isAdminSignedIn}
+                editLabel="Section heading"
+              />
+              <div className="album-source-list">
+                {album.sources.map((source, index) => {
+                  const sourceHref = resolveSiteContentValue(
                     siteContentOverrides,
-                    `music.case.${slug}.sources.${index}.label`,
-                    source.label
-                  )}
-                </a>
-                {isAdminSignedIn ? (
-                  <div className="album-source-editors">
-                    <EditableTextClient
-                      contentId={`music.case.${slug}.sources.${index}.label`}
-                      initialValue={resolveSiteContentValue(
-                        siteContentOverrides,
-                        `music.case.${slug}.sources.${index}.label`,
-                        source.label
-                      )}
-                      as="p"
-                      rows={2}
-                      isAdminSignedIn={isAdminSignedIn}
-                    />
-                    <EditableTextClient
-                      contentId={`music.case.${slug}.sources.${index}.href`}
-                      initialValue={sourceHref}
-                      as="p"
-                      rows={3}
-                      isAdminSignedIn={isAdminSignedIn}
-                    />
-                  </div>
-                ) : null}
-                </div>
-              )})}
-            </div>
+                    `music.case.${slug}.sources.${index}.href`,
+                    source.href
+                  );
+
+                  return (
+                    <div key={`${slug}-source-${index}`} className="album-source-item">
+                      <a href={sourceHref} target="_blank" rel="noreferrer">
+                        {resolveSiteContentValue(
+                          siteContentOverrides,
+                          `music.case.${slug}.sources.${index}.label`,
+                          source.label
+                        )}
+                      </a>
+                      {isAdminSignedIn ? (
+                        <div className="album-source-editors">
+                          <EditableTextClient
+                            contentId={`music.case.${slug}.sources.${index}.label`}
+                            initialValue={resolveSiteContentValue(
+                              siteContentOverrides,
+                              `music.case.${slug}.sources.${index}.label`,
+                              source.label
+                            )}
+                            as="p"
+                            rows={2}
+                            isAdminSignedIn={isAdminSignedIn}
+                            editLabel={`Source ${index + 1} — label`}
+                          />
+                          <EditableTextClient
+                            contentId={`music.case.${slug}.sources.${index}.href`}
+                            initialValue={sourceHref}
+                            as="p"
+                            rows={3}
+                            isAdminSignedIn={isAdminSignedIn}
+                            editLabel={`Source ${index + 1} — URL`}
+                          />
+                        </div>
+                      ) : null}
+                    </div>
+                  );
+                })}
+              </div>
+            </EditableGroup>
           </div>
         </section>
       </article>
